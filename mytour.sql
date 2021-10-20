@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 20, 2021 lúc 11:29 AM
+-- Thời gian đã tạo: Th10 20, 2021 lúc 12:07 PM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.0.10
 
@@ -39,7 +39,7 @@ CREATE TABLE `citys` (
 --
 
 CREATE TABLE `customer` (
-  `customer_id` int(50) NOT NULL,
+  `customer_id` int(10) NOT NULL,
   `user_name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -124,9 +124,146 @@ CREATE TABLE `tours` (
   `image_3` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `image_4` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `start_dest` int(11) NOT NULL,
-  `end_dest` int(11) NOT NULL,
   `tour_guide_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Chỉ mục cho các bảng đã đổ
+--
+
+--
+-- Chỉ mục cho bảng `citys`
+--
+ALTER TABLE `citys`
+  ADD PRIMARY KEY (`city_id`);
+
+--
+-- Chỉ mục cho bảng `customer`
+--
+ALTER TABLE `customer`
+  ADD PRIMARY KEY (`customer_id`) USING BTREE;
+
+--
+-- Chỉ mục cho bảng `hotel`
+--
+ALTER TABLE `hotel`
+  ADD PRIMARY KEY (`hotel_id`);
+
+--
+-- Chỉ mục cho bảng `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`order_id`),
+  ADD UNIQUE KEY `customer_id` (`customer_id`),
+  ADD UNIQUE KEY `tour_id` (`tour_id`);
+
+--
+-- Chỉ mục cho bảng `restaurant`
+--
+ALTER TABLE `restaurant`
+  ADD PRIMARY KEY (`res_id`);
+
+--
+-- Chỉ mục cho bảng `tourguides`
+--
+ALTER TABLE `tourguides`
+  ADD PRIMARY KEY (`tour_guide_id`);
+
+--
+-- Chỉ mục cho bảng `tours`
+--
+ALTER TABLE `tours`
+  ADD PRIMARY KEY (`tour_id`),
+  ADD UNIQUE KEY `hotel_id` (`hotel_id`),
+  ADD UNIQUE KEY `id_res` (`id_res`),
+  ADD UNIQUE KEY `tour_guide_id` (`tour_guide_id`),
+  ADD UNIQUE KEY `start_dest` (`start_dest`);
+
+--
+-- AUTO_INCREMENT cho các bảng đã đổ
+--
+
+--
+-- AUTO_INCREMENT cho bảng `citys`
+--
+ALTER TABLE `citys`
+  MODIFY `city_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `customer`
+--
+ALTER TABLE `customer`
+  MODIFY `customer_id` int(10) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `hotel`
+--
+ALTER TABLE `hotel`
+  MODIFY `hotel_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `order_id` int(50) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `restaurant`
+--
+ALTER TABLE `restaurant`
+  MODIFY `res_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `tourguides`
+--
+ALTER TABLE `tourguides`
+  MODIFY `tour_guide_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT cho bảng `tours`
+--
+ALTER TABLE `tours`
+  MODIFY `tour_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Các ràng buộc cho các bảng đã đổ
+--
+
+--
+-- Các ràng buộc cho bảng `citys`
+--
+ALTER TABLE `citys`
+  ADD CONSTRAINT `citys_ibfk_1` FOREIGN KEY (`city_id`) REFERENCES `tours` (`start_dest`);
+
+--
+-- Các ràng buộc cho bảng `customer`
+--
+ALTER TABLE `customer`
+  ADD CONSTRAINT `customer_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `orders` (`customer_id`);
+
+--
+-- Các ràng buộc cho bảng `hotel`
+--
+ALTER TABLE `hotel`
+  ADD CONSTRAINT `hotel_ibfk_1` FOREIGN KEY (`hotel_id`) REFERENCES `tours` (`hotel_id`);
+
+--
+-- Các ràng buộc cho bảng `restaurant`
+--
+ALTER TABLE `restaurant`
+  ADD CONSTRAINT `restaurant_ibfk_1` FOREIGN KEY (`res_id`) REFERENCES `tours` (`id_res`);
+
+--
+-- Các ràng buộc cho bảng `tourguides`
+--
+ALTER TABLE `tourguides`
+  ADD CONSTRAINT `tourguides_ibfk_1` FOREIGN KEY (`tour_guide_id`) REFERENCES `tours` (`tour_guide_id`);
+
+--
+-- Các ràng buộc cho bảng `tours`
+--
+ALTER TABLE `tours`
+  ADD CONSTRAINT `tours_ibfk_1` FOREIGN KEY (`tour_id`) REFERENCES `orders` (`tour_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
