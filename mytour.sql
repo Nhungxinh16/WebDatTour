@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 20, 2021 lúc 12:07 PM
+-- Thời gian đã tạo: Th10 21, 2021 lúc 11:10 AM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.0.10
 
@@ -39,14 +39,18 @@ CREATE TABLE `citys` (
 --
 
 CREATE TABLE `customer` (
-  `customer_id` int(10) NOT NULL,
+  `customer_id` int(11) NOT NULL,
   `user_name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `birthday` date NOT NULL,
+  `birthday` datetime NOT NULL,
   `phone_number` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `gender` int(5) NOT NULL
+  `gender` int(1) NOT NULL,
+  `status` int(1) NOT NULL,
+  `code` int(10) NOT NULL,
+  `is_admin` int(10) NOT NULL,
+  `date_created` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -73,7 +77,10 @@ CREATE TABLE `orders` (
   `customer_id` int(50) NOT NULL,
   `tour_id` int(50) NOT NULL,
   `start_time date` date NOT NULL,
-  `people` int(10) NOT NULL
+  `people` int(10) NOT NULL,
+  `validation` int(1) NOT NULL,
+  `payment` int(1) NOT NULL,
+  `date_created` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -193,7 +200,7 @@ ALTER TABLE `citys`
 -- AUTO_INCREMENT cho bảng `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `customer_id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT cho bảng `hotel`
