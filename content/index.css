@@ -1,0 +1,39 @@
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+a:hover{
+    text-decoration: none !important;
+}
+
+.form-control:focus{
+    border-color: #cccccc;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+#navbarDropdown {
+    color: #282365 !important;
+}
+
+/* scroll */
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
