@@ -15,6 +15,7 @@
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="content/index.css">
   <title>Web đặt tour</title>
+  <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light p-1 pb-0 pt-0 ">
