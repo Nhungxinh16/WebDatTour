@@ -1,3 +1,4 @@
+
 body {
     padding: 0;
     margin: 0;
@@ -5,6 +6,24 @@ body {
 }
 a:hover{
     text-decoration: none !important;
+}
+.order-bar{
+  background-color:rgba(9, 8, 61, 0.5);;
+}
+.order-bar:hover{
+  background-color: white;
+  transition-duration: 0.3s;
+  border: 10px 0 10px 0;
+  
+}
+.order-bar .active{
+  background-color: white !important;
+}
+.order-bar .active span{
+  color: #463ac9;
+}
+.order-bar:hover a{
+  color:#463ac9 !important;
 }
 
 .form-control:focus{
@@ -37,3 +56,40 @@ a:hover{
   ::-webkit-scrollbar-thumb:hover {
     background: #555; 
   }
+
+/* text trên ảnh */
+.thumbnail {
+  position: relative;
+}
+
+.caption {
+  position: absolute;
+  top: 76%;
+  left: 9%;
+  width: 75%;
+  text-align: left;
+  background: rgb(50,60,115);
+background: linear-gradient(3deg, rgba(50,60,115,1) 0%, rgba(49,60,120,0) 98%, rgba(255,255,255,1) 100%);
+}
+/* tour gia đình effect */
+
+/* .card-deck .card:hover {
+  box-shadow: 0 0 11px rgba(33,33,33,.2); 
+  -webkit-transform: translateY(-5px); 
+  -moz-transform: translateY(-5px); 
+  -ms-transform: translateY(-5px); 
+  -o-transform: translateY(-5px); 
+  transform: translateY(-5px); 
+} */
+/* effect cột dọc */
+.verticalLine {
+  border-left: 1px solid #c0c0c0;
+}
+.uu-dai:hover {
+  box-shadow: 0 0 11px rgba(33,33,33,.2); 
+  -webkit-transform: translateY(-5px); 
+    -moz-transform: translateY(-5px); 
+    -ms-transform: translateY(-5px); 
+    -o-transform: translateY(-5px); 
+    transform: translateY(-5px); 
+}

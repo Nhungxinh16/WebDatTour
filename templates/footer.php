@@ -80,7 +80,11 @@
           </ul>
         </ul>
         <ul class="list-unstyled">
-          <li><a class="fa fa-facebook"></a><a class="fa fa-twitter"></a><a class="fa fa-instagram"></a><a class="fa fa-linkedin"></a></li>
+          <li>
+
+          </li>
+          <li><a class="fa fa-facebook"></a><a class="fa fa-twitter"></a><a class="fa fa-instagram"></a><a
+              class="fa fa-linkedin"></a></li>
         </ul>
       </div>
     </div>
@@ -114,6 +118,7 @@
           </ul>
         </ul>
       </div>
+
       <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 pt-4 order-1">
         <ul class="list-unstyled">
           <li class="mt-md-0 mt-4 font-weight-bold mb-2 ml-5" style="color: #282365;">Thông tin</li>
@@ -129,16 +134,26 @@
         </ul>
       </div>
       <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 pt-4 order-2">
-        <div class="input-group-lg input-group mb-3 mt-md-0 mt-4"><input type="text" class="form-control" placeholder="Email của Quý khách" aria-label="Recipient's username" aria-describedby="button-addon2">
-          <div class="input-group-append"><button class="btn btn" type="button" id="button-addon2"> <b><i class="far fa-envelope"></i></b></button></div>
+        <div class="input-group-lg input-group mb-3 mt-md-0 mt-4"><input type="text" class="form-control"
+            placeholder="Email của Quý khách" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <div class="input-group-append"><button class="btn btn" type="button" id="button-addon2"> <b><i
+                  class="far fa-envelope"></i></b></button></div>
         </div>
-        <div class="input-group-lg input-group mb-3 mt-md-0 mt-4"><input type="text" class="form-control" placeholder="Tour du lịch, điểm đến..." aria-label="Recipient's username" aria-describedby="button-addon2">
-          <div class="input-group-append"><button class="btn btn" type="button" id="button-addon2"> <b><i class="fas fa-search"></i></b></button></div>
+        <div class="input-group-lg input-group mb-3 mt-md-0 mt-4"><input type="text" class="form-control"
+            placeholder="Tour du lịch, điểm đến..." aria-label="Recipient's username" aria-describedby="button-addon2">
+          <div class="input-group-append"><button class="btn btn" type="button" id="button-addon2"> <b><i
+                  class="fas fa-search"></i></b></button></div>
         </div>
       </div>
       <div class="col-xl-auto text-left col-lg-4 col-md-4 col-sm-6 col-12 pt-4 my-sm-0 order-6 my-auto">
+
+
         <ul class="list-unstyled">
-          <li><a class="fa fa-facebook"></a><a class="fa fa-twitter"></a><a class="fa fa-instagram"></a><a class="fa fa-linkedin"></a></li>
+          <li>
+            <p class="mb-0 pb-0 mt-5">LIÊN HỆ VỚI CHÚNG TÔi NGAY HÔM NAY</p>
+          </li>
+          <li><a class="fa fa-facebook"></a><a class="fa fa-twitter"></a><a class="fa fa-instagram"></a><a
+              class="fa fa-linkedin"></a></li>
         </ul>
       </div>
     </div>
@@ -161,6 +176,9 @@
         <p class="text-muted"></p>
       </div>
     </div>
-</footer>
+  </footer>
+
+  <script type="text/javascript" src="content/index.js"></script>
 </body>
+
 </html>

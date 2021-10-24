@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,11 +15,20 @@
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
   <link rel="stylesheet" href="content/index.css">
-  <title>Web đặt tour</title>
-  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+
+  <title>Document</title>
 </head>
+
 <body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light p-1 pb-0 pt-0 ">
+
+  <!-- Thanh Menu -->
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light p-1 pb-0 pt-0 ">
     <a class="navbar-brand m-0" href="#"><img src="content/image/logo.png" class="img-fluid ml-2" alt="Responsive image"
         style="max-width: 70%"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -28,6 +38,7 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
+
         <li class="nav-item dropdown active p-2">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false" style="font-weight: 500; font-size:small;">
@@ -37,45 +48,59 @@
             <li>
               <div class="row-fluid" style="min-width: 992px">
                 <ul class="unstyled span4 m-4" style="float: left; list-style-type: none;">
-                  <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;" class="font-weight-bold">TOUR MIỀN BẮC</a></li>
+                  <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;"
+                      class="font-weight-bold">TOUR MIỀN BẮC</a></li>
                   <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;">Du lịch Hà Nội</a></li>
                   <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;">Du lịch Hải Phòng</a></li>
                   <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;">Du lịch Hạ Long</a></li>
                   <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;">Du lịch Bắc Ninh</a></li>
                   <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;">Du lịch Phú Thọ</a></li>
-                  <li class="mt-2 mb-2"><u><a href="#" style="color: #282365; font-size: small;" class="font-weight-bold">Xem tất cả</a></u></li>
+                  <li class="mt-2 mb-2"><u><a href="#" style="color: #282365; font-size: small;"
+                        class="font-weight-bold">Xem tất cả</a></u></li>
                 </ul>
                 <ul class="unstyled span4 m-4" style="float: left; list-style-type: none;">
-                  <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;" class="font-weight-bold">TOUR Miền Trung</a></li>
+                  <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;"
+                      class="font-weight-bold">TOUR Miền Trung</a></li>
                   <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;">Du lịch Huế</a></li>
                   <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;">Du lịch Quảng Trị</a></li>
-                  <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;">Du lịch Quảng Bình</a></li>
+                  <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;">Du lịch Quảng Bình</a>
+                  </li>
                   <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;">Du lịch Đà Nẵng</a></li>
                   <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;">Du lịch Quảng Nam</a></li>
-                  <li class="mt-2 mb-2"><u><a href="#" style="color: #282365; font-size: small;" class="font-weight-bold">Xem tất cả</a></u></li>
+                  <li class="mt-2 mb-2"><u><a href="#" style="color: #282365; font-size: small;"
+                        class="font-weight-bold">Xem tất cả</a></u></li>
                 </ul>
                 <ul class="unstyled span4 m-4" style="float: left; list-style-type: none;">
-                  <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;" class="font-weight-bold">TOUR MIỀN TÂY NAM BỘ</a></li>
+                  <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;"
+                      class="font-weight-bold">TOUR MIỀN TÂY NAM BỘ</a></li>
                   <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;">Du lịch Phú Quốc</a></li>
-                  <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;">Du lịch Tiền Giang</a></li>
+                  <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;">Du lịch Tiền Giang</a>
+                  </li>
                   <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;">Du lịch Cần Thơ</a></li>
                   <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;">Du lịch Vĩnh Long</a></li>
                   <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;">Du lịch Sóc Trăng</a></li>
-                  <li class="mt-2 mb-2"><u><a href="#" style="color: #282365; font-size: small;" class="font-weight-bold">Xem tất cả</a></u></li>
+                  <li class="mt-2 mb-2"><u><a href="#" style="color: #282365; font-size: small;"
+                        class="font-weight-bold">Xem tất cả</a></u></li>
                 </ul>
                 <ul class="unstyled span4 m-4" style="float: left; list-style-type: none;">
-                  <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;" class="font-weight-bold">TOUR MIỀN ĐÔNG NAM BỘ</a></li>
-                  <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;">Du lịch Bà Rịa - Vũng Tàu</a></li>
+                  <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;"
+                      class="font-weight-bold">TOUR MIỀN ĐÔNG NAM BỘ</a></li>
+                  <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;">Du lịch Bà Rịa - Vũng
+                      Tàu</a></li>
                   <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;">Du lịch Côn Đảo</a></li>
-                  <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;">Du lịch TP.Hồ Chí Minh</a></li>
+                  <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;">Du lịch TP.Hồ Chí Minh</a>
+                  </li>
                   <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;">Du lịch Tây Ninh</a></li>
-                  <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;">Du lịch Bình Dương</a></li>
-                  <li class="mt-2 mb-2"><u><a href="#" style="color: #282365; font-size: small;" class="font-weight-bold">Xem tất cả</a></u></li>
+                  <li class="mt-2 mb-2"><a href="#" style="color: #282365; font-size: small;">Du lịch Bình Dương</a>
+                  </li>
+                  <li class="mt-2 mb-2"><u><a href="#" style="color: #282365; font-size: small;"
+                        class="font-weight-bold">Xem tất cả</a></u></li>
                 </ul>
               </div>
             </li>
           </ul>
         </li>
+
         <li class="nav-item dropdown active p-2">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false" style="font-weight: 500; font-size:small;">
@@ -86,6 +111,7 @@
             <a class="dropdown-item p-3" href="#" style="color: #282365; font-size: small;">Vé máy bay</a>
           </div>
         </li>
+
         <li class="nav-item dropdown active p-2">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false" style="font-weight: 500; font-size:small;">
@@ -98,6 +124,7 @@
             <a class="dropdown-item p-3" href="#" style="color: #282365; font-size: small;">Kinh nghiệm du lịch</a>
           </div>
         </li>
+
         <li class="nav-item dropdown active p-2">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false" style="font-weight: 500; font-size:small;">
@@ -111,23 +138,27 @@
             <a class="dropdown-item p-3" href="#" style="color: #282365; font-size: small;">Hoàn tiền BIDV</a>
           </div>
         </li>
+
         <li class="nav-item active p-2" id="navbarDropdown">
           <a class="nav-link disabled" style="font-weight: 500; font-size:small;" href="#">VietravelPlus</a>
         </li>
+
         <li class="nav-item active p-2 " id="navbarDropdown">
           <a class="nav-link disabled" style="font-weight: 500; font-size:small;" href="#">Liên hệ</a>
         </li>
+
       </ul>
 
       <!--  Tìm kiếm trong thanh menu  -->
+
       <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-1 sm-2 border-warning" type="search" placeholder="Bắt đầu tìm kiếm..." aria-label="Search">
+        <input class="form-control mr-1 sm-2 border-warning" type="search" placeholder="Bắt đầu tìm kiếm..."
+          aria-label="Search">
         <button class="btn btn-outline my-2 my-sm-0 mr-1" type="submit"><i class="fas fa-search"></i></button>
-        <button type="button" class="btn btn-light">
-          <a href="#">
-            <i class="fas fa-user" style="color: black;"></i>
-          </a>
-        </button>
       </form>
+
+      <button type="button" class="btn btn-light"><a href="#"><i class="fas fa-user"
+            style="color: black;"></i></a></button>
     </div>
-</nav>
+
+  </nav>
