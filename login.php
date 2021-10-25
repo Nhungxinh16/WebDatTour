@@ -1,56 +1,63 @@
 <?php
-include('templates/header.php')
+include('templates/header-login.php')
 ?>
-<section class="ftco-section">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-md-7 col-lg-5">
-					<div class="wrap">
-						<div class="img" style="background-image: url(images/bg-1.jpg);"></div>
-						<div class="login-wrap p-4 p-md-5">
-			      	<div class="d-flex">
-			      		<div class="w-100">
-			      			<h3 class="mb-4">Đăng Nhập</h3>
-			      		</div>
-								<div class="w-100">
-									<p class="social-media d-flex justify-content-end">
-										<a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a>
-										<a href="#" class="social-icon d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a>
-									</p>
-								</div>
-			      	</div>
-							<form action="#" class="signin-form">
-			      		<div class="form-group mt-3">
-			      			<input type="text" class="form-control" required>
-			      			<label class="form-control-placeholder" for="username">Tài khoản</label>
-			      		</div>
-		            <div class="form-group">
-		              <input id="password-field" type="password" class="form-control" required>
-		              <label class="form-control-placeholder" for="password">Mật khẩu</label>
-		              <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-		            </div>
-		            <div class="form-group">
-		            	<button type="submit" class="form-control btn btn-primary rounded submit px-3">Đăng nhập</button>
-		            </div>
-		            <div class="form-group d-md-flex">
-		            	<div class="w-50 text-left">
-			            	<label class="checkbox-wrap checkbox-primary mb-0">ghi nhớ đăng nhập
-									  <input type="checkbox" checked>
-									  <span class="checkmark"></span>
-										</label>
-									</div>
-									<div class="w-50 text-md-right">
-										<a href="#">Quên mật khẩu</a>
-									</div>
-		            </div>
-		          </form>
-		          <p class="text-center">Bạn chưa có tài khoản? <a data-toggle="tab" href="#signup">Đăng Ký</a></p>
-		        </div>
-		      </div>
-				</div>
-			</div>
-		</div>
-	</section>
+ <body>
+  
+
+  <div class="d-lg-flex half justify-content-center mt-5 mb-5">
+    <div class="bg order-1 order-md-2" style="background-image: url('images/bg_1.jpg');width: 35%;  background-position: center;background-repeat: no-repeat;background-size: cover;"></div>
+    <div class="contents order-2 order-md-1">
+
+      <div class="container">
+        <div class="row align-items-center justify-content-center">
+          <div class="col-md-7">
+            <div class="mb-4">
+              <h3>Đăng Nhập</h3>
+            </div>
+            <form action="#" method="post">
+              <div class="form-group first">
+                <label for="username">Tài Khoản</label>
+                <input type="text" class="form-control" id="username">
+
+              </div>
+              <div class="form-group last mb-3">
+                <label for="password">Mật Khẩu</label>
+                <input type="password" class="form-control" id="password">
+                
+              </div>
+              
+              <div class="d-flex mb-5 align-items-center">
+                <label class="control control--checkbox mb-0"><span class="caption">Ghi Nhớ Đăng Nhập</span>
+                  <input type="checkbox" checked="checked"/>
+                  <div class="control__indicator"></div>
+                </label>
+                <span class="ml-auto"><a href="#" class="forgot-pass">Quên Mật Khẩu?</a></span> 
+              </div>
+
+              <input type="submit" value="Đăng Nhập" class="btn btn-block btn-primary">
+
+              <span class="d-block text-center my-4 text-muted">&mdash; or &mdash;</span>
+              
+              <div class="social-login">
+                <a href="#" class="facebook btn d-flex justify-content-center align-items-center">
+                  <span class="icon-facebook mr-3"></span> Đăng Nhập với Facebook
+                </a>
+                <a href="#" class="twitter btn d-flex justify-content-center align-items-center">
+                  <span class="icon-twitter mr-3"></span> Đăng Nhập với  Twitter
+                </a>
+                <a href="#" class="google btn d-flex justify-content-center align-items-center">
+                  <span class="icon-google mr-3"></span> Đăng Nhập với Google
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+  </div>
+  </body>
 <?php
 include('templates/footer.php')
 ?>
