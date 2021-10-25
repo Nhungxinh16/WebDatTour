@@ -124,40 +124,8 @@
                     </th>
                   </tr>
                   <tr>
-                    <td>Người lớn</td>
+                    <td>Giá vé</td>
                     <td class="t-price text-right" id="AdultPrice">6 x 2,990,000₫</td>
-                  </tr>
-                  <tr>
-                    <td>Trẻ em</td>
-                    <td class="t-price text-right" id="ChildrenPrice">0 x 1,495,000₫</td>
-                  </tr>
-                  <tr>
-                    <td>Trẻ nhỏ</td>
-                    <td class="t-price text-right" id="SmallChildrenPrice">0 x 0₫</td>
-                  </tr>
-                  <tr>
-                    <td>Em bé</td>
-                    <td class="t-price text-right" id="BabyPrice">0 x 0₫ </td>
-                  </tr>
-                  <tr class="pt">
-                    <td>Phụ thu phòng riêng</td>
-                    <td class="t-price text-right" id="txtPhuThu">0₫</td>
-                  </tr>
-                  <tr class="cuppon">
-                    <td>Mã giảm giá</td>
-                    <td class="cp-form text-right">
-                    <form action="#">
-                      <input class="form-control" id="DiscountCode" name="DiscountCode" placeholder="Thêm mã" required="required" type="text" value="">
-                      <input type="hidden" id="hdDiscountCode">
-                      <input type="hidden" id="hdDiscountCode-Price" value="0">
-                      <input type="button" class="btn btn-success" id="btnDiscountCode" value="Áp dụng">
-                    </form>
-                    </td>
-                  </tr>
-                  <tr id="spanDiscountCode" style="display: none;">
-                    <td colspan="2">
-                    Mã <span id="txtDiscountCode" class="fw-bold">Fake</span> giảm <span id="txtDiscountCode-Price" class="fw-bold">0₫</span> sẽ áp dụng khi hoàn tất.
-                    </td>
                   </tr>
                   <tr class="total">
                     <td>Tổng cộng</td>

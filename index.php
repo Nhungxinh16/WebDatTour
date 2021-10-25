@@ -100,63 +100,29 @@
     <br>
     <br>
     <br>
-    <p class="m-2" style="color:#282365; font-size:xx-large; font-weight: 600;">Khám phá các tour du lịch</p>
-    <p class="m-2" style="color:#282365; font-size:larger; font-weight: 600;">TOUR ĐẶC TRƯNG</p>
+    <p class="m-2" style="color:#282365; font-size:xx-large; font-weight: 600;">Khám phá các loại tour du lịch</p>
+    <!-- <p class="m-2" style="color:#282365; font-size:larger; font-weight: 600;">TOUR ĐẶC TRƯNG</p> -->
+    <?php
+      $sql = "select * from tourtypes limit 5";
+      $tour_type = simpleQuery($sql);
+    
+    ?>
     <div class="items2 justify-content-center" style="width: 100%">
-      <div class="row" id="box-search">
-        <div class="thumbnail text-center">
-          <div class="m-4 mr-5"><a href="#"><img src="content/image/tour/hanhtrinhxanh.jpg"
-                style="width: 100%; border-radius: 10px;"></a></div>
-          <div class="caption">
-            <p class="ml-2" style="color:white; font-size: large; font-weight: 600; ">Tour Hành Trình <br> xanh</p>
-          </div>
-        </div>
-      </div>
-      <div class="row" id="box-search">
-        <div class="thumbnail text-center">
-          <div class="m-4 mr-5"><a href="#"><img src="content/image/tour/hanhtrinhxanh.jpg"
-                style="width: 100%; border-radius: 10px;"></a></div>
-          <div class="caption">
-            <p class="ml-2" style="color:white; font-size: large; font-weight: 600; ">Tour Hành Trình <br> xanh</p>
-          </div>
-        </div>
-      </div>
-      <div class="row" id="box-search">
-        <div class="thumbnail text-center">
-          <div class="m-4 mr-5"><a href="#"><img src="content/image/tour/hanhtrinhxanh.jpg"
-                style="width: 100%; border-radius: 10px;"></a></div>
-          <div class="caption">
-            <p class="ml-2" style="color:white; font-size: large; font-weight: 600; ">Tour Hành Trình <br> xanh</p>
-          </div>
-        </div>
-      </div>
-      <div class="row" id="box-search">
-        <div class="thumbnail text-center">
-          <div class="m-4 mr-5"><a href="#"><img src="content/image/tour/hanhtrinhxanh.jpg"
-                style="width: 100%; border-radius: 10px;"></a></div>
-          <div class="caption">
-            <p class="ml-2" style="color:white; font-size: large; font-weight: 600; ">Tour Hành Trình <br> xanh</p>
-          </div>
-        </div>
-      </div>
-      <div class="row" id="box-search">
-        <div class="thumbnail text-center">
-          <div class="m-4 mr-5"><a href="#"><img src="content/image/tour/hanhtrinhxanh.jpg"
-                style="width: 100%; border-radius: 10px;"></a></div>
-          <div class="caption">
-            <p class="ml-2" style="color:white; font-size: large; font-weight: 600; ">Tour Hành Trình <br> xanh</p>
-          </div>
-        </div>
-      </div>
-      <div class="row" id="box-search">
-        <div class="thumbnail text-center">
-          <div class="m-4 mr-5"><a href="#"><img src="content/image/tour/hanhtrinhxanh.jpg"
-                style="width: 100%; border-radius: 10px;"></a></div>
-          <div class="caption">
-            <p class="ml-2" style="color:white; font-size: large; font-weight: 600; ">Tour Hành Trình <br> xanh</p>
-          </div>
-        </div>
-      </div>
+      <?php
+        foreach($tour_type as $type){
+          echo '
+            <div class="row" id="box-search">
+              <div class="thumbnail text-center">
+                <div class="m-4 mr-5"><a href="#"><img src="'.$type["image"].'"
+                      style="width: 100%; border-radius: 10px;"></a></div>
+                <div class="caption">
+                  <p class="ml-2" style="color:white; font-size: large; font-weight: 600; "><br>Tour '.$type["type_name"].'</p>
+                </div>
+              </div>
+            </div>
+          ';
+        }
+      ?>
     </div>
     <!-- Tour gia đình -->
 
