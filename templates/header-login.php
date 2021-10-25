@@ -12,6 +12,16 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css"
     href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link href="css/css2" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/normalize.min.css">
+    <link rel="stylesheet" href="css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
+    <link href="css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link href="css/select2.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./Phú Quốc - Trải nghiệm Đi Bộ Dưới Đáy Biển - Tour 4 Đảo - Nghỉ đêm tại Premier Village - Bay cùng hàng không Vietnam Airlines hạng Thương Gia. M ã tour NDSGN907-029-121121VN-P - Vietravel_files/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="css/slick.css">
+    <link rel="stylesheet" type="text/css" href="css/select2.min(1).css">
+    <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/login.css">
 
   <title>WEB ĐẶT TOUR</title>
