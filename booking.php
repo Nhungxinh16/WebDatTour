@@ -3,148 +3,75 @@
     require("config/constants.php");
 ?>
 
-<main role ="main">
-  <div class="container">
-    <div class="row">
-      <ul class="breadcrumbs__wrapper d-flex align-items-center" itemscope="" itemtype="http://schema.org/BreadcrumbList">
-        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-          <a href="#" itemprop="item">
-            <span itemprop="name">Du lịch</span>
-          </a>
-          <meta itemprop="position" content="1">
-        </li> » 
-        <li>
-          <i class="icon icon--chevron - right px - 2"></i>
-        </li>
-        <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem">
-          <a href="#" itemprop="item">
-            <span itemprop="name">Đặt tour Trong nước</span>
-          </a>
-          <meta itemprop="position" content="2">
-        </li>
-      </ul>
-    </div>
-  </div>
 
-  <section class="checkout-head d-none d-lg-block">
-    <div class="container">
-      <div class="row">
-        <ul class="head col-12">
-          <li class="checked">1. Nhập thông tin</li>
-          <li class="checked"><i class="fal fa-angle-right"></i></li>
-          <li>2. Thanh toán</li>
-        </ul>
-      </div>
+    <div class="mr-auto ml-auto" style="max-width: 1300px">
+    <div class="col-12 mt-2">
+        <small class="text-muted"><a href="#" style="color: #282365;"><u>Du lịch</u></a><small><i class="fas fa-chevron-right ml-3 mr-3"></i></small><a href="#" style="color: #282365;"><u>Đặt tour trong nước</u></a></small>
     </div>
-  </section>
+    <hr>
 
-  <section class="checkout-main order-tour">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 top">
-          <div class="product">
-            <div class="product-image">
-              <div class="image">
-                <img class="img-fluid" alt="image" src="images/anh1booking.jpg">
-              </div>
-            </div>
-            <div class="product-content">
-              <div class="s-rate">
-                <span>4.7</span>
-                <div class="s-comment">
-                  <h4>Rất tốt</h4>
-                  <span>358 nhận xét</span>
-                  <span>Lượt đi <b>1,3k </b></span>
-                </div>
-              </div>
-              <p class="title" id="title">Hành trình xanh Cần Giờ (Tàu cao tốc) - Khám phá KDL Sinh thái Dần Xây - Vàm Sát (Nhóm 6 khách)</p>
-              <div class="entry">
-                <div class="entry-inner">
-                  <span>Khởi hành <b>28/10/2021</b></span>
-                  <span>Thời gian <b>1 ngày</b></span>
-                  <span>Nơi khởi hành <b>TP. Hồ Chí Minh</b></span>
-                  <span>Số chỗ còn nhận <b>6</b></span>
-                </div>
-              </div>
+    <div class="col-12 mt-2">
+        <span href="#" style="color:#4D4AEF; font-weight: 500;">1. Nhập thông tin</span><i class="fas fa-chevron-right ml-3 mr-3"></i><span href="#" style="color: #282365; font-weight: 500;">2. Thanh toán</span>
+    </div>
+    <hr>
+
+    <div class="card mb-3" style="max-width: 1300px;"">
+        <div class="row no-gutters">
+          <div class="col-lg-3 col-12">
+            <a href="#"><img src="content/image/dathang1.jpg" class="card-img" alt="..." style="border-radius: 10px 0 0 10px;"></a>
+          </div>
+          <div class="col-lg-9 col-12">
+            <div class="card-body"  style="background-color: #F9F9F9;">
+              <p class="card-text" style="font-weight: 500; font-size: large;">Rất tốt<small class="text-muted ml-2">358 nhận xét&#160;&#160;|&#160;&#160;Lượt đi <span class="text-nomute" style="font-weight: 500; color: #282365;">1,3k</span></small></p>
+              <h5 class="card-title pr-2 mb-1" style="color: #282365; font-size:x-large;">Hành trình xanh Cần Giờ (Tàu cao tốc) - Khám phá KDL Sinh thái Dần Xây - Vàm Sát (Nhóm 6 khách)</h5>
+              <p class="card-text mb-0"><small class="text-muted">Khởi hành <span class="ml-1" style="color: #282365; font-weight: 500;">28/10/2021</span></small></p>
+              <p class="card-text mb-0"><small class="text-muted">Thời gian <span class="ml-1" style="color: #282365; font-weight: 500;">1 ngày</span></small></p>
+              <p class="card-text mb-0"><small class="text-muted">Nơi khởi hành  <span class="ml-1" style="color: #282365; font-weight: 500;">TP. Hồ Chí Minh</span></small></p>
+              <p class="card-text mb-0"><small class="text-muted">Số chỗ còn nhận<span class="ml-1" style="color: #282365; font-weight: 500;">6</span></small></p>
             </div>
           </div>
-        </div>
-        <div class="col-md-2 col-12 left"></div>
-        <div class="col-md-10 col-12 right">
-          <div class="box-support">
-            <label>Quý khách cần hỗ trợ?</label>
-            <div class="group-contact">
-              <a href="#" class="phone" onclick="javascript:window.open(this.href,'targetWindow','toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=no,width=375,height=667');return false;" target="_blank">
-                <i class="fal fa-phone-alt"></i>
-                <p>Gọi miễn phí <br>qua internet</p>
-              </a>
-              <a href="#" class="mail" data-toggle="modal" data-target="#divTuVan" style="cursor:pointer;">
-                <i class="fal fa-envelope"></i>
-                <p>Gửi yêu cầu <br>hỗ trợ ngay</p>
-              </a>
-            </div>
-          </div>
-          <div class="group-checkout">
-            <h3>Tóm tắt chuyến đi</h3>
-            <p class="package-title">Tour trọn gói <span> (6 khách)</span></p>
-            <div class="product">
-              <div class="product-image">
-                <img class="img-fluid" alt="image" src="images/anh1booking.jpg">
-              </div>
-              <div class="product-content">
-                <p class="title">Hành trình xanh Cần Giờ (Tàu cao tốc) - Khám phá KDL Sinh thái Dần Xây - Vàm Sát (Nhóm 6 khách)</p>
-              </div>
-            </div>
-            <div class="go-tour">
-              <div class="start">
-                <i class="fal fa-calendar-minus"></i>
-                <div class="start-content">
-                  <h4>Bắt đầu chuyến đi</h4>
-                  <p class="time">T5, 28 Tháng 10, 2021</p>
-                  <p class="from"></p>
-                </div>
-              </div>
-              <div class="end">
-                <i class="fal fa-calendar-minus"></i>
-                <div class="start-content">
-                  <h4>Kết thúc chuyến đi</h4>
-                  <p class="time">T5, 28 Tháng 10, 2021</p>
-                  <p class="from"></p>
-                </div>
-              </div>
-            </div>
-            <div class="detail">
-              <table>
-                <tbody>
-                  <tr>
-                    <th class="l1">Hành khách</th>
-                    <th class="l2 text-right">
-                      <i class="fal fa-users" id="AmoutPerson">6</i>
-                      <p class="add-more"></p>
-                    </th>
-                  </tr>
-                  <tr>
-                    <td>Giá vé</td>
-                    <td class="t-price text-right" id="AdultPrice">6 x 2,990,000₫</td>
-                  </tr>
-                  <tr class="total">
-                    <td>Tổng cộng</td>
-                    <td class="t-price text-right" id="TotalPrice">17,940,000₫</td>
-                  </tr>
-                </tbody>
-              </table>
-              <div>
-                <button class="btn btn-primary btn-order" style="width:100% ">
-                Đặt ngay
-                </button>
-              </div>
-            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-</main>
+      <!-- card thanh toán -->
+      <div class="col d-flex justify-content-center">
+        <div class="card" style="width: 30rem;">
+            <div class="card-body justify-content-center">
+              <h5 class="card-title" style="color: #282365;">Tóm tắt chuyến đi</h5>
+              <p class="card-text mb-2"><span class="ml-1" style="color: #282365; font-weight: 500; font-size: normal;">Tour chọn gói</span><span class="ml-1" style="color: #282365;">(6 khách)</span> </p>
+              <img src="content/image/dathang1.jpg" alt="..." class="img-thumbnail mr-2" style="width:25%; border: none; border-radius: 10px; float: left;">
+              <p class="card-text mr-4" style="color: #282365; font-weight: 500;">Hành trình xanh Cần Giờ (Tàu cao tốc) - Khám phá KDL Sinh thái Dần Xây - Vàm Sát (Nhóm 6 khách)</p>
+              <p class="card-text mb-0"><span class="ml-1" style="color: #282365;">Bắt đầu chuyến đi</span> </p>
+              <p class="card-text mb-4"><span class="ml-1" style="color: #282365; font-weight: 500; font-size: normal;">T5, 28 Tháng 10, 2021</span></p>
+              <p class="card-text mb-0"><span class="ml-1" style="color: #282365;">Kết thúc chuyến đi</span> </p>
+              <p class="card-text mb-5"><span class="ml-1" style="color: #282365; font-weight: 500; font-size: normal;">T5, 28 Tháng 10, 2021</span></p>
+              <p class="card-text mb-4"><span class="ml-1" style="color: #282365; font-weight: 500; font-size: normal; float: left;">Hành khách</span></p>
+              <div class="form-group">
+                <select class="form-control" style="width:20%; float:right;" id="exampleFormControlSelect1">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                </select>
+              </div>
+              <br>
+              <br>
+              <p class="card-text mb-0"><span class="ml-1" style="color: #282365; font-weight: 500; font-size: normal; float: left;">Giá vé</span></p>
+              <p class="card-text mb-4"><span class="ml-1" style="color: #282365; font-weight: 500; font-size: normal; float: right;">6&#160;x&#160;2,990,000₫</span></p>
+
+              <br><br><br><hr>
+              <p class="card-text mb-0"><span class="ml-1" style="color: #282365; font-weight: 500; font-size: normal; float: left;">TỔNG CỘNG</span></p>
+              <p class="card-text mb-4"><span class="ml-1" style="color: #FD5056; font-weight: 500; font-size: x-large; float: right;">17,940,000đ</span></p>
+              <br><br><br>
+              <button type="button" class="btn btn-danger col d-flex justify-content-center p-3" style="background-color: #FD5056; font-size:large; font-weight: 500; border-radius: 10px;">ĐẶT NGAY</button>
+
+
+
+            </div>
+          </div>
+      </div>
 
 <?php
     include('templates/footer.php')
