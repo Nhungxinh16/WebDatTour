@@ -6,21 +6,23 @@ bấm vào link xác nhận ở mail thì ra trang này -->
     require('templates/header.php');
 ?>
 
-    <div class="border">
-        <div class="container mt-3 fw-bold text-primary">
-            <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);"
-                aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item">1. Nhập thông tin</li>
-                    <li class="breadcrumb-item">2.Thanh toán</li>
-                </ol>
-            </nav>
-        </div>
+<div class="mr-auto ml-auto" style="max-width: 1300px">
+    <div class="col-12 mt-2">
+        <small class="text-muted"><a href="#" style="color: #282365;"><u>Du lịch</u></a><small><i class="fas fa-chevron-right ml-3 mr-3"></i></small><a href="#" style="color: #282365;"><u>Đặt tour trong nước</u></a></small>
     </div>
+    <hr>
+
+    <div class="col-12 mt-2">
+        <span href="#" style="color:#4D4AEF; font-weight: 500;">1. Nhập thông tin</span><i class="fas fa-chevron-right ml-3 mr-3"></i><span href="#" style="color: #282365; font-weight: 500;">2. Thanh toán</span>
+    </div>
+    <hr>
+
     <div class="container mt-4">
         <div class="row">
-            <div class="col-8">
+            <div class="col-7">
                 <h2>Thanh toán</h2>
+                <br>
+                <br>
                 <h4> Các hình thúc thanh toán</h4>
                 <div class="row">
                     <div class="col-6 card">
@@ -72,10 +74,12 @@ bấm vào link xác nhận ở mail thì ra trang này -->
                         </div>
                     </div>
                 </div>
+                <br>
+                <br>
                 <h4>
                     Điều khoản bắt buộc khi đăng ký online
                 </h4>
-                <p class="card p-2" style="overflow-y: scroll;height: 200px;">
+                <p class="card p-2" style="overflow-y: scroll;height: 300px;">
                     ĐIỀU KIỆN BÁN VÉ CÁC CHƯƠNG TRÌNH DU LỊCH TRONG NƯỚC
 
                     I. GIÁ VÉ DU LỊCH
@@ -256,6 +260,7 @@ bấm vào link xác nhận ở mail thì ra trang này -->
                     như nhau.
                     <br />
                 </p>
+                <br>
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" value="" id="agree">
                     <label class="form-check-label" for="agree">
@@ -263,119 +268,46 @@ bấm vào link xác nhận ở mail thì ra trang này -->
                     </label>
                 </div>
             </div>
-            <div class="col-4">
-                <div class="">
-                    <label>Quý khách cần hỗ trợ?</label>
-                    <div class="">
-                        <a href="#" target="_blank">
-                            <p>Gọi miễn phí qua internet</p>
-                        </a>
 
-                        <a href="#" style="cursor:pointer;">
-                            <p>Gửi yêu cầu hỗ trợ ngay</p>
-                        </a>
-                    </div>
-                </div>
-                <div class="border p-2" >
-                        <h3>
-                            Tóm tắt chuyến đi
-                        </h3>
-                        <h6>
-                            Tour trọn gói
-                        </h6>
-                        <p>
-                            <div class="" style=" width:100px;">
-                                <img src="https://media.travel.com.vn/tour/tfd_211019033033_534836.JPG" class="w-100"/>
-                            </div>
-                            <b>
-                                Hành trình xanh Cần Giờ (Tàu cao tốc) - Khám phá KDL Sinh thái Dần Xây - Vàm Sát (Nhóm 6 khách)
-                            </b>
-                        </p>
-                        <p>
-                            <div>
-                                    Bắt đầu chuyến đi
-                                    <div>
-                                        T5, 28 Tháng 10, 2021
-                                    </div>
-                            </div>
-                            <div>
-                                Kết thúc chuyến đi
-                                <div>
-                                    T5, 28 Tháng 10, 2021
-                                </div>
-                        </div>
-                        </p>
-                        <table class="w-100">
-                            <tr>
-                                <th>Hành khách</th>
-                                <td align="right">6 người</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Người lớn
-                                </td>
-                                <td align="right">
-                                    6 x 2,990,000₫
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Trẻ em
-                                </td>
-                                <td align="right">
-                                    0₫
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Trẻ nhỏ
-                                </td>
-                                <td align="right">
-                                    0₫
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Em bé
-                                </td>
-                                <td align="right">
-                                    0₫
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    Phụ thu phòng riêng
-                                </td>
-                                <td align="right">
-                                    0₫
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">
-                                    <hr />
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="fs-2 text fw-bold">
-                                    Tổng cộng
-                                    </span>
-                                </td>
-                                <td align="right"> 
-                                    <span class="text-danger fs-3 text fw-bold">
-                                        17,940,000₫
-                                    </span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">
-                                    <button class="btn btn-danger m-3" style="width: -webkit-fill-available;">
-                                        Đặt ngay
-                                    </button>
-                                </td>
-                            </tr>
-                        </table>
-                </div>
+            <div class="col-5">
+            <div class="col d-flex justify-content-center">
+            <div class="card" style="width: 30rem;">
+            <div class="card-body justify-content-center">
+              <h5 class="card-title" style="color: #282365;">Tóm tắt chuyến đi</h5>
+              <p class="card-text mb-2"><span class="ml-1" style="color: #282365; font-weight: 500; font-size: normal;">Tour chọn gói</span><span class="ml-1" style="color: #282365;">(6 khách)</span> </p>
+              <img src="content/image/dathang1.jpg" alt="..." class="img-thumbnail mr-2" style="width:25%; border: none; border-radius: 10px; float: left;">
+              <p class="card-text mr-4" style="color: #282365; font-weight: 500;">Hành trình xanh Cần Giờ (Tàu cao tốc) - Khám phá KDL Sinh thái Dần Xây - Vàm Sát (Nhóm 6 khách)</p>
+              <p class="card-text mb-0"><span class="ml-1" style="color: #282365;">Bắt đầu chuyến đi</span> </p>
+              <p class="card-text mb-4"><span class="ml-1" style="color: #282365; font-weight: 500; font-size: normal;">T5, 28 Tháng 10, 2021</span></p>
+              <p class="card-text mb-0"><span class="ml-1" style="color: #282365;">Kết thúc chuyến đi</span> </p>
+              <p class="card-text mb-5"><span class="ml-1" style="color: #282365; font-weight: 500; font-size: normal;">T5, 28 Tháng 10, 2021</span></p>
+              <p class="card-text mb-4"><span class="ml-1" style="color: #282365; font-weight: 500; font-size: normal; float: left;">Hành khách</span></p>
+              <div class="form-group">
+                <select class="form-control" style="width:20%; float:right;" id="exampleFormControlSelect1">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                </select>
+              </div>
+              <br>
+              <br>
+              <p class="card-text mb-0"><span class="ml-1" style="color: #282365; font-weight: 500; font-size: normal; float: left;">Giá vé</span></p>
+              <p class="card-text mb-4"><span class="ml-1" style="color: #282365; font-weight: 500; font-size: normal; float: right;">6&#160;x&#160;2,990,000₫</span></p>
+
+              <br><br><br><hr>
+              <p class="card-text mb-0"><span class="ml-1" style="color: #282365; font-weight: 500; font-size: normal; float: left;">TỔNG CỘNG</span></p>
+              <p class="card-text mb-4"><span class="ml-1" style="color: #FD5056; font-weight: 500; font-size: x-large; float: right;">17,940,000đ</span></p>
+              <br><br><br>
+              <button type="button" class="btn btn-danger col d-flex justify-content-center p-3" style="background-color: #FD5056; font-size:large; font-weight: 500; border-radius: 10px;">ĐẶT NGAY</button>
+
+
+
+            </div>
+          </div>
+      </div>       
             </div>
         </div>
     </div>
