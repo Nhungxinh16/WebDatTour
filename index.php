@@ -68,7 +68,7 @@
       <div class="tab-content" id="pills-tabContent">
         <div class=".bg-white tab-pane fade show active" id="pills-home" role="tabpanel"
           aria-labelledby="pills-home-tab">
-          .ádasdasasasds..</div>
+          <br></div>
         <div class=".bg-white tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...
         </div>
         <div class=".bg-white tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...
@@ -82,16 +82,18 @@
     <br>
     <br>
     <br>
-    <p class="m-2" style="color:#282365; font-size:xx-large; font-weight: 600;">Khuyến mãi</p>
+    <p class="m-2" style="color:#282365; font-size:xx-large; font-weight: 600;">Các tour mới nhất</p>
     <div class="items justify-content-center" style="width: 100%">
-      <div class="m-2"><a href="#"><img src="content/image/slider/hoihuong.jpg"
+      <?php
+        $sql = "select image_1 from tours order by tour_id desc limit 4";
+        $tour = simpleQuery($sql);
+        foreach($tour as $t){
+          echo '
+            <div class="m-2"><a href="#"><img src="'.$t["image_1"].'"
             style="width: 100%; border-radius: 5px;"></a></div>
-      <div class="m-2"><a href="#"><img src="content/image/slider/vanchuyen.jpg"
-            style="width: 100%; border-radius: 5px;"></a></div>
-      <div class="m-2"><a href="#"><img src="content/image/slider/chuyenbay.jpg"
-            style="width: 100%; border-radius: 5px;"></a></div>
-      <div class="m-2"><a href="#"><img src="content/image/slider/vuikhoe.jpg"
-            style="width: 100%; border-radius: 5px;"></a></div>
+          ';
+        }
+      ?>
     </div>
 
 
