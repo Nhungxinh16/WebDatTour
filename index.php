@@ -1,6 +1,6 @@
 <?php
-    require('templates/header.php');
     require("config/constants.php");
+    require('templates/header.php');
 ?>
 
 <!-- Ảnh bìa -->

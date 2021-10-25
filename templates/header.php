@@ -21,7 +21,7 @@
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 
-  <title>Document</title>
+  <title>WEB ĐẶT TOUR</title>
 </head>
 
 <body>

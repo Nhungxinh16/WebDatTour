@@ -1,6 +1,7 @@
 <?php
+    require_once("database-function.php");
 
-    ob_start();
+/*     ob_start();
     //Start Session
     session_start();
 
@@ -12,7 +13,7 @@
     define('DB_NAME', 'mytour');
     
     $conn = mysqli_connect(LOCALHOST, DB_USERNAME, DB_PASSWORD) or die(mysqli_error()); //Database Connection
-    $db_select = mysqli_select_db($conn, DB_NAME) or die(mysqli_error()); //SElecting Database
+    $db_select = mysqli_select_db($conn, DB_NAME) or die(mysqli_error()); //SElecting Database */
 
 
 ?>
