@@ -100,3 +100,18 @@ height: 300px;
 .h-fav-tour-image{
 height: 200px;
 }
+
+.h-card-container{
+  position: relative;
+}
+
+.h-card-rank{
+  font-family: mulish,sans-serif;
+  color: #4d4aef;
+  padding: 2px 8px 2px 8px;
+  font-size: 12px;
+  font-style: italic;
+  bottom: 0px;
+  background: white;
+  position: absolute;
+}
