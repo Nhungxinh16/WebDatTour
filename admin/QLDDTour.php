@@ -16,18 +16,14 @@ nó dùng để quản lý đặt tour -->
                             <thead>
                                 <tr>
                                     <th scope="col" width="50">#</th>
-                                    <th scope="col">User-name</th>
-                                    <th scope="col">Password</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Birthday</th>
-                                    <th scope="col">Điện thoại</th>
-                                    <th scope="col">Họ tên</th>
-                                    <th scope="col">Giới tính</th>
-                                    <th scope="col">Customer</th>
-                                    <th scope="col">Price</th>                                    
-                                    <th scope="col">Customer</th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Price</th>
+                                    <th scope="col">Người đặt tour</th>
+                                    <th scope="col">Tên tour</th>
+                                    <th scope="col">Thời gian bắt đầu</th>
+                                    <th scope="col">Số người</th>
+                                    <th scope="col">Số ngày</th>
+                                    <th scope="col">Xem chi tiết</th>
+                                    <th scope="col">Sửa</th>
+                                    <th scope="col">Xóa</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -38,10 +34,6 @@ nó dùng để quản lý đặt tour -->
                                     <td>$1200</td>
                                     <td>Television</td>
                                     <td>Jonny</td>
-                                    <td>$1200</td>
-                                    <td>Television</td>
-                                    <td>Jonny</td>
-                                    <td>$1200</td>
                                     <td><a href="#">Xem chi tiết</a></td>
                                     <td><a href="#">Sửa</a></td>
                                     <td><a href="#">xóa</a></td>
@@ -49,9 +41,7 @@ nó dùng để quản lý đặt tour -->
                             </tbody>
                         </table>
                     </div>
-                </div>
-                <button type="button" class="btn btn-primary" style="margin-bottom: 12px"><a href="add.php" class="text-white">Thêm</a></button>
-
+                </div>             
 
 <?php
     include('templates-admin/footer.php')

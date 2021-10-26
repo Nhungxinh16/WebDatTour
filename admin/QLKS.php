@@ -16,33 +16,19 @@ nó dùng để quản lý các khách sạn -->
                             <thead>
                                 <tr>
                                     <th scope="col" width="50">#</th>
-                                    <th scope="col">User-name</th>
-                                    <th scope="col">Password</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Birthday</th>
-                                    <th scope="col">Điện thoại</th>
-                                    <th scope="col">Họ tên</th>
-                                    <th scope="col">Giới tính</th>
-                                    <th scope="col">Customer</th>
-                                    <th scope="col">Price</th>                                    
-                                    <th scope="col">Customer</th>
-                                    <th scope="col">Price</th>
-                                    <th scope="col">Price</th>
+                                    <th scope="col">Tên khách sạn</th>
+                                    <th scope="col">Địa chỉ</th>
+                                    <th scope="col">Đánh giá</th>
+                                    <th scope="col">Sửa</th>
+                                    <th scope="col">Xóa</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <th scope="row">1</th>
-                                    <td>Television</td>
-                                    <td>Jonny</td>
-                                    <td>$1200</td>
-                                    <td>Television</td>
-                                    <td>Jonny</td>
-                                    <td>$1200</td>
-                                    <td>Television</td>
-                                    <td>Jonny</td>
-                                    <td>$1200</td>
-                                    <td><a href="#">Xem chi tiết</a></td>
+                                    <td>khách sạn 1</td>
+                                    <td>Hà Nội</td>
+                                    <td>3 sao</td>
                                     <td><a href="#">Sửa</a></td>
                                     <td><a href="#">xóa</a></td>
                                 </tr>

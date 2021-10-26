@@ -7,7 +7,7 @@ include('templates-admin/header.php');
 <div class="main-content">
     <div class="wrapper">
         <div class="alert alert-success text-center" role="alert">
-            <h2>Thêm</h2>
+            <h2>Thêm tour</h2>
             <div class="text-center text-danger">
             </div>
         </div>
@@ -16,8 +16,8 @@ include('templates-admin/header.php');
             <form action="process-add.php" METHOD="POST">
                 <div class="col-md-6 mx-auto">
                     <div class="input-group mb-2">
-                        <span class="input-group-text col-3">Họ và tên</span>
-                        <input type="text" class="form-control" name= "txthoten" placeholder="Nhập họ và tên">
+                        <span class="input-group-text col-3">Tên tour</span>
+                        <input type="text" class="form-control" name= "txthoten" placeholder="Nhập tên tour">
                     </div>
 
                     <div class="input-group mb-2">

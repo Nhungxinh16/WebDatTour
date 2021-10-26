@@ -16,9 +16,9 @@ nó đang ở chỗ quản lý tour
                             <thead>
                                 <tr>
                                     <th scope="col" width="50">#</th>
-                                    <th scope="col">User-name</th>
-                                    <th scope="col">Password</th>
-                                    <th scope="col">Email</th>
+                                    <th scope="col">Tên tour</th>
+                                    <th scope="col">Địa chỉ</th>
+                                    <th scope="col">Giá</th>
                                     <th scope="col">Birthday</th>
                                     <th scope="col">Điện thoại</th>
                                     <th scope="col">Họ tên</th>

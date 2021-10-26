@@ -7,7 +7,7 @@ include('templates-admin/header.php');
 <div class="main-content">
     <div class="wrapper">
         <div class="alert alert-success text-center" role="alert">
-            <h2>Thêm</h2>
+            <h2>Thêm nhà hàng</h2>
             <div class="text-center text-danger">
             </div>
         </div>
@@ -16,36 +16,20 @@ include('templates-admin/header.php');
             <form action="process-add.php" METHOD="POST">
                 <div class="col-md-6 mx-auto">
                     <div class="input-group mb-2">
-                        <span class="input-group-text col-3">Họ và tên</span>
-                        <input type="text" class="form-control" name= "txthoten" placeholder="Nhập họ và tên">
+                        <span class="input-group-text col-3">Tên nhà hàng</span>
+                        <input type="text" class="form-control" name= "txthoten" placeholder="Nhập tên nhà hàng">
                     </div>
 
                     <div class="input-group mb-2">
-                        <span class="input-group-text col-3" >Chức Vụ</span>
-                        <input type="text" class="form-control" name= "txtchucvu" placeholder="Nhập chức vụ">
+                        <span class="input-group-text col-3" >Địa chỉ nhà hàng</span>
+                        <input type="text" class="form-control" name= "txtchucvu" placeholder="Nhập địa chỉ nhà hàng">
                     </div>
                     
                     <div class="input-group mb-2">
-                        <span class="input-group-text col-3" >Máy bàn</span>
-                        <input type="text" class="form-control" name= "txtmayban" placeholder="Nhập số máy bàn">
+                        <span class="input-group-text col-3" >Đánh giá</span>
+                        <input type="text" class="form-control" name= "txtmayban" placeholder="Nhập số sao">
                     </div>
-
-                    <div class="input-group mb-2"> 
-                        <span class="input-group-text col-3" >Email</span>
-                        <input type="email" class="form-control" name="txtemail" placeholder="Nhập email" >      
-                    </div>
-
-                    <div class="input-group mb-2"> 
-                        <span class="input-group-text col-3" >Số điện thoại</span>
-                        <input type="tel" class="form-control" name="sodidong" placeholder="Nhập số điện thoại">             
-                    </div>
-
-                    <div class="input-group mb-2 ">
-                        <label class="input-group-text col-3" for="inputGroupSelect01">Tên Đơn Vị</label>
-                        <select class="form-select form-select-sm" name="sltMaDV" id="sltMaDV">
-                        </select>
-                    </div>
-                    <button type="submit" class="btn btn-info" name="submit">Thêm</button>
+                    <button type="submit" class="btn btn-info" name="submit"> <a href="QLNH.php">Thêm</a> </button>
      
                 </div>
             </form>
