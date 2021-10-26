@@ -85,12 +85,12 @@
     <p class="m-2" style="color:#282365; font-size:xx-large; font-weight: 600;">Các tour mới nhất</p>
     <div class="items justify-content-center" style="width: 100%">
       <?php
-        $sql = "select image_1 from tours order by tour_id desc limit 4";
+        $sql = "select image_1 from tours order by tour_id desc limit 7";
         $tour = simpleQuery($sql);
         foreach($tour as $t){
           echo '
             <div class="m-2"><a href="#"><img src="'.$t["image_1"].'"
-            style="width: 100%; border-radius: 5px;"></a></div>
+            style="width: 100%; border-radius: 5px;" class="h-latest-tour-image"></a></div>
           ';
         }
       ?>
@@ -126,8 +126,8 @@
         }
       ?>
     </div>
-    <!-- Tour gia đình -->
 
+    
     <p class="m-2" style="color:#282365; font-size:xx-large; font-weight: 600;">Tour gia đình</p>
 
     <div class="card-deck">
@@ -192,44 +192,7 @@
     <br>
     <br>
     <br>
-    <p class="m-2" style="color:#282365; font-size:xx-large; font-weight: 600;">Gói ưu đãi đặc biệt</p>
-    <div class="uu-dai card card2 mb-3" style="max-width: 1300px;">
-      <div class="row no-gutters">
-        <div class="col-lg-3 col-12">
-          <a href="#"><img src="content/image/uudai/uudai1.jpg" class="card-img" alt="..."></a>
-        </div>
-        <div class="col-lg-6 col-12">
-          <div class="card-body">
-            <a href="#" class="btn btn-secondary mb-2" style="font-size: small; background-color:#2D4271;">Vé máy bay +
-              Khách sạn</a>
-            <a href="#"><h5 class="card-title pr-2 mb-1" style="color: #282365; font-size: medium;">VINPEARL PHÚ QUỐC COMBO TRIPU
-              3N2D VINOASIS</h5></a>
-            <p class="mb-0 ml-0 mt-1 mb-1" style="color:#FDC432;"><i class="fas fa-star"></i><i
-                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                class="fas fa-star"></i></p>
-            <p class="card-text"><small class="text-muted">Vé máy bay khứ hồi + Phòng Standard + Ăn sáng + Đón tiễn sân
-                bay + Tặng 01 ngày vui chơi không giới hạn tại Vinwonder hoặc Safari</small></p>
-          </div>
-        </div>
-        <div class="verticalLine col-lg-3 col-12">
-          <div style="float: right;">
-            <p class="card-text mr-3"><b style="font-size: large; color:#FD5056;">17,940,000đ</b><small
-                class="text-muted">/gia đình 6 khách</small></p>
-          </div>
-          <div style="float: right;">
-            <p class="card-text mb-3 mr-3"><small class="text-muted">Giá chỉ áp dụng khi mua kèm vé máy bay</small></p>
-          </div>
-          <div style="float: right;">
-            <a href="#" class="btn btn-danger mb-2 mr-3" style="font-size: small; background-color: #D74449;"><i
-                class="fas fa-shopping-cart"></i>&#160;Đặt ngay</a>
-          </div>
-          <div style="float: right;">
-            <p href="#" class="btn btn-danger m-3 p-1" style="font-size:15px; background-color:#4D4AEF;">Tặng 01 ngày
-              vui chơi không giới hạn tại Vinwonder hoặc Safari</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <p class="m-2" style="color:#282365; font-size:xx-large; font-weight: 600;">Tour ưu đãi đặc biệt</p>
 
     <div class="uu-dai card mb-3" style="max-width: 1300px;">
       <div class="row no-gutters">
@@ -268,117 +231,7 @@
         </div>
       </div>
     </div>
-    <div class="uu-dai card mb-3" style="max-width: 1300px;">
-      <div class="row no-gutters">
-        <div class="col-lg-3 col-12">
-          <a href="#"><img src="content/image/uudai/uudai1.jpg" class="card-img" alt="..."></a>
-        </div>
-        <div class="col-lg-6 col-12">
-          <div class="card-body">
-            <a href="#" class="btn btn-secondary mb-2" style="font-size: small; background-color:#2D4271;">Vé máy bay +
-              Khách sạn</a>
-            <a href="#"><h5 class="card-title pr-2 mb-1" style="color: #282365; font-size: medium;">VINPEARL PHÚ QUỐC COMBO TRIPU
-              3N2D VINOASIS</h5></a>
-            <p class="mb-0 ml-0 mt-1 mb-1" style="color:#FDC432;"><i class="fas fa-star"></i><i
-                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                class="fas fa-star"></i></p>
-            <p class="card-text"><small class="text-muted">Vé máy bay khứ hồi + Phòng Standard + Ăn sáng + Đón tiễn sân
-                bay + Tặng 01 ngày vui chơi không giới hạn tại Vinwonder hoặc Safari</small></p>
-          </div>
-        </div>
-        <div class="verticalLine col-lg-3 col-12">
-          <div style="float: right;">
-            <p class="card-text mr-3"><b style="font-size: large; color:#FD5056;">17,940,000đ</b><small
-                class="text-muted">/gia đình 6 khách</small></p>
-          </div>
-          <div style="float: right;">
-            <p class="card-text mb-3 mr-3"><small class="text-muted">Giá chỉ áp dụng khi mua kèm vé máy bay</small></p>
-          </div>
-          <div style="float: right;">
-            <a href="#" class="btn btn-danger mb-2 mr-3" style="font-size: small; background-color: #D74449;"><i
-                class="fas fa-shopping-cart"></i>&#160;Đặt ngay</a>
-          </div>
-          <div style="float: right;">
-            <p href="#" class="btn btn-danger m-3 p-1" style="font-size:15px; background-color:#4D4AEF;">Tặng 01 ngày
-              vui chơi không giới hạn tại Vinwonder hoặc Safari</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="uu-dai card mb-3" style="max-width: 1300px;">
-      <div class="row no-gutters">
-        <div class="col-lg-3 col-12">
-          <a href="#"><img src="content/image/uudai/uudai1.jpg" class="card-img" alt="..."></a>
-        </div>
-        <div class="col-lg-6 col-12">
-          <div class="card-body">
-            <a href="#" class="btn btn-secondary mb-2" style="font-size: small; background-color:#2D4271;">Vé máy bay +
-              Khách sạn</a>
-            <a href="#"><h5 class="card-title pr-2 mb-1" style="color: #282365; font-size: medium;">VINPEARL PHÚ QUỐC COMBO TRIPU
-              3N2D VINOASIS</h5></a>
-            <p class="mb-0 ml-0 mt-1 mb-1" style="color:#FDC432;"><i class="fas fa-star"></i><i
-                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                class="fas fa-star"></i></p>
-            <p class="card-text"><small class="text-muted">Vé máy bay khứ hồi + Phòng Standard + Ăn sáng + Đón tiễn sân
-                bay + Tặng 01 ngày vui chơi không giới hạn tại Vinwonder hoặc Safari</small></p>
-          </div>
-        </div>
-        <div class="verticalLine col-lg-3 col-12">
-          <div style="float: right;">
-            <p class="card-text mr-3"><b style="font-size: large; color:#FD5056;">17,940,000đ</b><small
-                class="text-muted">/gia đình 6 khách</small></p>
-          </div>
-          <div style="float: right;">
-            <p class="card-text mb-3 mr-3"><small class="text-muted">Giá chỉ áp dụng khi mua kèm vé máy bay</small></p>
-          </div>
-          <div style="float: right;">
-            <a href="#" class="btn btn-danger mb-2 mr-3" style="font-size: small; background-color: #D74449;"><i
-                class="fas fa-shopping-cart"></i>&#160;Đặt ngay</a>
-          </div>
-          <div style="float: right;">
-            <p href="#" class="btn btn-danger m-3 p-1" style="font-size:15px; background-color:#4D4AEF;">Tặng 01 ngày
-              vui chơi không giới hạn tại Vinwonder hoặc Safari</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="uu-dai card mb-3" style="max-width: 1300px;">
-      <div class="row no-gutters">
-        <div class="col-lg-3 col-12">
-          <a href="#"><img src="content/image/uudai/uudai1.jpg" class="card-img" alt="..."></a>
-        </div>
-        <div class="col-lg-6 col-12">
-          <div class="card-body">
-            <a href="#" class="btn btn-secondary mb-2" style="font-size: small; background-color:#2D4271;">Vé máy bay +
-              Khách sạn</a>
-            <a href="#"><h5 class="card-title pr-2 mb-1" style="color: #282365; font-size: medium;">VINPEARL PHÚ QUỐC COMBO TRIPU
-              3N2D VINOASIS</h5></a>
-            <p class="mb-0 ml-0 mt-1 mb-1" style="color:#FDC432;"><i class="fas fa-star"></i><i
-                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                class="fas fa-star"></i></p>
-            <p class="card-text"><small class="text-muted">Vé máy bay khứ hồi + Phòng Standard + Ăn sáng + Đón tiễn sân
-                bay + Tặng 01 ngày vui chơi không giới hạn tại Vinwonder hoặc Safari</small></p>
-          </div>
-        </div>
-        <div class="verticalLine col-lg-3 col-12">
-          <div style="float: right;">
-            <p class="card-text mr-3"><b style="font-size: large; color:#FD5056;">17,940,000đ</b><small
-                class="text-muted">/gia đình 6 khách</small></p>
-          </div>
-          <div style="float: right;">
-            <p class="card-text mb-3 mr-3"><small class="text-muted">Giá chỉ áp dụng khi mua kèm vé máy bay</small></p>
-          </div>
-          <div style="float: right;">
-            <a href="#" class="btn btn-danger mb-2 mr-3" style="font-size: small; background-color: #D74449;"><i
-                class="fas fa-shopping-cart"></i>&#160;Đặt ngay</a>
-          </div>
-          <div style="float: right;">
-            <p href="#" class="btn btn-danger m-3 p-1" style="font-size:15px; background-color:#4D4AEF;">Tặng 01 ngày
-              vui chơi không giới hạn tại Vinwonder hoặc Safari</p>
-          </div>
-        </div>
-      </div>
-    </div>
+    
     <button type="button" class="btn btn-light pl-4 pr-4"
       style="float: right; background-color: white; border: 1px solid rgb(202, 200, 194); color: #282365; font-weight: 600;">Xem
       tất cả&#160;&#160;<i class="fas fa-long-arrow-alt-right"></i></button>
@@ -388,67 +241,38 @@
     <br>
     <p class="m-2" style="color:#282365; font-size:xx-large; font-weight: 600;">Điểm đến yêu thích</p>
     <br>
-    <div class="card-deck">
-      <div class="card" style="border: transparent;">
-        <a href="#"><img src="content/image/iuthich/hanoi.jpg" class="card-img-top pb-0" alt="..." style="border-radius: 10px;"></a>
-        <div class="card-body p-0">
-          <a href="#"><h5 class="card-title p-2 pb-0 mb-0" style="color: #282365;">Hà Nội</h5></a>
-          <small class="p-2 pt-0" style="color:#282365;">Đã có 176,072 lượt khách</small>
-        </div>
-      </div>
-      <div class="card" style="border: transparent;">
-        <a href="#"><img src="content/image/iuthich/hanoi.jpg" class="card-img-top pb-0" alt="..." style="border-radius: 10px;"></a>
-        <div class="card-body p-0">
-          <a href="#"><h5 class="card-title p-2 pb-0 mb-0" style="color: #282365;">Hà Nội</h5></a>
-          <small class="p-2 pt-0" style="color:#282365;">Đã có 176,072 lượt khách</small>
-        </div>
-      </div>
-      <div class="card" style="border: transparent;">
-        <a href="#"><img src="content/image/iuthich/hanoi.jpg" class="card-img-top pb-0" alt="..." style="border-radius: 10px;"></a>
-        <div class="card-body p-0">
-          <a href="#"><h5 class="card-title p-2 pb-0 mb-0" style="color: #282365;">Hà Nội</h5></a>
-          <small class="p-2 pt-0" style="color:#282365;">Đã có 176,072 lượt khách</small>
-        </div>
-      </div>
-      <div class="card mb-3" style="border: transparent;">
-        <a href="#"><img src="content/image/iuthich/hanoi.jpg" class="card-img-top pb-0" alt="..." style="border-radius: 10px;"></a>
-        <div class="card-body p-0">
-          <a href="#"><h5 class="card-title p-2 pb-0 mb-0" style="color: #282365;">Hà Nội</h5></a>
-          <small class="p-2 pt-0" style="color:#282365;">Đã có 176,072 lượt khách</small>
-        </div>
-      </div>
-    </div>
-    <div class="card-deck">
-      <div class="card" style="border: transparent;">
-        <a href="#"><img src="content/image/iuthich/hanoi.jpg" class="card-img-top pb-0" alt="..." style="border-radius: 10px;"></a>
-        <div class="card-body p-0">
-          <a href="#"><h5 class="card-title p-2 pb-0 mb-0" style="color: #282365;">Hà Nội</h5></a>
-          <small class="p-2 pt-0" style="color:#282365;">Đã có 176,072 lượt khách</small>
-        </div>
-      </div>
-      <div class="card" style="border: transparent;">
-        <a href="#"><img src="content/image/iuthich/hanoi.jpg" class="card-img-top pb-0" alt="..." style="border-radius: 10px;"></a>
-        <div class="card-body p-0">
-          <a href="#"><h5 class="card-title p-2 pb-0 mb-0" style="color: #282365;">Hà Nội</h5></a>
-          <small class="p-2 pt-0" style="color:#282365;">Đã có 176,072 lượt khách</small>
-        </div>
-      </div>
-      <div class="card" style="border: transparent;">
-        <a href="#"><img src="content/image/iuthich/hanoi.jpg" class="card-img-top pb-0" alt="..." style="border-radius: 10px;"></a>
-        <div class="card-body p-0">
-          <a href="#"><h5 class="card-title p-2 pb-0 mb-0" style="color: #282365;">Hà Nội</h5></a>
-          <small class="p-2 pt-0" style="color:#282365;">Đã có 176,072 lượt khách</small>
-        </div>
-      </div>
-      <div class="card" style="border: transparent;">
-        <a href="#"><img src="content/image/iuthich/hanoi.jpg" class="card-img-top pb-0" alt="..." style="border-radius: 10px;"></a>
-        <div class="card-body p-0">
-          <a href="#"><h5 class="card-title p-2 pb-0 mb-0" style="color: #282365;">Hà Nội</h5></a>
-          <small class="p-2 pt-0" style="color:#282365;">Đã có 176,072 lượt khách</small>
-        </div>
-      </div>
-
-    </div>
+    <?php
+      $sql = "select count(tours.tour_id) as count, tours.tour_id, cities.city_id, cities.city_name, cities.image from tours, orders, cities where tours.tour_id = orders.tour_id and tours.city_id = cities.city_id group by cities.city_id ORDER BY count DESC LIMIT 8";
+      $tour = simpleQuery($sql);
+      $tour = array_chunk($tour, 4);
+      echo '<div class="card-deck">';
+        foreach($tour[0] as $t){
+          echo '
+            <div class="card" style="border: transparent;">
+              <a href="#"><img src="'.$t["image"].'" class="card-img-top pb-0 h-fav-tour-image" alt="..." style="border-radius: 10px;"></a>
+              <div class="card-body p-0">
+                <a href="#"><h5 class="card-title p-2 pb-0 mb-0" style="color: #282365;">'.$t["city_name"].'</h5></a>
+                <small class="p-2 pt-0" style="color:#282365;">Đã có '.$t["count"].' lượt khách</small>
+              </div>
+            </div>
+          ';
+        }
+      echo '</div>';
+      echo '<div class="card-deck">';
+      foreach($tour[1] as $t){
+        echo '
+          <div class="card" style="border: transparent;">
+            <a href="#"><img src="'.$t["image"].'" class="card-img-top pb-0 h-fav-tour-image" alt="..." style="border-radius: 10px;"></a>
+            <div class="card-body p-0">
+              <a href="#"><h5 class="card-title p-2 pb-0 mb-0" style="color: #282365;">'.$t["city_name"].'</h5></a>
+              <small class="p-2 pt-0" style="color:#282365;">Đã có '.$t["count"].' lượt khách</small>
+            </div>
+          </div>
+        ';
+      }
+      echo '</div>';
+    ?>
+    
   </div>
 
 

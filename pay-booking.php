@@ -293,7 +293,7 @@ bấm vào link xác nhận ở mail thì ra trang này -->
                 </select>
               </div>
               <br>
-              <br>
+              <br><br><br>
               <p class="card-text mb-0"><span class="ml-1" style="color: #282365; font-weight: 500; font-size: normal; float: left;">Giá vé</span></p>
               <p class="card-text mb-4"><span class="ml-1" style="color: #282365; font-weight: 500; font-size: normal; float: right;">6&#160;x&#160;2,990,000₫</span></p>
 
