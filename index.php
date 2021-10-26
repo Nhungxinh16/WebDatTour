@@ -171,45 +171,52 @@
     <br>
     <br>
     <p class="m-2" style="color:#282365; font-size:xx-large; font-weight: 600;">Tour ưu đãi đặc biệt</p>
+    <?php
+      $rank_id = 7;
+      $sql = "select tours.tour_name, tours.description as tour_desc, tours.image_1, tours.price_per_person, ranks.description as rank_desc from tours, ranks where tours.tour_rank_id = ranks.rank_id and ranks.rank_id = ? ORDER by tours.tour_id desc limit 5";
+      $tour = simpleQuery($sql,1,[$rank_id]);
+      $price = number_format($t["price_per_person"], 0, "", ",");
+      foreach($tour as $t){
+        echo '
+          <div class="uu-dai card mb-3" style="max-width: 1300px;">
+            <div class="row no-gutters">
+              <div class="col-lg-3 col-12">
+                <a href="#"><img src="'.$t["image_1"].'" class="card-img" alt="..."></a>
+              </div>
+              <div class="col-lg-6 col-12">
+                <div class="card-body">
+                  <a href="#" class="btn btn-secondary mb-2 disabled" style="font-size: small; background-color:#2D4271;">Vé máy bay +
+                    Khách sạn</a>
+                  <a href="#"><h5 class="card-title pr-2 mb-1" style="color: #282365; font-size: medium;">'.$t["tour_name"].'</h5></a>
+                  <!-- <p class="mb-0 ml-0 mt-1 mb-1" style="color:#FDC432;"><i class="fas fa-star"></i><i
+                      class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+                      class="fas fa-star"></i></p> --!>
+                  <p class="card-text"><small class="text-muted">'.$t["tour_desc"].'</small></p>
+                </div>
+              </div>
+              <div class="verticalLine col-lg-3 col-12">
+                <div style="float: right;">
+                  <p class="card-text mr-3"><b style="font-size: large; color:#FD5056;">'.$price.'đ</b><small
+                      class="text-muted">/khách</small></p>
+                </div>
+                <div style="float: right;">
+                  <p class="card-text mb-3 mr-3"><small class="text-muted">Giá chỉ áp dụng khi mua kèm vé máy bay</small></p>
+                </div>
+                <div style="float: right;">
+                  <a href="#" class="btn btn-danger mb-2 mr-3" style="font-size: small; background-color: #D74449;"><i
+                      class="fas fa-shopping-cart"></i>&#160;Đặt ngay</a>
+                </div>
+                <div style="float: right;">
+                  <p href="#" class="btn btn-danger m-3 p-1" style="font-size:15px; background-color:#4D4AEF;">'.$t["rank_desc"].'</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        ';
+      }
+      
+    ?>
 
-    <div class="uu-dai card mb-3" style="max-width: 1300px;">
-      <div class="row no-gutters">
-        <div class="col-lg-3 col-12">
-          <a href="#"><img src="content/image/uudai/uudai1.jpg" class="card-img" alt="..."></a>
-        </div>
-        <div class="col-lg-6 col-12">
-          <div class="card-body">
-            <a href="#" class="btn btn-secondary mb-2" style="font-size: small; background-color:#2D4271;">Vé máy bay +
-              Khách sạn</a>
-            <a href="#"><h5 class="card-title pr-2 mb-1" style="color: #282365; font-size: medium;">VINPEARL PHÚ QUỐC COMBO TRIPU
-              3N2D VINOASIS</h5></a>
-            <p class="mb-0 ml-0 mt-1 mb-1" style="color:#FDC432;"><i class="fas fa-star"></i><i
-                class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                class="fas fa-star"></i></p>
-            <p class="card-text"><small class="text-muted">Vé máy bay khứ hồi + Phòng Standard + Ăn sáng + Đón tiễn sân
-                bay + Tặng 01 ngày vui chơi không giới hạn tại Vinwonder hoặc Safari</small></p>
-          </div>
-        </div>
-        <div class="verticalLine col-lg-3 col-12">
-          <div style="float: right;">
-            <p class="card-text mr-3"><b style="font-size: large; color:#FD5056;">17,940,000đ</b><small
-                class="text-muted">/gia đình 6 khách</small></p>
-          </div>
-          <div style="float: right;">
-            <p class="card-text mb-3 mr-3"><small class="text-muted">Giá chỉ áp dụng khi mua kèm vé máy bay</small></p>
-          </div>
-          <div style="float: right;">
-            <a href="#" class="btn btn-danger mb-2 mr-3" style="font-size: small; background-color: #D74449;"><i
-                class="fas fa-shopping-cart"></i>&#160;Đặt ngay</a>
-          </div>
-          <div style="float: right;">
-            <p href="#" class="btn btn-danger m-3 p-1" style="font-size:15px; background-color:#4D4AEF;">Tặng 01 ngày
-              vui chơi không giới hạn tại Vinwonder hoặc Safari</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
     <button type="button" class="btn btn-light pl-4 pr-4"
       style="float: right; background-color: white; border: 1px solid rgb(202, 200, 194); color: #282365; font-weight: 600;">Xem
       tất cả&#160;&#160;<i class="fas fa-long-arrow-alt-right"></i></button>
