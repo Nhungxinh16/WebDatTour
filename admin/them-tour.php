@@ -45,7 +45,7 @@ include('templates-admin/header.php');
                         <select class="form-select form-select-sm" name="sltMaDV" id="sltMaDV">
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-info" name="submit">Thêm</button>
+                    <button type="submit" class="btn btn-info" name="submit"><a href="index.php">Thêm</a></button>
      
                 </div>
             </form>
