@@ -81,9 +81,9 @@ bấm vào link xác nhận ở mail thì ra trang này -->
                 </h4>
                 <p class="card p-2" style="overflow-y: scroll;height: 300px;">
                     ĐIỀU KIỆN BÁN VÉ CÁC CHƯƠNG TRÌNH DU LỊCH TRONG NƯỚC
-
+                    <br>
                     I. GIÁ VÉ DU LỊCH
-
+                    <br>
                     Giá vé du lịch được tính theo tiền Đồng (Việt Nam - VNĐ). Trường hợp khách thanh toán bằng USD sẽ
                     được quy đổi ra VNĐ theo tỉ giá của ngân hàng Đầu Tư và Phát Triển Việt Nam - Chi nhánh TP.HCM tại
                     thời điểm thanh toán.
