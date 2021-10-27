@@ -2,10 +2,10 @@
    /* require("config/constants.php"); */ 
     require('templates/header.php');
 ?>
-
+<br><br><br><br>
 <body class="app" cz-shortcut-listen="true">
   <div class="container">
-      <div class="pos-a t-0 l-0 bgc-white w-100 h-100 d-f fxd-r fxw-w ai-c jc-c pos-r p-30">
+      <div class="pos-a t-0 l-0 bgc-white w-100 h-100 d-f fxd-r fxw-w ai-c jc-c pos-r p-30 d-flex justify-content-center">
         <div class="mR-60"><img alt="#" src="content/image/404.png"></div>
         <div class="d-f jc-c fxd-c">
           <h1 class="mB-30 fw-900 lh-1 c-red-500" style="font-size:60px">404</h1>
@@ -17,7 +17,7 @@
         </div>
       </div>
     </div>
-
+  <br><br><br><br><br><br><br><br>
   <hr>
   <footer>
     <div class="row justify-content-lg-around mx-xl-5 mx-lg-4 mx-3 py-3">
