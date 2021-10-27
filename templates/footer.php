@@ -1,3 +1,4 @@
+<hr>
 <footer>
     <div class="row mb-0 mt-5 mx-4 row-2 justify-content-xl-around justify-content-sm-between">
       <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 pt-4 order-1">

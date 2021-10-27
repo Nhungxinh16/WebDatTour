@@ -157,7 +157,7 @@
         <button class="btn btn-outline my-2 my-sm-0 mr-1" type="submit"><i class="fas fa-search"></i></button>
       </form>
 
-      <button type="button" class="btn btn-light"><a href="#"><i class="fas fa-user"
+      <button type="button" class="btn btn-light"><a href="login.php"><i class="fas fa-user"
             style="color: black;"></i></a></button>
     </div>
 

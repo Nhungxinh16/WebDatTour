@@ -260,7 +260,6 @@
     ?>
     
   </div>
-  <hr>
 <?php
     include('templates/footer.php')
 ?>
