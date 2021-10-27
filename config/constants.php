@@ -1,4 +1,6 @@
 <?php
+    ob_start();
+    session_start();
     require_once("database-function.php");
 
 /*     ob_start();
