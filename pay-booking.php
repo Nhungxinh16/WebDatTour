@@ -3,6 +3,19 @@ Sau khi bấm đặt tour ở booking xong sẽ gửi link về mail xác nhận
 bấm vào link xác nhận ở mail thì ra trang này -->   
 
 <?php
+    require_once("config/constants.php");
+    $order = null;
+    if(isset($_GET["order_id"]) && $_GET["order_id"] != null){
+      $sql = "select * from orders where order_id = ? and validation = 1 and payment = 0";
+      $order = simpleQuery($sql, 1, [$_GET["order_id"]]);
+      if(count($order) >= 1){
+        $order = $order[0];
+      }else{
+        header("location: index.php");
+      }
+    }else{
+      header("location: index.php");
+    }
     require('templates/header.php');
 ?>
 
@@ -26,141 +39,137 @@ bấm vào link xác nhận ở mail thì ra trang này -->
     <!-- card thanh toán -->
     <div class="col d-flex flex-row-reverse justify-content-between">
       <div class="card" style="width: 30rem;">
-        <div class="card-body justify-content-center">
-          <h5 class="card-title" style="color: #282365;">Tóm tắt chuyến đi</h5>
-          <p class="card-text mb-2"><span class="ml-1" style="color: #282365; font-weight: 500; font-size: normal;">Tour
-              chọn gói</span><span class="ml-1" style="color: #282365;">(6 khách)</span> </p>
-          <img src="content/image/dathang1.jpg" class="img-thumbnail mr-2"
-            style="width:25%; border: none; border-radius: 10px; float: left;">
-          <p class="card-text mr-4" style="color: #282365; font-weight: 500;">Hành trình xanh Cần Giờ (Tàu cao tốc) -
-            Khám phá KDL Sinh thái Dần Xây - Vàm Sát (Nhóm 6 khách)</p>
-          <p class="card-text mb-0"><span class="ml-1" style="color: #282365;">Bắt đầu chuyến đi</span> </p>
-          <p class="card-text mb-4"><span class="ml-1" style="color: #282365; font-weight: 500; font-size: normal;">T5,
-              28 Tháng 10, 2021</span></p>
-          <p class="card-text mb-0"><span class="ml-1" style="color: #282365;">Kết thúc chuyến đi</span> </p>
-          <p class="card-text mb-5"><span class="ml-1" style="color: #282365; font-weight: 500; font-size: normal;">T5,
-              28 Tháng 10, 2021</span></p>
-          <p class="card-text mb-4"><span class="ml-1"
-              style="color: #282365; font-weight: 500; font-size: normal; float: left;">Hành khách</span></p>
-          <div class="form-group">
-            <select class="form-control" style="width:20%; float:right;" id="exampleFormControlSelect1">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-              <option>6</option>
-            </select>
-          </div>
-          <br>
-          <br>
-          <p class="card-text mb-0"><span class="ml-1"
-              style="color: #282365; font-weight: 500; font-size: normal; float: left;">Giá vé</span></p>
-          <p class="card-text mb-4"><span class="ml-1"
-              style="color: #282365; font-weight: 500; font-size: normal; float: right;">6&#160;x&#160;2,990,000₫</span>
-          </p>
+        <?php
+          $sql = "select * from tours, tourtypes where tourtypes.tour_type_id = tours.tour_type_id and tour_id = ?";
+          $tour = simpleQuery($sql, 1, [$order["tour_id"]])[0];
+          $start_time = date_create($order["start_time"]);
+          $end_time = (int) strtotime($order["start_time"]) + (int)$tour["day_count"] * 86400;
+          $end_time = date_create(date("yy-m-d", $end_time));
+          $start_day = date_format($start_time, "d");
+          $start_month = date_format($start_time, "m");
+          $start_year = date_format($start_time, "Y");
+          $end_day = date_format($end_time, "d");
+          $end_month = date_format($end_time, "m");
+          $end_year = date_format($end_time, "Y");
+          echo '
+            <div class="card-body justify-content-center">
+              <h5 class="card-title" style="color: #282365;">Hóa đơn thanh toán</h5>
+              <p class="card-text mb-2"><span class="ml-1" style="color: #282365; font-weight: 500; font-size: normal;">'.$tour["type_name"].'</span> </p>
+              <img src="'.$tour["image_1"].'" class="img-thumbnail mr-2"
+                style="width:25%; border: none; border-radius: 10px; float: left;">
+              <p class="card-text mr-4" style="color: #282365; font-weight: 500;">'.$tour["tour_name"].'</p>
+              <br>
+              <p class="card-text mb-0"><span class="ml-1" style="color: #282365;">Bắt đầu chuyến đi</span> </p>
+              <p class="card-text mb-4"><span class="ml-1" style="color: #282365; font-weight: 500; font-size: normal;">
+                  '.$start_day.' Tháng '.$start_month.', '.$start_year.'</span></p>
+              <p class="card-text mb-0"><span class="ml-1" style="color: #282365;">Kết thúc chuyến đi</span> </p>
+              <p class="card-text mb-5"><span class="ml-1" style="color: #282365; font-weight: 500; font-size: normal;">
+              '.$end_day.' Tháng '.$end_month.', '.$end_year.'</span></p>
+              <p class="card-text mb-4"><span class="ml-1"
+                  style="color: #282365; font-weight: 500; font-size: normal; float: left;">Hành khách</span></p>
+              <p class="card-text mb-4"><span class="ml-1"
+                  style="color: #282365; font-weight: 500; font-size: normal; float: right;">'.$order["people"].'</span>
+              </p>
+              <br>
+              <br>
+              <p class="card-text mb-0"><span class="ml-1"
+                  style="color: #282365; font-weight: 500; font-size: normal; float: left;">Giá vé</span></p>
+              <p class="card-text mb-4"><span class="ml-1"
+                  style="color: #282365; font-weight: 500; font-size: normal; float: right;">'.$order["people"].'&#160;x&#160;'.number_format($tour["price_per_person"], 0, "", ",").'₫</span>
+              </p>
 
-          <br><br><br>
-          <hr>
-          <p class="card-text mb-0"><span class="ml-1"
-              style="color: #282365; font-weight: 500; font-size: normal; float: left;">TỔNG CỘNG</span></p>
-          <p class="card-text mb-4"><span class="ml-1"
-              style="color: #FD5056; font-weight: 500; font-size: x-large; float: right;">17,940,000đ</span></p>
-          <br><br><br>
-          <button type="button" class="btn btn-danger col d-flex justify-content-center p-3"
-            style="background-color: #FD5056; font-size:large; font-weight: 500; border-radius: 10px;">ĐẶT NGAY</button>
-
-
-
-        </div>
+              <br><br><br>
+              <hr>
+              <p class="card-text mb-0"><span class="ml-1"
+                  style="color: #282365; font-weight: 500; font-size: normal; float: left;">TỔNG CỘNG</span></p>
+              <p class="card-text mb-4"><span class="ml-1"
+                  style="color: #FD5056; font-weight: 500; font-size: x-large; float: right;">'.number_format($tour["price_per_person"] * $order["people"], 0, "", ",").'đ</span></p>
+              <br><br><br>
+              <button type="button" id="pay_button" order_id = "'.$order["order_id"].'" class="btn btn-danger col d-flex justify-content-center p-3"
+                style="background-color: #FD5056; font-size:large; font-weight: 500; border-radius: 10px;">THANH TOÁN</button>
+            </div>
+          ';
+        ?>
+      
       </div>
       <div class="col-8 mt-2 pl-0">
         <h2 style="color: #282365;">Thanh toán</h2>
         <br>
         <h4 style="color: #282365; font-weight: 600;">Các hình thức thanh toán</h4>
-        <div class="card-deck mb-2">
-
-          <div class="card" style="border:transparent; background-color: #F9F9F9;">
-            <div class="card-body">
-              <div class="form-check d-flex flex-row-reverse">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" style="width: 20px;
-                height: 20px;">
+        <form action="">
+          <div class="card-deck mb-2">
+            <div class="card" style="border:transparent; background-color: #F9F9F9;">
+              <div class="card-body">
+                <div class="form-check d-flex flex-row-reverse">
+                  <input class="form-check-input" type="radio" name="payment" checked id="flexRadioDefault1" style="width: 20px;
+                  height: 20px;">
+                </div>
+                <label class="form-check-label" style="float: left; color:#282365;">
+                  Tiền mặt
+                </label>
               </div>
-              <label class="form-check-label" style="float: left; color:#282365;">
-                Tiền mặt
-              </label>
+            </div>
+            <div class="card" style="border:transparent; background-color: #F9F9F9;">
+              <div class="card-body">
+                <div class="form-check d-flex flex-row-reverse">
+                  <input class="form-check-input" type="radio" name="payment" id="flexRadioDefault1" style="width: 20px;
+                  height: 20px;">
+                </div>
+                <label class="form-check-label" style="float: left; color:#282365;">
+                  Thẻ tín dụng
+                </label>
+              </div>
             </div>
           </div>
-
-          <div class="card" style="border:transparent; background-color: #F9F9F9;">
-            <div class="card-body">
-              <div class="form-check d-flex flex-row-reverse">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" style="width: 20px;
-                height: 20px;">
+          <div class="card-deck mb-2">
+            <div class="card" style="border:transparent; background-color: #F9F9F9;">
+              <div class="card-body">
+                <div class="form-check d-flex flex-row-reverse">
+                  <input class="form-check-input" type="radio" name="payment" id="flexRadioDefault1" style="width: 20px;
+                  height: 20px;">
+                </div>
+                <label class="form-check-label" style="float: left; color:#282365;">
+                  Chuyển khoản
+                </label>
               </div>
-              <label class="form-check-label" style="float: left; color:#282365;">
-                Thẻ tín dụng
-              </label>
+            </div>
+            <div class="card" style="border:transparent; background-color: #F9F9F9;">
+              <div class="card-body">
+                <div class="form-check d-flex flex-row-reverse">
+                  <input class="form-check-input" type="radio" name="payment" id="flexRadioDefault1" style="width: 20px;
+                  height: 20px;">
+                </div>
+                <label class="form-check-label" style="float: left; color:#282365;">
+                  Thanh toán bằng mã QRCode
+                </label>
+              </div>
             </div>
           </div>
-
-        </div>
-
-        <div class="card-deck mb-2">
-
-          <div class="card" style="border:transparent; background-color: #F9F9F9;">
-            <div class="card-body">
-              <div class="form-check d-flex flex-row-reverse">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" style="width: 20px;
-                height: 20px;">
+          <div class="card-deck mb-2">
+            <div class="card" style="border:transparent; background-color: #F9F9F9;">
+              <div class="card-body">
+                <div class="form-check d-flex flex-row-reverse">
+                  <input class="form-check-input" type="radio" name="payment" id="flexRadioDefault1" style="width: 20px;
+                  height: 20px;">
+                </div>
+                <label class="form-check-label" style="float: left; color:#282365;">
+                  ATM / Internet Banking
+                </label>
               </div>
-              <label class="form-check-label" style="float: left; color:#282365;">
-                Chuyển khoản
-              </label>
+            </div>
+            <div class="card" style="border:transparent; background-color: #F9F9F9;">
+              <div class="card-body">
+                <div class="form-check d-flex flex-row-reverse">
+                  <input class="form-check-input" type="radio" name="payment" id="flexRadioDefault1" style="width: 20px;
+                  height: 20px;">
+                </div>
+                <label class="form-check-label" style="float: left; color:#282365;">
+                  Thanh toán bằng Momo
+                </label>
+              </div>
             </div>
           </div>
-
-          <div class="card" style="border:transparent; background-color: #F9F9F9;">
-            <div class="card-body">
-              <div class="form-check d-flex flex-row-reverse">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" style="width: 20px;
-                height: 20px;">
-              </div>
-              <label class="form-check-label" style="float: left; color:#282365;">
-                Thanh toán bằng mã QRCode
-              </label>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="card-deck mb-2">
-
-          <div class="card" style="border:transparent; background-color: #F9F9F9;">
-            <div class="card-body">
-              <div class="form-check d-flex flex-row-reverse">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" style="width: 20px;
-                height: 20px;">
-              </div>
-              <label class="form-check-label" style="float: left; color:#282365;">
-                ATM / Internet Banking
-              </label>
-            </div>
-          </div>
-
-          <div class="card" style="border:transparent; background-color: #F9F9F9;">
-            <div class="card-body">
-              <div class="form-check d-flex flex-row-reverse">
-                <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" style="width: 20px;
-                height: 20px;">
-              </div>
-              <label class="form-check-label" style="float: left; color:#282365;">
-                Thanh toán bằng Momo
-              </label>
-            </div>
-          </div>
-
-        </div>
+        </form>
 
         <!-- điều khoản -->
         <br>
@@ -224,11 +233,9 @@ bấm vào link xác nhận ở mail thì ra trang này -->
           <br>
 
           
-
-          
         </div>
         <div class="form-check mt-2">
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" style="width:25px; height: 25px;">
+          <input class="form-check-input" type="checkbox" id="agree" a="hoang" style="width:25px; height: 25px;">
           <label class="form-check-label" for="defaultCheck1">
             <p class="ml-3 mt-1"><small style="color: #282365; font-size:15px ; ">Tôi đồng ý với các điều kiện trên</small></p>
           </label>
@@ -236,7 +243,6 @@ bấm vào link xác nhận ở mail thì ra trang này -->
       </div>
     </div>
   </div>
-
 <?php
   include('templates/footer.php')
 ?>

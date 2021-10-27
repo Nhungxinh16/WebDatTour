@@ -29,8 +29,8 @@
                                     <td>$1200</td>
                                     <td>Television</td>
                                     <td>Jonny</td>
-                                    <td><a href="#">Sửa</a></td>
-                                    <td><a href="#">xóa</a></td>
+                                    <td><a href="#"><i class="fas fa-edit"></i></a></td>
+                                    <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
                                 </tr>
                             </tbody>
                         </table>

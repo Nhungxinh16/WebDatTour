@@ -11,9 +11,9 @@ include('templates-admin/header.php');
             <div class="text-center text-danger">
             </div>
         </div>
-  <!-- sửa -->
+  <!-- Thêm -->
         <div class="container col-md-12 mx-auto">
-            <form action="process-add.php" METHOD="POST">
+            <form action="QLKS.php" METHOD="POST">
                 <div class="col-md-6 mx-auto">
                     <div class="input-group mb-2">
                         <span class="input-group-text col-3">Tên khách sạn</span>
@@ -29,7 +29,7 @@ include('templates-admin/header.php');
                         <span class="input-group-text col-3" >Đánh giá</span>
                         <input type="text" class="form-control" name= "txtmayban" placeholder="Nhập số sao">
                     </div>
-                    <button type="submit" class="btn btn-info" name="submit"> <a href="QLKS.php">Thêm</a> </button>
+                    <button type="submit" class="btn btn-info" name="submit">Thêm</button>
      
                 </div>
             </form>

@@ -33,8 +33,8 @@ nó dùng để quản lý người dùng -->
                                     <td>Nhung@gmail.com</td>
                                     <td>0375559999</td>
                                     <td>Nữ</td>
-                                    <td><a href="#">Sửa</a></td>
-                                    <td><a href="#">xóa</a></td>
+                                    <td><a href="#"><i class="fas fa-edit"></i></a></td>
+                                    <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
                                 </tr>
                             </tbody>
                         </table>

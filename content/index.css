@@ -115,3 +115,30 @@ height: 200px;
   background: white;
   position: absolute;
 }
+
+.h-booking-detail{
+  border: 1px solid #5d5d5d;
+  border-radius: 5px;
+}
+
+.h-heading{
+  color: #fd5056;
+  padding: 0px 0px 5px 0px;
+  border-bottom: 1px solid #5d5d5d;
+  margin-bottom: 10px;
+}
+
+.h-label{
+  font-family: mulish,sans-serif;
+  font-weight: 700;
+  margin-bottom: 16px;
+  font-size: 13px;
+
+}
+
+.h-text{
+  font-family: mulish,sans-serif;
+  font-weight: 700;
+  margin-bottom: 16px;
+  font-size: 13px;
+}
