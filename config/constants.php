@@ -1,6 +1,8 @@
 <?php
-    require_once("database-function.php");
-
+require_once("database-function.php");
+if (!isset($_SESSION)) {
+    session_start();
+}
 /*     ob_start();
     //Start Session
     session_start();
@@ -14,6 +16,3 @@
     
     $conn = mysqli_connect(LOCALHOST, DB_USERNAME, DB_PASSWORD) or die(mysqli_error()); //Database Connection
     $db_select = mysqli_select_db($conn, DB_NAME) or die(mysqli_error()); //SElecting Database */
-
-
-?>

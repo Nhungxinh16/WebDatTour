@@ -348,3 +348,8 @@ footer .copy-right {
   border-top: 1 px solid #7d8fab;
   padding: 20 px 0 50 px;
 }
+.taks {
+  min-width: 400px;
+  max-width: 400px;
+  margin-bottom: 15px !important;
+}
