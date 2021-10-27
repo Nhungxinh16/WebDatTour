@@ -52,6 +52,15 @@ nó đang ở chỗ quản lý tour
                 </div>
                 <button type="button" class="btn btn-primary" style="margin-bottom: 12px"><a href="them-tour.php" class="text-white">Thêm</a></button>
 
+          <div>
+            <form action="export_import.php" method="POST" enctype="multipart/form-data">
+                <input type="file" name="file_import">
+                <button class="btn btn-dark" type="submit" name="import">IMPORT</button>
+            </form>
+            <form action="export_import.php" method="POST" enctype="multipart/form-data">
+                <button class="btn btn-dark" type="submit" name="export">EXPORT</button>
+            </form>
+          </div>
 
 <?php
     include('templates-admin/footer.php')

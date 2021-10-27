@@ -4,87 +4,29 @@
         <ul class="list-unstyled">
           <li class="mt-md-0 mt-4 font-weight-bold mb-2 ml-5" style="color: #282365;">Du lịch trong nước</li>
           <ul class="list-unstyled ml-5" style="float: left;">
-            <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Hà Nội</a></li>
-            <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Hải Phòng</a></li>
-            <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Hạ Long</a></li>
-            <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Huế</a></li>
-            <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Quảng Bình</a></li>
-            <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Đà Nẵng</a></li>
-            <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Quảng Nam</a></li>
-            <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Nha Trang</a></li>
-          </ul>
-          <ul class="list-unstyled ml-5" style="float: left;">
-            <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Đà Lạt</a></li>
-            <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Phan Thiết</a></li>
-            <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Bà Rịa - Vũng Tàu</a></li>
-            <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Phú Quốc</a></li>
-            <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Cần Thơ</a></li>
-            <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Cần Thơ</a></li>
-            <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Hà Giang</a></li>
-            <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Côn Đảo</a></li>
+            <?php
+              $sql = "select * from cities limit 8";
+              $cities = simpleQuery($sql);
+              foreach($cities as $city){
+                echo '
+                  <li class="mt-2 mb-2"><a href="danhsach.php?city='.$city["city_id"].'" style="color: #282365;">'.$city["city_name"].'</a></li>
+                ';
+              }
+            ?>
           </ul>
         </ul>
       </div>
 
-      <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 pt-4 order-1">
-        <ul class="list-unstyled">
-          <li class="mt-md-0 mt-4 font-weight-bold mb-2 ml-5" style="color: #282365;">Du lịch nước ngoài</li>
-          <ul class="list-unstyled ml-5" style="float: left;">
-            <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Trung Quốc</a></li>
-            <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Thái Lan</a></li>
-            <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Malaysia</a></li>
-            <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Singapore</a></li>
-            <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Hàn Quốc</a></li>
-            <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Úc</a></li>
-            <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Mỹ - Hoa Kỳ</a></li>
-            <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Nhật Bản</a></li>
-          </ul>
-          <ul class="list-unstyled ml-5" style="float: left;">
-            <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Ấn Độ</a></li>
-            <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Philippines</a></li>
-            <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Maldives</a></li>
-            <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Na Uy</a></li>
-            <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Tây Ban Nha</a></li>
-            <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Hà Lan</a></li>
-            <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Đức</a></li>
-            <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Anh</a></li>
-          </ul>
-        </ul>
-      </div>
       <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 pt-4 order-2">
         <ul class="list-unstyled">
           <li class="mt-md-0 mt-4 font-weight-bold">Dòng tour</li>
-          <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Cao cấp</a></li>
-          <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Tiêu chuẩn</a></li>
-          <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Tiết kiệm</a></li>
-          <li class="mt-2 mb-2"><a href="#" style="color: #282365;">Giá tốt</a></li>
-        </ul>
-      </div>
-      <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6 pt-4 order-2">
-        <ul class="list-unstyled">
-          <li class="mt-md-0 mt-4 font-weight-bold mb-2 ml-5" style="color: #282365;">Ứng dụng di động</li>
-          <ul class="list-unstyled ml-5" style="float: left;">
-            <li class="mt-2 mb-2">
-              <a href="#" style="color: #282365;"><img src="content/image/googleplay.png" style="width: 40%;"
-                  alt=""></a>
-              <a href="#"><img src="content/image/appstore.png" style="width: 40%;" alt=""></a>
-              <img src="content/image/google-qr.png" alt="">
-              <img src="content/image/ios-qr.png" alt="">
-            </li>
-            <li class="mt-2 mb-2">
-              <p href="#" style="color: #282365; float: left;">Android</p>
-            </li>
-            <li class="mt-2 mb-2">
-              <p href="#" style="color: #282365; float: left; margin-left: 65px;">IOS</p>
-            </li>
-          </ul>
-        </ul>
-        <ul class="list-unstyled">
-          <li>
-
-          </li>
-          <li><a class="fa fa-facebook"></a><a class="fa fa-twitter"></a><a class="fa fa-instagram"></a><a
-              class="fa fa-linkedin"></a></li>
+          <?php
+            $sql = "select * from ranks limit 8";
+            $rows = simpleQuery($sql);
+            foreach($rows as $row){
+              echo '<li class="mt-2 mb-2"><a href="danhsach.php?rank='.$row["rank_id"].'" style="color: #282365;">'.$row["rank_name"].'</a></li>';
+            }
+          ?>
         </ul>
       </div>
     </div>
@@ -149,9 +91,6 @@
 
 
         <ul class="list-unstyled">
-          <li>
-            <p class="mb-0 pb-0 mt-5">LIÊN HỆ VỚI CHÚNG TÔi NGAY HÔM NAY</p>
-          </li>
           <li><a class="fa fa-facebook"></a><a class="fa fa-twitter"></a><a class="fa fa-instagram"></a><a
               class="fa fa-linkedin"></a></li>
         </ul>
