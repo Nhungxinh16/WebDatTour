@@ -14,6 +14,15 @@
             }else{
                 echo "no";
             }
+        }else if($mode == "payment"){
+            $order_id = $_POST["order_id"];
+            $sql = "update orders set payment = 1 where order_id = ?";
+            $result = simpleQuery($sql, 0, [$order_id]);
+            if($result){
+                echo "ok";
+            }else{
+                echo "no";
+            }
         }
     }else{
         echo "no";

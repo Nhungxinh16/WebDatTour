@@ -163,5 +163,34 @@ $("#order_now").click(function(){
   }
 });
 
+$("#agree").change(function(){
+  if(this.checked){
+    $("#agree").attr("agree", "1");
+  }else{
+    $("#agree").attr("agree", "0");
+  }
+});
+$("#pay_button").click(function(){
+  let value = $("#agree").attr("agree");
+  if(value == 1){
+    $("#pay_button").prop('disabled', true);
+    let order_id = $("#pay_button").attr("order_id");
+    $.post("ajax/ajax.php",
+    {
+      mode: "payment",
+      order_id: order_id,
+    },
+    function(data, status){
+      if(data == "ok"){
+        alert("Thanh toán thành công, chúc quý khách tận hưởng chuyến đi vui vẻ!");
+        setTimeout(function(){ location.replace("index.php"); },1000);
+      }else{
+        alert(data);
+      }
+    });
+  }else{
+    alert("Hãy đồng ý với các điều khoản để tiếp tục!");
+  }
+});
 
 });
