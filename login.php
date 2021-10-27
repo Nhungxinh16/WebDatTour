@@ -1,5 +1,5 @@
 <?php
-include('templates/header-login.php')
+include('templates/header-login.php');
 ?>
  <body>
   
@@ -14,15 +14,25 @@ include('templates/header-login.php')
             <div class="mb-4">
               <h3>Đăng Nhập</h3>
             </div>
-            <form action="#" method="post">
+            <?php
+                                
+                                if(isset($_SESSION['login'])){
+                                    echo $_SESSION['login'];
+                                    unset ($_SESSION['login']);
+                                }
+                                if(isset($_SESSION['reg_success'])){
+                                    echo $_SESSION['reg_success'];
+                                    unset ($_SESSION['reg_success']);
+                                }
+                                            
+                            ?>
+            <form action="" method="POST">
               <div class="form-group first">
-                <label for="username">Tài Khoản</label>
-                <input type="text" class="form-control" id="username">
+                <input type="text" class="form-control" name="username" id="username" placeholder="Tài khoản">
 
               </div>
               <div class="form-group last mb-3">
-                <label for="password">Mật Khẩu</label>
-                <input type="password" class="form-control" id="password">
+                <input type="password" class="form-control" name="password" id="password" placeholder="mật khẩu">
                 
               </div>
               
@@ -33,8 +43,10 @@ include('templates/header-login.php')
                 </label>
                 <span class="ml-auto"><a href="#" class="forgot-pass">Quên Mật Khẩu?</a></span> 
               </div>
-
-              <input type="submit" value="Đăng Nhập" class="btn btn-block btn-primary">
+              <div class='d-flex flex-row'>
+                <button type="submit" name="login" value="Đăng Nhập" class="btn btn-block btn-primary">Đăng Nhập</button>
+                <input type="submit" name="signup" value="Đăng Kí" class="btn btn-block btn-primary mt-0 ms-2" style='background-color: #1da1f2; border-color: #1da1f2;'>
+              </div>
 
               <span class="d-block text-center my-4 text-muted">&mdash; or &mdash;</span>
               
@@ -60,4 +72,32 @@ include('templates/header-login.php')
   </body>
 <?php
 include('templates/footer.php')
+?>
+<?php
+  if(isset($_POST['login'])){ 
+    $username= $_POST['username'];
+    $password= $_POST['password'];
+    $sql= "select * from customers where user_name ='$username'";
+    $result_1 = mysqli_query($conn,$sql);
+
+    if(mysqli_num_rows($result_1)>0){
+        $row= mysqli_fetch_assoc($result_1);
+        $pass_saved = $row ['password'];
+
+      if(password_verify($password, $passs_saved)){
+        $_SESSION['login']= "<div class='text-success'>Đăng nhập thành công.</div>";
+        $_SESSION['user']=$username;
+        header('location: http://localhost/webDatTour/');
+      }
+      else {
+        $_SESSION['login']="<div class='text-danger'>Sai mật khẩu</div>";
+        header("Location:login.php");
+      }
+    }
+    else{
+      $_SESSION['login']="<div class='text-danger'>Sai tài khoản</div>";
+      header("Location:login.php");
+    }
+  }
+  ob_end_flush();
 ?>
