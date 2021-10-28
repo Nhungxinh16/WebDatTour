@@ -17,17 +17,17 @@ include('templates-admin/header.php');
                 <div class="col-md-6 mx-auto">
                     <div class="input-group mb-2">
                         <span class="input-group-text col-3">Tên khách sạn</span>
-                        <input type="text" class="form-control" name= "txthoten" placeholder="Nhập tên khách sạn">
+                        <input type="text" class="form-control" name= "hotel_name" placeholder="Nhập tên khách sạn" required>
                     </div>
 
                     <div class="input-group mb-2">
                         <span class="input-group-text col-3" >Địa chỉ khách sạn</span>
-                        <input type="text" class="form-control" name= "txtchucvu" placeholder="Nhập địa chỉ khách sạn">
+                        <input type="text" class="form-control" name= "address" placeholder="Nhập địa chỉ khách sạn" required>
                     </div>
                     
                     <div class="input-group mb-2">
                         <span class="input-group-text col-3" >Đánh giá</span>
-                        <input type="text" class="form-control" name= "txtmayban" placeholder="Nhập số sao">
+                        <input type="text" class="form-control" name= "rating" placeholder="Nhập số sao" required>
                     </div>
                     <button type="submit" class="btn btn-info" name="submit">Thêm</button>
      

@@ -171,7 +171,7 @@ nó dùng để quản lý đặt tour -->
                             </thead>
                             <tbody>
                                 <?php
-                                    $sql = "select * from orders, tours, customers where orders.customer_id = customers.customer_id and orders.tour_id = tours.tour_id and orders.validation > 0 and orders.payment > 0 order by orders.order_id desc";
+                                    $sql = "select * from orders, tours, customers where orders.customer_id = customers.customer_id and orders.tour_id = tours.tour_id and orders.validation > 0 and orders.payment >= 0 order by orders.order_id desc";
                                     $rows = simpleQuery($sql);
                                     $i = 1;
                                     foreach($rows as $row){
