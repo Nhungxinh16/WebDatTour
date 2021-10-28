@@ -178,9 +178,9 @@ if (isset($_POST['submit'])) {
         $res = mysqli_query($conn, $sql);
 
         if ($res) {
-            require './sendEmai/Exception.php';
-            require './sendEmai/PHPMailer.php';
-            require './sendEmai/SMTP.php';
+            require './phpmailer/Exception.php';
+            require './phpmailer/PHPMailer.php';
+            require './phpmailer/SMTP.php';
 
             // Instantiation and passing `true` enables exceptions
             $mail = new PHPMailer(true);
@@ -191,15 +191,15 @@ if (isset($_POST['submit'])) {
                 $mail->isSMTP(); // gửi mail SMTP
                 $mail->Host = 'smtp.gmail.com'; // Set the SMTP server to send through
                 $mail->SMTPAuth = true; // Enable SMTP authentication
-                $mail->Username = 'congvip17a17@gamil.com'; // SMTP username
-                $mail->Password = 'itgenusfjomtvalq'; // SMTP password
+                $mail->Username = 'tuyetnhung01062001@gmail.com'; // SMTP username
+                $mail->Password = 'jloxdoqxyzologor'; // SMTP password
                 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
                 $mail->Port = 587; // TCP port to connect to
                 $mail->CharSet = 'UTF-8';
                 //Recipients
-                $mail->setFrom('viethungtlu2k1@gmail.com', 'Danh bạ Đại học Thủy Lợi');
+                $mail->setFrom('tuyetnhung01062001@gmail.com', 'MyTour.com - Du lịch khắp mọi nơi');
 
-                $mail->addReplyTo('viethungtlu2k1@gmail.com', 'Đại học Thủy Lợi'); // nhận phải hồi từ người nhận
+                $mail->addReplyTo('tuyetnhung01062001@gmail.com', 'MyTour.com - Du lịch khắp mọi nơi'); // nhận phải hồi từ người nhận
                 //$email = 'viethung3052001@gmail.com';
                 $mail->addAddress($email); // Add a recipient // dia chi ng nhan
 
@@ -209,15 +209,19 @@ if (isset($_POST['submit'])) {
 
                 // Content
                 $mail->isHTML(true);   // Set email format to HTML
-                $tieude = 'Kích hoạt tài khoản Danh Bạ';
-                $mail->Subject = $tieude;
+                $subject = 'MyTour kính chào quý khách';
+                $mail->Subject = $subject;
 
                 $link = "http://localhost/webdattour/activeUser.php?email=" . $email . "&code=" . $code;
                 // Mail body content 
-                $bodyContent = '<p>Thân gửi <b>NVHung</b></h1>';
-                $bodyContent .= '<p>Bạn vui lòng nhấp vào đường linh dưới đây để kích hoạt tài khoản</p>';
-                $bodyContent .= '<a href=' . $link . '>Kích hoạt</a>';
-
+                $bodyContent = '
+                    <p>Cảm ơn quý khách đã đăng kí tour trên MyTour.</p>
+                    <p>Xin quý khách vui lòng vào đường <a href=' . $link . '>Kích hoạt</a> 
+                    này để có thể thanh toán tour. Thời hạn thanh toán
+                    là 2 ngày kể từ ngày quý khách đăng kí. Nếu quý khách không thanh toán đúng hạn, thì 
+                    yêu cầu đặt tour của quý khách sẽ bị hủy bỏ.</p>
+                    <p>Kính mến!</p>
+                ';
                 $mail->Body = $bodyContent;
                 // // $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
                 if ($mail->send()) {

@@ -136,8 +136,8 @@ include("./config/database-connection.php");
 
       <!--  Tìm kiếm trong thanh menu  -->
 
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-1 sm-2 border-warning" type="search" placeholder="Bắt đầu tìm kiếm..." aria-label="Search">
+      <form class="form-inline my-2 my-lg-0" method="GET" action="listtour.php">
+        <input class="form-control mr-1 sm-2 border-warning" type="text" name="search" placeholder="Bắt đầu tìm kiếm..." aria-label="Search">
         <button class="btn btn-outline my-2 my-sm-0 mr-1" type="submit"><i class="fas fa-search"></i></button>
       </form>
 
