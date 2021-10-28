@@ -1,43 +1,14 @@
 <?php
 include('templates/header-login.php')
 ?>
-
+<?php
+  $sql= 'SELECT * FROM tours, restaurants, hotels, tourguides WHERE tours.hotel_id=hotels.hotel_id AND tours.res_id=restaurants.res_id AND tours.tour_guide_id=tourguides.tour_guide_id AND tour_id=23;';
+  $query= mysqli_query($conn,$sql);
+  $row= mysqli_fetch_assoc($query);  
+?>
 <main role="main">
     <div class="tour-detail">
 
-        <div class="container">
-            <div class="row">
-                <ul class="breadcrumbs__wrapper d-flex align-items-center" itemscope=""
-                    itemtype="http://schema.org/BreadcrumbList">
-                    <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a
-                            href="https://travel.com.vn/" itemprop="item"><span itemprop="name">Du lịch</span></a>
-                        <meta itemprop="position" content="1">
-                    </li> » <li><i class="icon icon--chevron - right px - 2"></i></li>
-                    <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a
-                            href="https://travel.com.vn/du-lich-viet-nam.aspx" itemprop="item"><span itemprop="name">Du
-                                lịch trong nước</span></a>
-                        <meta itemprop="position" content="2">
-                    </li> » <li><i class="icon icon--chevron - right px - 2"></i></li>
-                    <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a
-                            href="https://travel.com.vn/du-lich-viet-nam/tour-mien-tay.aspx" itemprop="item"><span
-                                itemprop="name">Tour Miền Tây Nam Bộ</span></a>
-                        <meta itemprop="position" content="3">
-                    </li> » <li><i class="icon icon--chevron - right px - 2"></i></li>
-                    <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a
-                            href="https://travel.com.vn/du-lich-phu-quoc.aspx" itemprop="item"><span itemprop="name">Du
-                                lịch Phú Quốc</span></a>
-                        <meta itemprop="position" content="4">
-                    </li> » <li><i class="icon icon--chevron - right px - 2"></i></li>
-                    <li itemprop="itemListElement" itemscope="" itemtype="http://schema.org/ListItem"><a
-                            href="https://travel.com.vn/tourNDSGN907-029-121121VN-P/phu-quoc-trai-nghiem-di-bo-duoi-day-bien-tour-4-dao-nghi-dem-tai-premier-village-bay-cung-hang-khong-vietnam-airlines-hang-thuong-gia.aspx"
-                            itemprop="item"><span itemprop="name">Phú Quốc - Trải nghiệm Đi Bộ Dưới Đáy Biển - Tour 4
-                                Đảo - Nghỉ đêm tại Premier Village - Bay cùng hàng không Vietnam Airlines hạng Thương
-                                Gia</span></a>
-                        <meta itemprop="position" content="5">
-                    </li>
-                </ul>
-            </div>
-        </div>
         <div class="entry-head">
 
             <section class="section-01">
@@ -47,8 +18,7 @@ include('templates/header-login.php')
                             <div class="warp-mark">
                                 <i class="fal fa-ticket"></i><label>NDSGN907-029-121121VN-P</label>
                             </div>
-                            <h1 class="title">Phú Quốc - Trải nghiệm Đi Bộ Dưới Đáy Biển - Tour 4 Đảo - Nghỉ đêm tại
-                                Premier Village - Bay cùng hàng không Vietnam Airlines hạng Thương Gia</h1>
+                            <h1 class="title"><?php echo $row['tour_name']?></h1>
                             <div class="short-rating">
                                 <div class="s-rate">
                                     <span>9.08</span>
