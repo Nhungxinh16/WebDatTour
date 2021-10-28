@@ -1,8 +1,17 @@
 <!-- Trang này dùng để quản lý cấp tour -->
 
 <?php
-/*     require("config/constants.php"); */
+    require("../config/constants.php");
+    $_SESSION["nav"] = "ranks";
     require('templates-admin/header.php');
+    if(isset($_SESSION["alert"])){
+        $message = $_SESSION["alert"];
+        unset($_SESSION["alert"]);
+        echo '<script>
+                alert("'.$message.'");
+            </script>
+        ';
+    }
 ?>
 
             <div class="container-fluid px-4">
@@ -15,19 +24,27 @@
                                 <tr>
                                     <th scope="col" width="50">#</th>
                                     <th scope="col">Tên cấp</th>
-                                    <th scope="col">Miêu tả</th>
                                     <th scope="col">Sửa</th>
                                     <th scope="col">Xóa</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Tiêu chuẩn</td>
-                                    <td>tặng 1 chuyến bay</td>
-                                    <td><a href="#"><i class="fas fa-edit"></i></a></td>
-                                    <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                                </tr>
+                                <?php
+                                    $sql = "select * from ranks";
+                                    $rows = simpleQuery($sql);
+                                    $i = 1;
+                                    foreach($rows as $row){
+                                        echo '
+                                            <tr>
+                                                <th scope="row">'.$i.'</th>
+                                                <td>'.$row["rank_name"].'</td>
+                                                <td><a href="#"><i class="fas fa-edit"></i></a></td>
+                                                <td><a href="xoa.php?ranks=&id='.$row["rank_id"].'"><i class="fas fa-trash-alt"></i></a></td>
+                                            </tr>
+                                        ';
+                                        $i++;
+                                    }
+                                ?>
                             </tbody>
                         </table>
                     </div>

@@ -19,23 +19,23 @@
             <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom"><i
                     class="fas fa-user-secret me-2"></i>Admin</div>
             <div class="list-group list-group-flush my-3">
-                <a href="index.php" class="list-group-item list-group-item-action bg-transparent second-text active"><i
+                <a href="index.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold <?php if($_SESSION["nav"] == "tours") echo "active"; ?>"><i
                         class="fas fa-tachometer-alt me-2"></i>Quản lý tour</a>
-                <a href="QLKS.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                <a href="QLKS.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold <?php if($_SESSION["nav"] == "hotels") echo "active"; ?>"><i
                         class="fas fa-project-diagram me-2"></i>Quản lý khách sạn</a>
-                <a href="QLNH.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                <a href="QLNH.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold <?php if($_SESSION["nav"] == "restaurants") echo "active"; ?>"><i
                         class="fas fa-chart-line me-2"></i>Quản lý nhà hàng</a>
-                <a href="QLDDTour.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                <a href="QLDDTour.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold <?php if($_SESSION["nav"] == "orders") echo "active"; ?>"><i
                         class="fas fa-paperclip me-2"></i>Quản lý đơn đặt tour</a>
-                <a href="QLND.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                <a href="QLND.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold <?php if($_SESSION["nav"] == "customers") echo "active"; ?>"><i
                         class="fas fa-shopping-cart me-2"></i>Quản lý người dùng</a>
-                <a href="QLTP.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                <a href="QLTP.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold <?php if($_SESSION["nav"] == "cities") echo "active"; ?>"><i
                         class="fas fa-shopping-cart me-2"></i>Quản lý thành phố</a>
-                <a href="QLCapTour.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                <a href="QLCapTour.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold <?php if($_SESSION["nav"] == "ranks") echo "active"; ?>"><i
                         class="fas fa-shopping-cart me-2"></i>Cấp bậc tour</a>
-                <a href="QLLoaiTour.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                <a href="QLLoaiTour.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold <?php if($_SESSION["nav"] == "tourtypes") echo "active"; ?>"><i
                         class="fas fa-shopping-cart me-2"></i>Loại tour</a>
-                <a href="QLHDVien.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
+                <a href="QLHDVien.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold <?php if($_SESSION["nav"] == "tourguides") echo "active"; ?>"><i
                         class="fas fa-shopping-cart me-2"></i>Hướng dẫn viên</a>
                 <a href="logout.php" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Đăng xuất</a>

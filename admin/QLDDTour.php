@@ -3,6 +3,7 @@ nó dùng để quản lý đặt tour -->
 
 <?php
     require("../config/constants.php");
+    $_SESSION["nav"] = "orders";
     // Hủy các orders mà 2 ngày chưa thanh toán
     $now = date("Y-m-d");
     $last_time = (int) strtotime($now) - (int) 2 * 86400;
@@ -171,7 +172,7 @@ nó dùng để quản lý đặt tour -->
                             </thead>
                             <tbody>
                                 <?php
-                                    $sql = "select * from orders, tours, customers where orders.customer_id = customers.customer_id and orders.tour_id = tours.tour_id and orders.validation > 0 and orders.payment >= 0 order by orders.order_id desc";
+                                    $sql = "select * from orders, tours, customers where orders.customer_id = customers.customer_id and orders.tour_id = tours.tour_id and orders.validation > 0 and orders.payment > 0 order by orders.order_id desc";
                                     $rows = simpleQuery($sql);
                                     $i = 1;
                                     foreach($rows as $row){

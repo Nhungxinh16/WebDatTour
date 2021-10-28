@@ -1,6 +1,15 @@
 <?php
-/*     require("config/constants.php"); */
+    require("../config/constants.php");
+    $_SESSION["nav"] = "tourguides";
     require('templates-admin/header.php');
+    if(isset($_SESSION["alert"])){
+        $message = $_SESSION["alert"];
+        unset($_SESSION["alert"]);
+        echo '<script>
+                alert("'.$message.'");
+            </script>
+        ';
+    }
 ?>
 
             <div class="container-fluid px-4">
@@ -16,22 +25,36 @@
                                     <th scope="col">Giới tính</th>
                                     <th scope="col">Email</th>
                                     <th scope="col">Số điện thoại</th>
-                                    <th scope="col">Ảnh</th>
                                     <th scope="col">Sửa</th>
                                     <th scope="col">Xóa</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Television</td>
-                                    <td>Jonny</td>
-                                    <td>$1200</td>
-                                    <td>Television</td>
-                                    <td>Jonny</td>
-                                    <td><a href="#"><i class="fas fa-edit"></i></a></td>
-                                    <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                                </tr>
+                                <?php
+                                    $sql = "select * from tourguides";
+                                    $rows = simpleQuery($sql);
+                                    $i = 1;
+                                    foreach($rows as $row){
+                                        echo '
+                                            <tr>
+                                                <th scope="row">'.$i.'</th>
+                                                <td>'.$row["name"].'</td>
+                                                <td>';
+                                                    if($row["gender"] == 0){
+                                                        echo "Nữ";
+                                                    }else{
+                                                        echo "Nam";
+                                                    }
+                                                echo '</td>
+                                                <td>'.$row["email"].'</td>
+                                                <td>'.$row["phone_number"].'</td>
+                                                <td><a href="#"><i class="fas fa-edit"></i></a></td>
+                                                <td><a href="xoa.php?tourguides=&id='.$row["tour_guide_id"].'"><i class="fas fa-trash-alt"></i></a></td>
+                                            </tr>
+                                        ';
+                                        $i++;
+                                    }
+                                ?>
                             </tbody>
                         </table>
                     </div>
