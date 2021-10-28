@@ -3,12 +3,20 @@ nó dùng để quản lý các khách sạn -->
 
 
 <?php
-/*     require("config/constants.php"); */
+    require("../config/constants.php");
+    $_SESSION["nav"] = "hotels";
     require('templates-admin/header.php');
+    if(isset($_SESSION["alert"])){
+        $message = $_SESSION["alert"];
+        unset($_SESSION["alert"]);
+        echo '<script>
+                alert("'.$message.'");
+            </script>
+        ';
+    }
 ?>
 
             <div class="container-fluid px-4">
-
                 <div class="row my-5">
                     <h3 class="fs-4 mb-3">Quản lý khách sạn</h3>
                     <div class="col">
@@ -24,14 +32,25 @@ nó dùng để quản lý các khách sạn -->
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>khách sạn 1</td>
-                                    <td>Hà Nội</td>
-                                    <td>3 sao</td>
-                                    <td><a href="#"><i class="fas fa-edit"></i></a></td>
-                                    <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                                </tr>
+                                <?php
+                                    $sql = "select * from hotels";
+                                    $rows = simpleQuery($sql);
+                                    $i = 1;
+                                    foreach($rows as $row){
+                                        echo '
+                                            <tr>
+                                                <th scope="row">'.$i.'</th>
+                                                <td>'.$row["hotel_name"].'</td>
+                                                <td>'.$row["address"].'</td>
+                                                <td>'.$row["rating"].' sao</td>
+                                                <td><a href="#"><i class="fas fa-edit"></i></a></td>
+                                                <td><a href="xoa.php?hotels=&id='.$row["hotel_id"].'"><i class="fas fa-trash-alt"></i></a></td>
+                                            </tr>
+                                        ';
+                                        $i++;
+                                    }
+                                ?>
+                                
                             </tbody>
                         </table>
                     </div>

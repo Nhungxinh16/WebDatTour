@@ -3,12 +3,19 @@ nó dùng để quản lý nhà hàng -->
 
 
 <?php
-/*     require("config/constants.php"); */
+    require("../config/constants.php");
+    $_SESSION["nav"] = "restaurants";
     require('templates-admin/header.php');
+    if(isset($_SESSION["alert"])){
+        $message = $_SESSION["alert"];
+        unset($_SESSION["alert"]);
+        echo '<script>
+                alert("'.$message.'");
+            </script>
+        ';
+    }
 ?>
-
             <div class="container-fluid px-4">
-
                 <div class="row my-5">
                     <h3 class="fs-4 mb-3">Quản lý nhà hàng</h3>
                     <div class="col">
@@ -24,14 +31,24 @@ nó dùng để quản lý nhà hàng -->
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>nhà hàng 1</td>
-                                    <td>Hà Nội</td>
-                                    <td>3 sao</td>
-                                    <td><a href="#"><i class="fas fa-edit"></i></a></td>
-                                    <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
-                                </tr>
+                                <?php
+                                    $sql = "select * from restaurants";
+                                    $rows = simpleQuery($sql);
+                                    $i = 1;
+                                    foreach($rows as $row){
+                                        echo '
+                                            <tr>
+                                                <th scope="row">'.$i.'</th>
+                                                <td>'.$row["res_name"].'</td>
+                                                <td>'.$row["address"].'</td>
+                                                <td>'.$row["rating"].' sao</td>
+                                                <td><a href="#"><i class="fas fa-edit"></i></a></td>
+                                                <td><a href="xoa.php?restaurants=&id='.$row["res_id"].'"><i class="fas fa-trash-alt"></i></a></td>
+                                            </tr>
+                                        ';
+                                        $i++;
+                                    }
+                                ?>
                             </tbody>
                         </table>
                     </div>

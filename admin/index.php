@@ -4,7 +4,17 @@ nó đang ở chỗ quản lý tour
 
 <?php
     require_once("../config/constants.php");
+    $_SESSION["nav"] = "tours";
     require('templates-admin/header.php');
+    if(isset($_SESSION["alert"])){
+        $message = $_SESSION["alert"];
+        unset($_SESSION["alert"]);
+        echo '<script>
+                alert("'.$message.'");
+            </script>
+        ';
+    }
+    
 ?>
 
             <div class="container-fluid px-4" style="margin-bottom: 20%;">
@@ -43,8 +53,8 @@ nó đang ở chỗ quản lý tour
                                                 <td>Tour '.$t["type_name"].'</td>
                                                 <td>'.$t["rank_name"].'</td>
                                                 <td><a href="../more_info.php?tour_id='.$t["tour_id"].'"><i class="fas fa-eye"></i></a></td>
-                                                <td><a href="sua-tour.php"><i class="fas fa-edit"></i></a></td>
-                                                <td><a href="#"><i class="fas fa-trash-alt"></i></a></td>
+                                                <td><a href="sua-tour.php?tour_id='.$t["tour_id"].'"><i class="fas fa-edit"></i></a></td>
+                                                <td><a href="xoa.php?tours=&tour_id='.$t["tour_id"].'"><i class="fas fa-trash-alt"></i></a></td>
                                             </tr>
                                         ';
                                         $i++;
