@@ -2,8 +2,8 @@
 include('templates/header-login.php')
 ?>
 <?php
-$id= $_GET['id'];
-  $sql= 'SELECT * FROM tours, restaurants, hotels, tourguides WHERE tours.hotel_id=hotels.hotel_id AND tours.res_id=restaurants.res_id AND tours.tour_guide_id=tourguides.tour_guide_id AND tour_id= $id;';
+$id= $_GET['tour_id'];
+  $sql= "SELECT * FROM tours, restaurants, hotels, tourguides WHERE tours.hotel_id=hotels.hotel_id AND tours.res_id=restaurants.res_id AND tours.tour_guide_id=tourguides.tour_guide_id AND tour_id= $id;";
   $query= mysqli_query($conn,$sql);
   $row= mysqli_fetch_assoc($query);  
 ?>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 27, 2021 lúc 06:58 AM
+-- Thời gian đã tạo: Th10 29, 2021 lúc 03:32 PM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.0.10
 
@@ -77,7 +77,9 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`customer_id`, `user_name`, `password`, `email`, `birthday`, `phone_number`, `name`, `gender`, `status`, `code`, `is_admin`, `date_created`) VALUES
-(1, 'test', 'test', 'test@test.test', '1111-11-11 00:00:00', '0123456789', 'test test test', 1, 1, 1, 0, '2021-10-26 07:40:48');
+(1, 'Nhung', 'test', 'Nhung@gmail.com', '1111-11-11 00:00:00', '0123456789', 'Tuyết Nhung', 1, 1, 1, 0, '2021-10-26 07:40:48'),
+(3, 'Nhung', '', 'tuyetnhung01062001@gmail.com', '2001-06-01 00:00:00', '0868168715', '', 0, 0, 26, 0, '2021-10-28 17:59:08'),
+(4, 'nhung', '', 'tuyetnhung01062001@gmail.com', '2021-09-30 00:00:00', '0868168715', '', 0, 0, 9, 0, '2021-10-29 20:11:05');
 
 -- --------------------------------------------------------
 
@@ -138,7 +140,28 @@ INSERT INTO `orders` (`order_id`, `customer_id`, `tour_id`, `start_time`, `peopl
 (9, 1, 22, '2021-10-26', 3, 1, 1, '2021-10-26 07:51:38', '1'),
 (10, 1, 20, '2021-10-26', 3, 1, 1, '2021-10-26 07:51:38', '1'),
 (11, 1, 19, '2021-10-26', 3, 1, 1, '2021-10-26 07:53:15', '1'),
-(12, 1, 3, '2021-10-26', 4, 1, 1, '2021-10-26 07:53:15', '1');
+(12, 1, 3, '2021-10-26', 4, 1, 1, '2021-10-26 07:53:15', '1'),
+(13, 1, 20, '2021-10-30', 1, 0, 0, '2021-10-27 12:03:47', '1'),
+(14, 1, 20, '2021-10-30', 1, 0, 0, '2021-10-27 12:04:08', '1'),
+(15, 1, 20, '2021-10-30', 1, 0, 0, '2021-10-27 12:17:50', '1'),
+(16, 1, 15, '2021-10-31', 1, 0, 0, '2021-10-27 12:18:09', '1'),
+(17, 1, 3, '2021-10-31', 1, 0, 0, '2021-10-27 12:18:37', '1'),
+(18, 1, 20, '2021-10-30', 2, 0, 0, '2021-10-27 14:42:29', '1'),
+(19, 1, 20, '2021-10-30', 3, 0, 0, '2021-10-27 14:44:10', '1'),
+(20, 1, 20, '2021-10-30', 3, 0, 0, '2021-10-27 14:44:57', '1'),
+(21, 1, 15, '2021-10-30', 3, 1, 1, '2021-10-27 14:45:38', '1'),
+(22, 1, 3, '2021-10-31', 5, 1, 0, '2021-10-27 14:46:01', '1'),
+(23, 1, 18, '2021-10-31', 4, 2, 0, '2021-10-27 14:49:07', '1'),
+(24, 1, 20, '2021-10-30', 4, 2, 0, '2021-10-27 19:10:24', '1'),
+(25, 1, 20, '2021-10-30', 5, 1, 1, '2021-10-27 19:19:53', '1'),
+(26, 1, 20, '2021-10-31', 5, 2, 0, '2021-10-28 09:07:07', '1'),
+(27, 1, 20, '2021-10-31', 5, 2, 0, '2021-10-28 09:18:10', '1'),
+(28, 1, 15, '2021-11-01', 6, 1, 1, '2021-10-28 09:21:50', '1'),
+(29, 1, 3, '2021-11-07', 1, 2, 0, '2021-10-28 09:26:00', '1'),
+(30, 1, 3, '2021-11-07', 6, 1, 1, '2021-10-28 09:40:25', '1'),
+(31, 1, 3, '2021-11-07', 4, 2, 1, '2021-10-28 09:41:45', '1'),
+(32, 1, 15, '2021-10-31', 1, 1, 1, '2021-10-28 10:04:15', '1'),
+(33, 1, 15, '2021-11-07', 4, 2, 0, '2021-10-29 16:29:31', '1');
 
 -- --------------------------------------------------------
 
@@ -378,19 +401,19 @@ ALTER TABLE `cities`
 -- AUTO_INCREMENT cho bảng `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT cho bảng `hotels`
 --
 ALTER TABLE `hotels`
-  MODIFY `hotel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `hotel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `order_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT cho bảng `ranks`
@@ -402,7 +425,7 @@ ALTER TABLE `ranks`
 -- AUTO_INCREMENT cho bảng `restaurants`
 --
 ALTER TABLE `restaurants`
-  MODIFY `res_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `res_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT cho bảng `tourguides`
@@ -414,7 +437,7 @@ ALTER TABLE `tourguides`
 -- AUTO_INCREMENT cho bảng `tours`
 --
 ALTER TABLE `tours`
-  MODIFY `tour_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `tour_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT cho bảng `tourtypes`
