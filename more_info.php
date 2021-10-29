@@ -2,7 +2,8 @@
 include('templates/header-login.php')
 ?>
 <?php
-  $sql= 'SELECT * FROM tours, restaurants, hotels, tourguides WHERE tours.hotel_id=hotels.hotel_id AND tours.res_id=restaurants.res_id AND tours.tour_guide_id=tourguides.tour_guide_id AND tour_id=23;';
+$id= $_GET['id'];
+  $sql= 'SELECT * FROM tours, restaurants, hotels, tourguides WHERE tours.hotel_id=hotels.hotel_id AND tours.res_id=restaurants.res_id AND tours.tour_guide_id=tourguides.tour_guide_id AND tour_id= $id;';
   $query= mysqli_query($conn,$sql);
   $row= mysqli_fetch_assoc($query);  
 ?>
@@ -35,7 +36,7 @@ include('templates/header-login.php')
                         <div class="col-md-6 col-12 right">
                             <div class="group-price">
                                 <div class="sale-price">
-                                    <p><span class="price">24,990,000₫</span>/ khách</p>
+                                    <p><span class="price"><?php echo $row['price_per_person']?></span>/ khách</p>
                                 </div>
                                 <div class="saving">
                                 </div>
@@ -63,7 +64,7 @@ include('templates/header-login.php')
                     <div class="row">
                         <div class="col-lg-7 col-md-12 col-sm-12 left">
                             <div class="image">
-                                <img src="https://media.travel.com.vn/tour/tfd_211013121127_968657.jpg"
+                                <img src=<?php echo $row['image_1']?>
                                     class="img-fluid" alt="image">
                             </div>
                         </div>
@@ -73,13 +74,13 @@ include('templates/header-login.php')
                                     <div class="row">
                                         <div class="col-6">
                                             <div class="image">
-                                                <img src="https://media.travel.com.vn/tour/tfd_210127104309_308536.jpg"
+                                                <img src=<?php echo $row['image_2']?>
                                                     class="img-fluid" alt="image">
                                             </div>
                                         </div>
                                         <div class="col-6">
                                             <div class="image">
-                                                <img src="https://media.travel.com.vn/tour/tfd_211013121340_720557.jpg"
+                                                <img src=<?php echo $row['image_3']?>
                                                     class="img-fluid" alt="image">
                                             </div>
                                         </div>
@@ -87,7 +88,7 @@ include('templates/header-login.php')
                                 </div>
                                 <div class="col-md-12 col-sm-12 big">
                                     <div class="image">
-                                        <img src="https://media.travel.com.vn/destination/dc_211013_shutterstock_1658267629.jpg"
+                                        <img src=<?php echo $row['image_4']?>
                                             class="img-fluid" alt="image">
                                     </div>
                                 </div>
@@ -105,12 +106,7 @@ include('templates/header-login.php')
                     <div class="container">
                         <div class="row">
                             <div class="col-md-5 col-12 left">
-                                <p class="s-title-03 tour-des">Tọa lạc tại Mũi Ông Đội, cực nam Đảo Ngọc, Premier
-                                    Village Phu Quoc Resort là “viên ngọc quý” ẩn mình giữa sắc xanh của biển trời và
-                                    thiên nhiên tươi mát hữu tình. Bao quanh bởi hai mặt biển, khu nghỉ dưỡng sở hữu tầm
-                                    nhìn tuyệt đẹp vào mỗi sớm bình minh và những chiều hoàng hôn rực rỡ. Hơn thế nữa,
-                                    với thiết kế biệt thự sang trọng nằm dọc theo bãi biển, chia thành từng cụm riêng
-                                    tạo không gian nghỉ dưỡng riêng tư và thoải mái cho gia đình của bạn.</p>
+                                <p class="s-title-03 tour-des"><?php echo $row['description']?></p>
                                 <div class="box-code d-lg-none">
                                     <div class="d-flex flex-column">
                                         <span>Mã tour:</span>
@@ -121,10 +117,10 @@ include('templates/header-login.php')
                                 <div class="box-order">
                                     <div class="time">
                                         <p>Khởi hành <b>12/11/2021</b></p>
-                                        <p>Thời gian <b>3 ngày</b></p>
+                                        <p>Thời gian <b><?php echo $row['day_count']?></b></p>
                                         <p>Nơi khởi hành <b>TP. Hồ Chí Minh</b></p>
                                         <p>
-                                            Số chỗ còn nhận <b>9</b>
+                                            Số chỗ còn nhận <b><?php echo $row['max']?></b>
                                         </p>
                                     </div>
                                     <div class="calendar">
@@ -156,13 +152,12 @@ include('templates/header-login.php')
                                     <div class="item">
                                         <i class="icon icon--calendar"></i>
                                         <label>Thời gian</label>
-                                        <p>3 ngày 2 đêm</p>
+                                        <p><?php echo $row['day_count']?></p>
                                     </div>
                                     <div class="item">
                                         <i class="icon icon--map"></i>
                                         <label>Điểm tham quan</label>
-                                        <p>Hòn Mây Rút Ngoài - trải nghiệm đi bộ dưới đáy biển, Hòn Gầm Ghì, Hòn Móng
-                                            Tay, Hòn Dăm Ngang, Hòn Thơm</p>
+                                        <p><?php echo $row['places']?></p>
                                     </div>
                                     <div class="item">
                                         <i class="icon icon--fire"></i>
@@ -172,7 +167,7 @@ include('templates/header-login.php')
                                     <div class="item">
                                         <i class="icon icon--hotel"></i>
                                         <label>Khách sạn</label>
-                                        <p>Premier Village Phú Quốc Resort </p>
+                                        <p><?php echo $row['hotel_name']?> </p>
                                     </div>
                                     <div class="item">
                                         <i class="icon icon--tour"></i>
@@ -219,238 +214,7 @@ include('templates/header-login.php')
                 <section class="section-07 mb-5">
                     <div class="container">
                         <div class="row">
-                            <div class="col-md-4 col-12 left">
-                                <div class="go-tour">
-                                    <div class="day day-01">
-                                        <div class="wrapper">
-                                            <span class="date-left"> Ngày </span>
-                                            <span class="date-center active">1</span>
-                                            <span class="date-right">
-                                                <span class="date">12/11/2021</span>
-                                                <span class="location">TP.HỒ CHÍ MINH/HÀ NỘI – PHÚ QUỐC (Ăn trưa,
-                                                    tối)</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="day day-02">
-                                        <div class="wrapper">
-                                            <span class="date-left"> Ngày </span>
-                                            <span class="date-center active">2</span>
-                                            <span class="date-right">
-                                                <span class="date">13/11/2021</span>
-                                                <span class="location">PHÚ QUỐC – CHINH PHỤ ĐỆ NHẤT TỨ ĐẢO – TRẢI NGHIỆM
-                                                    MỚI LẠ ĐI BỘ DƯỚI ĐÁY BIỂN (Ăn ba bữa)</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="day day-03">
-                                        <div class="wrapper">
-                                            <span class="date-left"> Ngày </span>
-                                            <span class="date-center active">3</span>
-                                            <span class="date-right">
-                                                <span class="date">14/11/2021</span>
-                                                <span class="location">PHÚ QUỐC – TP.HỒ CHÍ MINH/HÀ NỘI (Ăn sáng)</span>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="live-video hardCode d-none">
-                                    <a href="#" class="video">
-                                        <i class="fad fa-play-circle"></i>
-                                        <label>Thuyết minh chương trình tour</label>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-md-8 col-12 right timeline-section">
-                                <div>
-                                    <h2 id="day-01">Ngày 1 - TP.HỒ CHÍ MINH/HÀ NỘI – PHÚ QUỐC (Ăn trưa, tối)</h2>
-                                    <div class="excerpt">
-                                        <span class="line"></span>
-
-
-                                        <title></title>
-
-
-                                        <div style="text-align: justify;">
-                                            Quý khách tập trung đến điểm hẹn tại Sân Bay, hướng dẫn viên <a
-                                                href="https://www.vietravel.com?utm_source=internalbl&amp;utm_medium=click&amp;utm_campaign=ATLinks"
-                                                target="_blank">Vietravel</a> đón và giúp Quý khách làm thủ tục. Quý
-                                            khách có thể sử dụng dịch vụ phòng chờ Thương Gia tại sân bay trong thời
-                                            gian chờ lên máy bay. sau khi đáp máy bay đến Phú Quốc, xe đón đoàn khởi
-                                            hành về<strong> Premier Village Phú Quốc Resort </strong>- làm thủ tục nhận
-                                            phòng và nghỉ ngơi thư giãn tại resort -<strong> hạng phòng&nbsp;Ocean View
-                                                Villa</strong> với hồ bơi riêng tạo không khí gia đình ấm cúng và sang
-                                            trọng.&nbsp;</div>
-                                        <div style="text-align: justify;">
-                                            Quý khách dùng bữa tối tại <strong>nhà hàng The Market </strong>với thực đơn
-                                            4 món kiểu Âu đẳng cấp và ngắm hoàng hôn lãn mạn. Quý khách dành trọn ngày
-                                            trải nghiệm những tiện ích và các hoạt động theo thời gian biểu khách khu
-                                            nghỉ dưỡng.</div>
-
-
-                                    </div>
-                                    <div class="group-services hashCode d-none">
-                                        <div class="item">
-                                            <i class="icon icon--calendar"></i>
-                                            <label>Khách sạn</label>
-                                            <p>VinOasis Phú Quốc</p>
-                                        </div>
-                                        <div class="item">
-                                            <i class="icon icon--fire"></i>
-                                            <label>Bữa ăn</label>
-                                            <p>1 bửa trưa, 1 bửa tối.</p>
-                                        </div>
-                                        <div class="item">
-                                            <i class="icon icon--map"></i>
-                                            <label>Điểm tham quan</label>
-                                            <p>1 địa điểm</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <h2 id="day-02">Ngày 2 - PHÚ QUỐC – CHINH PHỤ ĐỆ NHẤT TỨ ĐẢO – TRẢI NGHIỆM MỚI LẠ ĐI
-                                        BỘ DƯỚI ĐÁY BIỂN (Ăn ba bữa)</h2>
-                                    <div class="excerpt">
-                                        <span class="line"></span>
-
-
-                                        <title></title>
-
-
-                                        <div style="text-align: justify;">
-                                            Sau bữa sáng tại resort, hướng dẫn viên và xe sẽ đón và đưa Quý khách đi
-                                            khám phá <strong>Đảo Ngọc Phú Quốc</strong>, xe đưa đoàn ra <strong>cảng An
-                                                Thới</strong> đi cano tham quan những hòn đảo phía Nam thuộc quần đảo An
-                                            Thới với vẻ đẹp hoang sơ, cát trắng, biển xanh, nhiều ghềnh đá đẹp.</div>
-                                        <div style="text-align: justify;">
-                                            <strong>- Hòn Mây Rút Ngoài:</strong> khám phá công viên bảo tồn san hô đầu
-                                            tiên và duy nhất tại Phú Quốc, trải nghiệm mới lạ với bộ môn thể thao đi bộ
-                                            dưới đáy biển (du khách không cần biết bơi cũng có thể tham gia). Đầu tiên,
-                                            du khách sẽ được đội ngũ huấn luyện viên (có chứng chỉ hành nghề bởi Hiệp
-                                            hội hướng dẫn viên lặn biển chuyên nghiệp PADI) giới thiệu và hướng dẫn các
-                                            cách thức lặn biển an toàn (thời gian 10 phút). Sau khi&nbsp; đội chiếc mũ
-                                            theo phong cách phi hành gia, mỗi khách sẽ được một huấn luyện viên theo kèm
-                                            và dẫn dắt đến với đáy đại dương (thời gian 20 phút). Du khách dạo bước trên
-                                            thảm cát trắng mịn, hai bên lối đi là những rạn san hô theo dòng hải lưu
-                                            đong đưa thú vị và mở ra một khung cảnh tuyệt vời trước mắt với vẻ đẹp muôn
-                                            màu của hơn 200 loài san hô cùng nhiều loài cá màu sắc sặc sỡ đang tự nhiên
-                                            bơi lội.
-                                        </div>
-                                        <div style="text-align: justify;">
-                                            Sau đó, cano tiếp tục chở khách đến tắm biển và lặn ngắm san hô tại Hòn Gầm
-                                            Ghì hoặc Hòn Móng Tay:</div>
-                                        <div style="text-align: justify;">
-                                            <strong>- Hòn Gầm Ghì:</strong> Quý khách tham gia trải nghiệm câu cá và lặn
-                                            ngắm san hô với các dụng cụ như áo phao, ống thở, kính bơi để nhìn ngắm thế
-                                            giới đại dương vô vàn màu sắc hoặc tự do hòa mình vào làn nước biển trong
-                                            xanh màu ngọc bích và bãi cát thoai thoải.
-                                        </div>
-                                        <div style="text-align: justify;">
-                                            <strong>- Hòn Móng Tay:</strong> sở hữu vẻ đẹp hoang sơ quyến rũ với làn
-                                            nước xanh trong cùng những hàng dừa mát mẻ. Du khách lặn ngắm nhìn hệ sinh
-                                            thái san hô đẹp của quần đảo An Thới và thỏa sức tắm biển, nghỉ ngơi trên
-                                            bãi cát trắng trải dài.
-                                        </div>
-                                        <div style="text-align: justify;">
-                                            - Ngắm nhìn vẻ đẹp nên thơ của<strong> Hòn Dăm Ngang</strong> và <strong>Hòn
-                                                Thơm</strong> đảo lớn nhất của quần đảo An Thới, điểm cuối của cáp treo
-                                            vượt biển dài nhất Thế giới.</div>
-                                        <div style="text-align: justify;">
-                                            Cano quay về cảng An Thới, Xe đưa Quý khách về lại khách sạn thay trang phục
-                                            và chuẩn bị khởi hành đi dùng bữa tối tại <strong>nhà hàng Hạnh Nhung
-                                                Luxury</strong> – nhà hàng hải sản nổi tiếng và cao cấp tại Phú Quốc với
-                                            thực đơn hải sản tươi ngon tại Phú Quốc. Sau bữa tối, xe đưa Quý khách dạo
-                                            chợ đêm Phú Quốc nhôn nhịp về đêm trước khi về lại resort nghỉ ngơi.</div>
-                                        <div style="text-align: justify;">
-                                            &nbsp;</div>
-                                        <div style="text-align: justify;">
-                                            <em><strong>*Tùy thuộc theo điều kiện thời tiết và mùa gió, Quý khách có thể
-                                                    trải nghiệm lặn ngắm san hô ở các hòn khác nhau: Kim Quy, Hòn Bườm,
-                                                    Hòn Móng Tay,…&nbsp;</strong></em>
-                                        </div>
-                                        <div style="text-align: justify;">
-                                            <em><strong>*Những người không phù hợp tham gia: người có sức khỏe yếu,
-                                                    người có các bệnh lý về tim mạch, huyết áp, viêm tai giữa và phụ nữ
-                                                    có thai, người mắc bệnh tiểu đường tuýp 2 và hen suyễn. Khách từ 6
-                                                    tuổi – 70 tuổi có sức khỏe tốt phù hợp tham gia chương trình
-                                                    này.&nbsp;</strong></em>
-                                        </div>
-
-
-                                    </div>
-                                    <div class="group-services hashCode d-none">
-                                        <div class="item">
-                                            <i class="icon icon--calendar"></i>
-                                            <label>Khách sạn</label>
-                                            <p>VinOasis Phú Quốc</p>
-                                        </div>
-                                        <div class="item">
-                                            <i class="icon icon--fire"></i>
-                                            <label>Bữa ăn</label>
-                                            <p>1 bửa trưa, 1 bửa tối.</p>
-                                        </div>
-                                        <div class="item">
-                                            <i class="icon icon--map"></i>
-                                            <label>Điểm tham quan</label>
-                                            <p>1 địa điểm</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <h2 id="day-03">Ngày 3 - PHÚ QUỐC – TP.HỒ CHÍ MINH/HÀ NỘI (Ăn sáng)</h2>
-                                    <div class="excerpt">
-                                        <span class="line"></span>
-
-
-                                        <title></title>
-
-
-                                        <div style="text-align: justify;">
-                                            Quý khách tùy nghi sử dụng tiện nghi tại resort và nghỉ ngơi cho đến giờ trả
-                                            phòng. Xe đón và đưa đoàn ra sân bay làm thủ tục. Quý khách có thể sử dụng
-                                            dịch vụ phòng chờ Thương Gia tại sân bay trong thời gian chờ lên máy bay.
-                                            Chia tay Quý khách và kết thúc chương trình tại sân bay Tân Sơn Nhất - Kết
-                                            thúc chuyến nghỉ dưỡng và tham quan đầy thú vị&nbsp;</div>
-                                        <div style="text-align: justify;">
-                                            <p>
-                                                <strong>Lưu ý:</strong>
-                                            </p>
-                                            <p>
-                                                ✓ Đảm bảo nguyên tắc 5K, khử khuẩn.</p>
-                                            <p>
-                                                ✓ Vận chuyển không quá 50% số ghế, không quá 20 khách/1 xe (bao gồm cả
-                                                tài xế), tuân thủ ngồi giãn cách trên xe và đeo khẩu trang suốt quá
-                                                trình di chuyển.</p>
-                                            <p>
-                                                ✓ Thẻ xanh covid (khách đã tiêm vaccine ngừa covid đủ liều, thời gian
-                                                hoàn tất mũi 2 trước 14 ngày và không quá 12 tháng), khách là FO đã khỏi
-                                                bệnh (có giấy chứng nhận của Sở Y Tế và không quá 06 tháng).</p>
-                                            <p>
-                                                ✓ Xét nghiệm covid theo yêu cầu của từng tỉnh vào thời điểm đặt dịch vụ.
-                                                Vui lòng liên hệ với nhân viên tư vấn để biết thêm chi tiết.</p>
-                                        </div>
-
-
-                                    </div>
-                                    <div class="group-services hashCode d-none">
-                                        <div class="item">
-                                            <i class="icon icon--calendar"></i>
-                                            <label>Khách sạn</label>
-                                            <p>VinOasis Phú Quốc</p>
-                                        </div>
-                                        <div class="item">
-                                            <i class="icon icon--fire"></i>
-                                            <label>Bữa ăn</label>
-                                            <p>1 bửa trưa, 1 bửa tối.</p>
-                                        </div>
-                                        <div class="item">
-                                            <i class="icon icon--map"></i>
-                                            <label>Điểm tham quan</label>
-                                            <p>1 địa điểm</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <?php echo $row['travel_schedule']?>
                         </div>
                     </div>
                 </section>
@@ -587,7 +351,7 @@ include('templates/header-login.php')
                                             <span>HDV dẫn đoàn</span>
                                             <div id="divThongTinHDV">
                                                 <div class="info" style="width:100%">
-                                                    <p>Đang cập nhật</p>
+                                                    <p><?php echo $row['name']?></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -595,7 +359,7 @@ include('templates/header-login.php')
                                             <span>HDV tiễn</span>
                                             <div id="divThongTinHDVTien">
                                                 <div class="info" style="width:100%">
-                                                    <p>Đang cập nhật</p>
+                                                    <p><?php echo $row['name']?></p>
                                                 </div>
                                             </div>
                                         </div>
