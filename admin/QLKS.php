@@ -16,7 +16,7 @@ nó dùng để quản lý các khách sạn -->
     }
 ?>
 
-            <div class="container-fluid px-4">
+            <div class="container-fluid px-4" style="margin-bottom: 20%;">
                 <div class="row my-5">
                     <h3 class="fs-4 mb-3">Quản lý khách sạn</h3>
                     <div class="col">
@@ -43,7 +43,7 @@ nó dùng để quản lý các khách sạn -->
                                                 <td>'.$row["hotel_name"].'</td>
                                                 <td>'.$row["address"].'</td>
                                                 <td>'.$row["rating"].' sao</td>
-                                                <td><a href="#"><i class="fas fa-edit"></i></a></td>
+                                                <td><a href="sua-KS.php?id='.$row["hotel_id"].'"><i class="fas fa-edit"></i></a></td>
                                                 <td><a href="xoa.php?hotels=&id='.$row["hotel_id"].'"><i class="fas fa-trash-alt"></i></a></td>
                                             </tr>
                                         ';

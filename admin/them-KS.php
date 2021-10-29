@@ -1,7 +1,18 @@
 <!-- trang này dùng để thêm khách sạn -->
 
 <?php
-include('templates-admin/header.php');
+    require_once("../config/constants.php");
+    if(isset($_POST["submit"])){
+        $hotel_name = $_POST["hotel_name"];
+        $address = $_POST["address"];
+        $rating = $_POST["rating"];
+        $sql = "insert into hotels set hotel_name = ?, address = ?, rating = ?";
+        $result = simpleQuery($sql, 0, [$hotel_name, $address, $rating]);
+        if($result){
+            header("location: QLKS.php");
+        }
+    }
+    include('templates-admin/header.php');
 ?>
 
 <div class="main-content">
@@ -13,7 +24,7 @@ include('templates-admin/header.php');
         </div>
   <!-- Thêm -->
         <div class="container col-md-12 mx-auto">
-            <form action="QLKS.php" METHOD="POST">
+            <form action="them-KS.php" METHOD="POST">
                 <div class="col-md-6 mx-auto">
                     <div class="input-group mb-2">
                         <span class="input-group-text col-3">Tên khách sạn</span>
@@ -27,7 +38,7 @@ include('templates-admin/header.php');
                     
                     <div class="input-group mb-2">
                         <span class="input-group-text col-3" >Đánh giá</span>
-                        <input type="text" class="form-control" name= "rating" placeholder="Nhập số sao" required>
+                        <input type="number" min="1" max="5" class="form-control" name= "rating" placeholder="Nhập số sao" required>
                     </div>
                     <button type="submit" class="btn btn-info" name="submit">Thêm</button>
      

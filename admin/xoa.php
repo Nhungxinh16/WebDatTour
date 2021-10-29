@@ -23,7 +23,7 @@
         if(count($orders) > 0){
             $_SESSION["alert"] = "Không thể xóa khách này vì đây là khách vip";
         }else{
-            $sql = "delete from customres where customer_id = ?";
+            $sql = "delete from customers where customer_id = ?";
             $result = simpleQuery($sql, 0, [$id]);
             if($result){
                 $_SESSION["alert"] = "Xóa khách thành công!";

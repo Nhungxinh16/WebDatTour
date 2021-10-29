@@ -1,7 +1,19 @@
 <!-- trang này dùng để thêm nhà hàng -->
 
 <?php
-include('templates-admin/header.php');
+    require_once("../config/constants.php");
+    if(isset($_POST["submit"])){
+        $res_name = $_POST["res_name"];
+        $address = $_POST["address"];
+        $rating = $_POST["rating"];
+        $sql = "insert into restaurants set res_name = ?, address = ?, rating = ?";
+        $result = simpleQuery($sql, 0, [$res_name, $address, $rating]);
+        if($result){
+            header("location: QLNH.php");
+        }
+    }
+
+    include('templates-admin/header.php');
 ?>
 
 <div class="main-content">
@@ -11,9 +23,9 @@ include('templates-admin/header.php');
             <div class="text-center text-danger">
             </div>
         </div>
-  <!-- thêm -->
+  <!-- sửa -->
         <div class="container col-md-12 mx-auto">
-            <form action="QLNH.php" METHOD="POST">
+            <form action="them-NH.php" METHOD="POST">
                 <div class="col-md-6 mx-auto">
                     <div class="input-group mb-2">
                         <span class="input-group-text col-3">Tên nhà hàng</span>
@@ -27,7 +39,7 @@ include('templates-admin/header.php');
                     
                     <div class="input-group mb-2">
                         <span class="input-group-text col-3" >Đánh giá</span>
-                        <input type="text" class="form-control" name= "rating" placeholder="Nhập số sao" required>
+                        <input type="number" min = "1" max = "5" class="form-control" name= "rating" placeholder="Nhập số sao" required>
                     </div>
                     <button type="submit" class="btn btn-info" name="submit">Thêm</button>
      

@@ -15,7 +15,7 @@ nó dùng để quản lý nhà hàng -->
         ';
     }
 ?>
-            <div class="container-fluid px-4">
+            <div class="container-fluid px-4" style="margin-bottom: 20%;">
                 <div class="row my-5">
                     <h3 class="fs-4 mb-3">Quản lý nhà hàng</h3>
                     <div class="col">
@@ -42,7 +42,7 @@ nó dùng để quản lý nhà hàng -->
                                                 <td>'.$row["res_name"].'</td>
                                                 <td>'.$row["address"].'</td>
                                                 <td>'.$row["rating"].' sao</td>
-                                                <td><a href="#"><i class="fas fa-edit"></i></a></td>
+                                                <td><a href="sua-NH.php?id='.$row["res_id"].'"><i class="fas fa-edit"></i></a></td>
                                                 <td><a href="xoa.php?restaurants=&id='.$row["res_id"].'"><i class="fas fa-trash-alt"></i></a></td>
                                             </tr>
                                         ';

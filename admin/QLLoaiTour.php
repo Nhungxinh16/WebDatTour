@@ -14,7 +14,7 @@
     }
 ?>
 
-            <div class="container-fluid px-4">
+            <div class="container-fluid px-4" style="margin-bottom: 20%;">
 
                 <div class="row my-5">
                     <h3 class="fs-4 mb-3">Quản lý loại tour</h3>
