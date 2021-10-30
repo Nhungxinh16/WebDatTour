@@ -1,4 +1,5 @@
 <?php
+// active tài khoản user
 include("./config/constants.php");
 
 $email = $_GET['email'];
