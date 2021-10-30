@@ -46,9 +46,9 @@ include('templates/header-login.php');
               </div>
               <div class='d-flex flex-row'>
                 <button type="submit" name="login" value="Đăng Nhập" class="btn btn-block btn-primary">Đăng Nhập</button>
-                <button class="btn btn-block btn-primary mt-0 ms-2" style='background-color: #1da1f2; border-color: #1da1f2;'>
-                  <a href="register.php" style="color: #fff;  text-decoration: none;">Đăng ký</a>
-                </button>
+                <div class="btn btn-block btn-primary mt-0 ms-2 d-flex justify-content-center align-items-center" style='background-color: #1da1f2; border-color: #1da1f2;'>
+                  <a href="register.php" style="color:#fff;text-decoration:none;">Đăng ký</a>
+                </div>
               </div>
 
               <span class="d-block text-center my-4 text-muted">&mdash; or &mdash;</span>
