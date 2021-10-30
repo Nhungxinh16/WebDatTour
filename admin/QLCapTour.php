@@ -24,6 +24,7 @@
                                 <tr>
                                     <th scope="col" width="50">#</th>
                                     <th scope="col">Tên cấp</th>
+                                    <th scope="col">Mô tả</th>
                                     <th scope="col">Sửa</th>
                                     <th scope="col">Xóa</th>
                                 </tr>
@@ -38,6 +39,7 @@
                                             <tr>
                                                 <th scope="row">'.$i.'</th>
                                                 <td>'.$row["rank_name"].'</td>
+                                                <td>'.$row["description"].'</td>
                                                 <td><a href="#"><i class="fas fa-edit"></i></a></td>
                                                 <td><a href="xoa.php?ranks=&id='.$row["rank_id"].'"><i class="fas fa-trash-alt"></i></a></td>
                                             </tr>

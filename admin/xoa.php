@@ -125,7 +125,7 @@
         if(count($orders) > 0){
             $_SESSION["alert"] = "Không thể xóa rank này vì nó đã được dùng";
         }else{
-            $sql = "delete from ranks where rank_d = ?";
+            $sql = "delete from ranks where rank_id = ?";
             $result = simpleQuery($sql, 0, [$id]);
             if($result){
                 $_SESSION["alert"] = "Xóa rank thành công!";
