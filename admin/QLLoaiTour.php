@@ -14,7 +14,7 @@
     }
 ?>
 
-            <div class="container-fluid px-4" style="margin-bottom: 20%;">
+            <div class="container-fluid px-4">
 
                 <div class="row my-5">
                     <h3 class="fs-4 mb-3">Quản lý loại tour</h3>
@@ -38,7 +38,7 @@
                                             <tr>
                                                 <th scope="row">'.$i.'</th>
                                                 <td>'.$row["type_name"].'</td>
-                                                <td><a href="#"><i class="fas fa-edit"></i></a></td>
+                                                <td><a href="sua-LoaiTour.php?id='.$row["tour_type_id"].'"><i class="fas fa-edit"></i></a></td>
                                                 <td><a href="xoa.php?tourtypes=&id='.$row["tour_type_id"].'"><i class="fas fa-trash-alt"></i></a></td>
                                             </tr>
                                         ';

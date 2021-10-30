@@ -6,8 +6,8 @@
         $city_name = $_POST["city_name"];
         $description = $_POST["description"];
         $image = $_POST["image"];
-        $sql = "update cities set city_name = ?, description = ?, image = ?";
-        $result = simpleQuery($sql, 0, [$city_name, $description, $image]);
+        $sql = "update cities set city_name = ?, description = ?, image = ? where city_id = ?";
+        $result = simpleQuery($sql, 0, [$city_name, $description, $image, $_GET["id"]]);
         if($result){
             header("location: QLTP.php");
         }
@@ -29,21 +29,21 @@
         </div>
   <!-- Sửa -->
         <div class="container col-md-12 mx-auto">
-            <form action="them-TP.php" METHOD="POST">
+            <form action="sua-TP.php?id=<?php echo $row["city_id"]; ?>" METHOD="POST">
                 <div class="col-md-6 mx-auto">
                     <div class="input-group mb-2">
                         <span class="input-group-text col-3">Tên thành phố</span>
-                        <input type="text" class="form-control" name= "city_name" placeholder="Nhập tên thành phố" required>
+                        <input type="text" class="form-control" name= "city_name" placeholder="Nhập tên thành phố" required value="<?php echo $row["city_name"]; ?>">
                     </div>
 
                     <div class="input-group mb-2">
                         <span class="input-group-text col-3" >Mô tả</span>
-                        <input type="text" class="form-control" name= "description" placeholder="Nhập mô tả thành phố" required>
+                        <input type="text" class="form-control" name= "description" placeholder="Nhập mô tả thành phố" required value="<?php echo $row["description"]; ?>">
                     </div>
                     
                     <div class="input-group mb-2">
                         <span class="input-group-text col-3" >Ảnh</span>
-                        <input type="text" class="form-control" name= "image" placeholder="Nhập link ảnh" required>
+                        <input type="text" class="form-control" name= "image" placeholder="Nhập link ảnh" required value="<?php echo $row["image"]; ?>"> 
                     </div>
                     <button type="submit" class="btn btn-info" name="submit">Sửa</button>
      

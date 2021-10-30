@@ -40,7 +40,7 @@
                                                 <th scope="row">'.$i.'</th>
                                                 <td>'.$row["city_name"].'</td>
                                                 <td>'.$row["description"].'</td>
-                                                <td><a href="sua-TP.php"><i class="fas fa-edit"></i></a></td>
+                                                <td><a href="sua-TP.php?id='.$row["city_id"].'"><i class="fas fa-edit"></i></a></td>
                                                 <td><a href="xoa.php?cities=&id='.$row["city_id"].'"><i class="fas fa-trash"></i></a></td>
                                             </tr>
                                         ';

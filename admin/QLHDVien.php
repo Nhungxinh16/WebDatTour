@@ -12,7 +12,7 @@
     }
 ?>
 
-            <div class="container-fluid px-4" style="margin-bottom: 20%;">
+            <div class="container-fluid px-4">
 
                 <div class="row my-5">
                     <h3 class="fs-4 mb-3">Quản lý hướng dẫn viên</h3>
@@ -48,7 +48,7 @@
                                                 echo '</td>
                                                 <td>'.$row["email"].'</td>
                                                 <td>'.$row["phone_number"].'</td>
-                                                <td><a href="#"><i class="fas fa-edit"></i></a></td>
+                                                <td><a href="sua-HDVien.php?id='.$row["tour_guide_id"].'"><i class="fas fa-edit"></i></a></td>
                                                 <td><a href="xoa.php?tourguides=&id='.$row["tour_guide_id"].'"><i class="fas fa-trash-alt"></i></a></td>
                                             </tr>
                                         ';

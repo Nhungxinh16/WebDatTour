@@ -3,14 +3,13 @@
 <?php
     require_once("../config/constants.php");
     if(isset($_POST["submit"])){
-        $user_name = $_POST["user_name"]
-        $password = $_POST["password"];
         $email = $_POST["email"];
         $birthday = $_POST["birthday"];
-        $phone_number = $_POST["name"]
+        $phone_number = $_POST["phone_number"];
         $gender = $_POST["gender"];
-        $sql = "update customers set user_name = ?, password = ?, email = ?, birthday = ?, phone_number = ?, name = ?, gender = ? where customer_id = ?";
-        $result = simpleQuery($sql, 0, [$user_name, $password, $email, $birthday, $phone_number, $name, $gender, $_GET["id"]]);
+        $name = $_POST["name"];
+        $sql = "update customers set email = ?, birthday = ?, phone_number = ?, name = ?, gender = ? where customer_id = ?";
+        $result = simpleQuery($sql, 0, [$email, $birthday, $phone_number, $name, $gender, $_GET["id"]]);
         if($result){
             header("location: QLND.php");
         }
@@ -32,36 +31,41 @@
         </div>
   <!-- sửa -->
         <div class="container col-md-12 mx-auto">
-            <form action="sua-ND.php?id=<?php echo $row["res_id"]; ?>" METHOD="POST">
+            <form action="sua-ND.php?id=<?php echo $row["customer_id"]; ?>" METHOD="POST">
                 <div class="col-md-6 mx-auto">
                     <div class="input-group mb-2">
-                        <span class="input-group-text col-3">Tên người dùng </span>
-                        <input type="text" class="form-control" name= "res_name" placeholder="Nhập tên người dùng" required value="<?php echo $row["res_name"]; ?>">
-                    </div>
-
-                    <div class="input-group mb-2">
-                        <span class="input-group-text col-3" >Password</span>
-                        <input type="text" class="form-control" name= "address" placeholder="Nhập địa chỉ nhà hàng" required value="<?php echo $row["address"]; ?>">
+                        <span class="input-group-text col-3">Username</span>
+                        <input disabled type="text" class="form-control" name= "user_name" placeholder="Nhập tên người dùng" required value="<?php echo $row["user_name"]; ?>">
                     </div>
 
                     <div class="input-group mb-2">
                         <span class="input-group-text col-3" >Email</span>
-                        <input type="text" class="form-control" name= "address" placeholder="Nhập địa chỉ nhà hàng" required value="<?php echo $row["address"]; ?>">
-                    </div>
-                    
-                    <div class="input-group mb-2">
-                        <span class="input-group-text col-3" >Birthday</span>
-                        <input type="number" min = "1" max = "5" class="form-control" name= "rating" placeholder="Nhập số sao" required value="<?php echo $row["rating"]; ?>">
+                        <input type="text" class="form-control" name= "email" placeholder="Nhập email" required value="<?php echo $row["email"]; ?>">
                     </div>
 
                     <div class="input-group mb-2">
                         <span class="input-group-text col-3" >Số điện thoại</span>
-                        <input type="text" class="form-control" name= "address" placeholder="Nhập địa chỉ nhà hàng" required value="<?php echo $row["address"]; ?>">
+                        <input type="text" class="form-control" name= "phone_number" placeholder="Nhập số điện thoại" required value="<?php echo $row["phone_number"]; ?>">
+                    </div>
+                    
+                    <div class="input-group mb-2">
+                        <span class="input-group-text col-3" >Birthday</span>
+                        <input type="date" class="form-control" name= "birthday" placeholder="Nhập ngày sinh" required value="<?php 
+                            $date = date_create($row["birthday"]);
+                            echo date_format($date, "Y-m-d");
+                        ?>">
+                    </div>
+                    <div class="input-group mb-2">
+                        <span class="input-group-text col-3" >Họ và tên</span>
+                        <input type="text" class="form-control" name= "name" placeholder="Nhập họ và tên" required value="<?php echo $row["name"]; ?>">
                     </div>
 
                     <div class="input-group mb-2">
                         <span class="input-group-text col-3" >Giới tính</span>
-                        <input type="text" class="form-control" name= "address" placeholder="Nhập địa chỉ nhà hàng" required value="<?php echo $row["address"]; ?>">
+                        <select class="form-select form-select-sm" name="gender">
+                            <option value="0" <?php if($row["gender"] == 0 ) echo "selected" ?>>Nữ</option>
+                            <option value="1" <?php if($row["gender"] == 1 ) echo "selected" ?>>Nam</option>
+                        </select>
                     </div>
 
                     <button type="submit" class="btn btn-info" name="submit">Sửa</button>

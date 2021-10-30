@@ -14,7 +14,7 @@
     }
 ?>
 
-            <div class="container-fluid px-4" style="margin-bottom: 20%;">
+            <div class="container-fluid px-4">
 
                 <div class="row my-5">
                     <h3 class="fs-4 mb-3">Quản lý cấp tour</h3>
@@ -40,7 +40,7 @@
                                                 <th scope="row">'.$i.'</th>
                                                 <td>'.$row["rank_name"].'</td>
                                                 <td>'.$row["description"].'</td>
-                                                <td><a href="#"><i class="fas fa-edit"></i></a></td>
+                                                <td><a href="sua-CapTour.php?id='.$row["rank_id"].'"><i class="fas fa-edit"></i></a></td>
                                                 <td><a href="xoa.php?ranks=&id='.$row["rank_id"].'"><i class="fas fa-trash-alt"></i></a></td>
                                             </tr>
                                         ';
