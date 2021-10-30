@@ -50,7 +50,7 @@ nó dùng để quản lý người dùng -->
                                                         echo "Nam";
                                                     }
                                                 echo '</td>
-                                                <td><a href="#"><i class="fas fa-edit"></i></a></td>
+                                                <td><a href="sua-ND.php"><i class="fas fa-edit"></i></a></td>
                                                 <td><a href="xoa.php?customers=&id='.$row["customer_id"].'"><i class="fas fa-trash"></i></a></td>
                                             </tr>
                                         ';
