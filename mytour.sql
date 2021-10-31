@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 29, 2021 lúc 03:32 PM
+-- Thời gian đã tạo: Th10 30, 2021 lúc 11:41 AM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.0.10
 
@@ -67,7 +67,7 @@ CREATE TABLE `customers` (
   `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `gender` int(1) NOT NULL,
   `status` int(1) NOT NULL,
-  `code` int(10) NOT NULL,
+  `code` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
   `is_admin` int(10) NOT NULL,
   `date_created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -77,9 +77,13 @@ CREATE TABLE `customers` (
 --
 
 INSERT INTO `customers` (`customer_id`, `user_name`, `password`, `email`, `birthday`, `phone_number`, `name`, `gender`, `status`, `code`, `is_admin`, `date_created`) VALUES
-(1, 'Nhung', 'test', 'Nhung@gmail.com', '1111-11-11 00:00:00', '0123456789', 'Tuyết Nhung', 1, 1, 1, 0, '2021-10-26 07:40:48'),
-(3, 'Nhung', '', 'tuyetnhung01062001@gmail.com', '2001-06-01 00:00:00', '0868168715', '', 0, 0, 26, 0, '2021-10-28 17:59:08'),
-(4, 'nhung', '', 'tuyetnhung01062001@gmail.com', '2021-09-30 00:00:00', '0868168715', '', 0, 0, 9, 0, '2021-10-29 20:11:05');
+(1, 'Nhung', 'test', 'Nhung@gmail.com', '1111-11-11 00:00:00', '0868168715', 'sdsfdsfdf', 0, 1, '1', 0, '2021-10-26 07:40:48'),
+(5, 'Tuyetnhung', '1', 'tuyetnhung01062001@gmail.com', '0000-00-00 00:00:00', '0868168715', '', 0, 1, '0', 0, '2021-10-30 15:49:53'),
+(6, 'hoang', '', 'tuyetnhung01062001@gmail.com', '2021-10-22 00:00:00', '12324', '', 1, 0, '77', 0, '2021-10-30 15:58:29'),
+(7, 'tuyetnhung', '', 'tuyetnhung01062001@gmail.com', '2021-11-05 00:00:00', '0868168715', '', 0, 0, '56', 0, '2021-10-30 16:10:35'),
+(8, 'hoang1', '', 'tuyetnhung01062001@gmail.com', '2000-07-16 00:00:00', '12345', '', 1, 0, '87c6e5c3c52c6a5112db3760d8bff05c', 0, '2021-10-30 16:13:51'),
+(9, 'hoang123', 'd41d8cd98f00b204e9800998ecf8427e', 'tuyetnhung01062001@gmail.com', '2000-07-16 00:00:00', '12345', '', 1, 0, '3a76763bedc40c22b3045eace877370b', 0, '2021-10-30 16:20:01'),
+(10, 'hoang123556', 'c4ca4238a0b923820dcc509a6f75849b', 'tuyetnhung01062001@gmail.com', '2000-07-16 00:00:00', '1234', '', 1, 0, 'd08bcbfe8ea06680f45994b3b8b56b96', 0, '2021-10-30 16:21:55');
 
 -- --------------------------------------------------------
 
@@ -124,44 +128,44 @@ CREATE TABLE `orders` (
   `people` int(10) NOT NULL,
   `validation` int(1) NOT NULL,
   `payment` int(1) NOT NULL,
-  `date_created` datetime NOT NULL DEFAULT current_timestamp(),
-  `booking_id` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL
+  `date_created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `orders`
 --
 
-INSERT INTO `orders` (`order_id`, `customer_id`, `tour_id`, `start_time`, `people`, `validation`, `payment`, `date_created`, `booking_id`) VALUES
-(5, 1, 15, '2021-10-26', 4, 1, 1, '2021-10-26 07:50:22', '1'),
-(6, 1, 1, '2021-10-26', 2, 1, 1, '2021-10-26 07:50:22', '1'),
-(7, 1, 15, '2021-10-26', 6, 1, 1, '2021-10-26 07:51:02', '1'),
-(8, 1, 16, '2021-10-26', 3, 1, 1, '2021-10-26 07:51:02', '1'),
-(9, 1, 22, '2021-10-26', 3, 1, 1, '2021-10-26 07:51:38', '1'),
-(10, 1, 20, '2021-10-26', 3, 1, 1, '2021-10-26 07:51:38', '1'),
-(11, 1, 19, '2021-10-26', 3, 1, 1, '2021-10-26 07:53:15', '1'),
-(12, 1, 3, '2021-10-26', 4, 1, 1, '2021-10-26 07:53:15', '1'),
-(13, 1, 20, '2021-10-30', 1, 0, 0, '2021-10-27 12:03:47', '1'),
-(14, 1, 20, '2021-10-30', 1, 0, 0, '2021-10-27 12:04:08', '1'),
-(15, 1, 20, '2021-10-30', 1, 0, 0, '2021-10-27 12:17:50', '1'),
-(16, 1, 15, '2021-10-31', 1, 0, 0, '2021-10-27 12:18:09', '1'),
-(17, 1, 3, '2021-10-31', 1, 0, 0, '2021-10-27 12:18:37', '1'),
-(18, 1, 20, '2021-10-30', 2, 0, 0, '2021-10-27 14:42:29', '1'),
-(19, 1, 20, '2021-10-30', 3, 0, 0, '2021-10-27 14:44:10', '1'),
-(20, 1, 20, '2021-10-30', 3, 0, 0, '2021-10-27 14:44:57', '1'),
-(21, 1, 15, '2021-10-30', 3, 1, 1, '2021-10-27 14:45:38', '1'),
-(22, 1, 3, '2021-10-31', 5, 1, 0, '2021-10-27 14:46:01', '1'),
-(23, 1, 18, '2021-10-31', 4, 2, 0, '2021-10-27 14:49:07', '1'),
-(24, 1, 20, '2021-10-30', 4, 2, 0, '2021-10-27 19:10:24', '1'),
-(25, 1, 20, '2021-10-30', 5, 1, 1, '2021-10-27 19:19:53', '1'),
-(26, 1, 20, '2021-10-31', 5, 2, 0, '2021-10-28 09:07:07', '1'),
-(27, 1, 20, '2021-10-31', 5, 2, 0, '2021-10-28 09:18:10', '1'),
-(28, 1, 15, '2021-11-01', 6, 1, 1, '2021-10-28 09:21:50', '1'),
-(29, 1, 3, '2021-11-07', 1, 2, 0, '2021-10-28 09:26:00', '1'),
-(30, 1, 3, '2021-11-07', 6, 1, 1, '2021-10-28 09:40:25', '1'),
-(31, 1, 3, '2021-11-07', 4, 2, 1, '2021-10-28 09:41:45', '1'),
-(32, 1, 15, '2021-10-31', 1, 1, 1, '2021-10-28 10:04:15', '1'),
-(33, 1, 15, '2021-11-07', 4, 2, 0, '2021-10-29 16:29:31', '1');
+INSERT INTO `orders` (`order_id`, `customer_id`, `tour_id`, `start_time`, `people`, `validation`, `payment`, `date_created`) VALUES
+(5, 1, 15, '2021-10-26', 4, 1, 2, '2021-10-26 07:50:22'),
+(6, 1, 1, '2021-10-26', 2, 1, 2, '2021-10-26 07:50:22'),
+(7, 1, 15, '2021-10-26', 6, 1, 2, '2021-10-26 07:51:02'),
+(8, 1, 16, '2021-10-26', 3, 1, 2, '2021-10-26 07:51:02'),
+(9, 1, 22, '2021-10-26', 3, 1, 2, '2021-10-26 07:51:38'),
+(10, 1, 20, '2021-10-26', 3, 1, 2, '2021-10-26 07:51:38'),
+(11, 1, 19, '2021-10-26', 3, 1, 2, '2021-10-26 07:53:15'),
+(12, 1, 3, '2021-10-26', 4, 1, 2, '2021-10-26 07:53:15'),
+(13, 1, 20, '2021-10-30', 1, 1, 2, '2021-10-27 12:03:47'),
+(14, 1, 20, '2021-10-30', 1, 1, 2, '2021-10-27 12:04:08'),
+(15, 1, 20, '2021-10-30', 1, 1, 2, '2021-10-27 12:17:50'),
+(16, 1, 15, '2021-10-31', 1, 1, 2, '2021-10-27 12:18:09'),
+(17, 1, 3, '2021-10-31', 1, 1, 2, '2021-10-27 12:18:37'),
+(18, 1, 20, '2021-10-30', 2, 1, 2, '2021-10-27 14:42:29'),
+(19, 1, 20, '2021-10-30', 3, 1, 2, '2021-10-27 14:44:10'),
+(20, 1, 20, '2021-10-30', 3, 1, 2, '2021-10-27 14:44:57'),
+(21, 1, 15, '2021-10-30', 3, 1, 2, '2021-10-27 14:45:38'),
+(22, 1, 3, '2021-10-31', 5, 1, 2, '2021-10-27 14:46:01'),
+(23, 1, 18, '2021-10-31', 4, 1, 2, '2021-10-27 14:49:07'),
+(24, 1, 20, '2021-10-30', 4, 1, 2, '2021-10-27 19:10:24'),
+(25, 1, 20, '2021-10-30', 5, 1, 2, '2021-10-27 19:19:53'),
+(26, 1, 20, '2021-10-31', 5, 1, 2, '2021-10-28 09:07:07'),
+(27, 1, 20, '2021-10-31', 5, 1, 2, '2021-10-28 09:18:10'),
+(28, 1, 15, '2021-11-01', 6, 1, 2, '2021-10-28 09:21:50'),
+(29, 1, 3, '2021-11-07', 1, 1, 2, '2021-10-28 09:26:00'),
+(30, 1, 3, '2021-11-07', 6, 1, 2, '2021-10-28 09:40:25'),
+(31, 1, 3, '2021-11-07', 4, 1, 2, '2021-10-28 09:41:45'),
+(32, 1, 15, '2021-10-31', 1, 1, 2, '2021-10-28 10:04:15'),
+(33, 1, 15, '2021-11-07', 4, 1, 2, '2021-10-29 16:29:31'),
+(34, 1, 20, '2021-11-07', 1, 0, 0, '2021-10-30 15:43:26');
 
 -- --------------------------------------------------------
 
@@ -229,7 +233,7 @@ INSERT INTO `restaurants` (`res_id`, `res_name`, `rating`, `address`) VALUES
 CREATE TABLE `tourguides` (
   `tour_guide_id` int(11) NOT NULL,
   `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `gender` int(5) NOT NULL,
+  `gender` int(1) NOT NULL,
   `phone_number` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(55) COLLATE utf8mb4_unicode_ci NOT NULL,
   `avatar` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
@@ -395,55 +399,55 @@ ALTER TABLE `tourtypes`
 -- AUTO_INCREMENT cho bảng `cities`
 --
 ALTER TABLE `cities`
-  MODIFY `city_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `city_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT cho bảng `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `hotels`
 --
 ALTER TABLE `hotels`
-  MODIFY `hotel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `hotel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT cho bảng `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `order_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT cho bảng `ranks`
 --
 ALTER TABLE `ranks`
-  MODIFY `rank_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `rank_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT cho bảng `restaurants`
 --
 ALTER TABLE `restaurants`
-  MODIFY `res_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `res_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT cho bảng `tourguides`
 --
 ALTER TABLE `tourguides`
-  MODIFY `tour_guide_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `tour_guide_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT cho bảng `tours`
 --
 ALTER TABLE `tours`
-  MODIFY `tour_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `tour_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT cho bảng `tourtypes`
 --
 ALTER TABLE `tourtypes`
-  MODIFY `tour_type_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `tour_type_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

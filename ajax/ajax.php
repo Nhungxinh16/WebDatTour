@@ -8,8 +8,8 @@
             $tour_id = $_POST["tour_id"];
             $people = $_POST["people"];
             $date = $_POST["date_start"];
-            $sql = "insert into orders set customer_id = ?, tour_id = ?, start_time = ?, people = ?, validation = ?, payment = ?, booking_id = ?";
-            $result = simpleQuery($sql, 0, [$cus_id, $tour_id, $date, $people, 0, 0, 1]);
+            $sql = "insert into orders set customer_id = ?, tour_id = ?, start_time = ?, people = ?, validation = ?, payment = ?";
+            $result = simpleQuery($sql, 0, [$cus_id, $tour_id, $date, $people, 0, 0]);
             if($result){
                 echo "ok";
             }else{

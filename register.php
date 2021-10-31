@@ -90,7 +90,7 @@ require("config/constants.php");
                                     </label>
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12">
-                                    <input type="password" name="passwrod" class="form-control">
+                                    <input type="password" name="password" class="form-control">
                                 </div>
                                 <div class="col-md-2 col-sm-2 col-xs-12">
                                     <label>
@@ -99,7 +99,7 @@ require("config/constants.php");
                                     </label>
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12">
-                                    <input type="password" name="passwrod2" name="" class="form-control">
+                                    <input type="password" name="password2" name="" class="form-control">
                                 </div>
                                 <hr>
                                 <div class="col-md-12 col-sm-12 col-xs-12 mg-bot15 text-end">
@@ -165,9 +165,9 @@ if (isset($_POST['submit'])) {
     $birthday = $_POST['birthday'];
     $phone_number = $_POST['phone_number'];
     $gender = $_POST['gender'];
-    $passwrod = md5($_POST['passwrod']);
-    $passwrod2 = md5($_POST['passwrod2']);
-    if ($_POST['passwrod'] != $_POST['passwrod2']) {
+    $password = md5($_POST['password']);
+    $password2 = md5($_POST['password2']);
+    if ($_POST['password'] != $_POST['password2']) {
         $_SESSION['noti'] = "<p class='text-danger'>Mật khẩu nhập lại sai !!!</p>";
         header("location:register.php");
     } else {
@@ -212,7 +212,7 @@ if (isset($_POST['submit'])) {
                 $subject = 'MyTour kính chào quý khách';
                 $mail->Subject = $subject;
 
-                $link = "http://localhost/webdattour/activeUser.php?email=" . $email . "&code=" . $code;
+                $link = "http://localhost:88/webdattour/activeUser.php?email=" . $email . "&code=" . $code;
                 // Mail body content 
                 $bodyContent = '
                     <p>Cảm ơn quý khách đã đăng kí tour trên MyTour.</p>
