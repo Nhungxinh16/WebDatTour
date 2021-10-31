@@ -165,16 +165,17 @@ if (isset($_POST['submit'])) {
     $birthday = $_POST['birthday'];
     $phone_number = $_POST['phone_number'];
     $gender = $_POST['gender'];
-    $password = md5($_POST['password']);
-    $password2 = md5($_POST['password2']);
+    $password = $_POST['password'];
+    $password2 = $_POST['password2'];
     if ($_POST['password'] != $_POST['password2']) {
         $_SESSION['noti'] = "<p class='text-danger'>Mật khẩu nhập lại sai !!!</p>";
         header("location:register.php");
     } else {
+        $pass = password_hash($password, PASSWORD_DEFAULT);
         $str = rand();
         $code = md5($str);
         $sql = "INSERT INTO `customers`(`user_name`, `password`, `email`, `birthday`, `phone_number`, `gender`,`code`) 
-            VALUES ('$user_name','$password','$email','$birthday','$phone_number','$gender','$code')";
+            VALUES ('$user_name','$pass','$email','$birthday','$phone_number','$gender','$code')";
         $res = mysqli_query($conn, $sql);
 
         if ($res) {
