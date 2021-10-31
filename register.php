@@ -213,7 +213,7 @@ if (isset($_POST['submit'])) {
                 $subject = 'MyTour kính chào quý khách';
                 $mail->Subject = $subject;
 
-                $link = "http://localhost:88/webdattour/activeUser.php?email=" . $email . "&code=" . $code;
+                $link = "http://localhost/webdattour/activeUser.php?email=" . $email . "&code=" . $code;
                 // Mail body content 
                 $bodyContent = '
                     <p>Cảm ơn quý khách đã đăng kí tour trên MyTour.</p>
