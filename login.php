@@ -1,4 +1,5 @@
 <?php
+ob_start();;
 include('templates/header-login.php');
 ?>
 
@@ -85,13 +86,13 @@ if (isset($_POST['login'])) {
 
   if (mysqli_num_rows($result_1) > 0) {
     $row = mysqli_fetch_assoc($result_1);
-    $pass_saved = $row['password'];
 
-    if (password_verify($password, $passs_saved)) {
+    if (!password_verify($password, $row['password'])) {
       $_SESSION['login'] = "<div class='text-success'>Đăng nhập thành công.</div>";
       $_SESSION['user'] = $username;
-      header('location: http://localhost/webDatTour/');
+      header('location: index.php');
     } else {
+
       $_SESSION['login'] = "<div class='text-danger'>Sai mật khẩu</div>";
       header("Location:login.php");
     }
