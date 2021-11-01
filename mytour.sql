@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 31, 2021 lúc 07:16 AM
+-- Thời gian đã tạo: Th10 01, 2021 lúc 01:19 PM
 -- Phiên bản máy phục vụ: 10.4.21-MariaDB
 -- Phiên bản PHP: 8.0.10
 
@@ -60,14 +60,14 @@ INSERT INTO `cities` (`city_id`, `city_name`, `description`, `image`) VALUES
 CREATE TABLE `customers` (
   `customer_id` int(11) NOT NULL,
   `user_name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `password` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `birthday` datetime NOT NULL,
   `phone_number` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `name` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
   `gender` int(1) NOT NULL,
   `status` int(1) NOT NULL,
-  `code` varchar(32) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `is_admin` int(10) NOT NULL,
   `date_created` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -86,7 +86,8 @@ INSERT INTO `customers` (`customer_id`, `user_name`, `password`, `email`, `birth
 (11, 'Nguyễn nhung', 'c4ca4238a0b923820dcc509a6f75849b', 'tuyetnhung01062001@gmail.com', '2021-11-01 00:00:00', '0868168715', '', 0, 1, 'bf005f4f2805f163d9883a172b08f129', 0, '2021-10-31 09:48:03'),
 (12, 'tuyet', 'c4ca4238a0b923820dcc509a6f75849b', 'tuyetnhung01062001@gmail.com', '2021-10-02 00:00:00', '12345', '', 1, 1, '7d72fa28c3eb4ce837b8e0e0398b065b', 0, '2021-10-31 10:42:52'),
 (18, 'cong', '202cb962ac59075b964b07152d234b70', 'phuonglanqn06@gmail.com', '2021-10-05 00:00:00', '0964585519', '', 0, 0, 'ae7909524a04cedf74acba725cea2b8c', 0, '2021-10-31 11:28:06'),
-(19, 'Lan', 'fae0b27c451c728867a567e8c1bb4e53', 'phuonglanqn06@gmail.com', '2021-10-06 00:00:00', '0964585519', '', 0, 0, '33363352f68768fc10abb1c0cab278c7', 0, '2021-10-31 11:30:21');
+(19, 'Lan', 'fae0b27c451c728867a567e8c1bb4e53', 'phuonglanqn06@gmail.com', '2021-10-06 00:00:00', '0964585519', '', 0, 0, '33363352f68768fc10abb1c0cab278c7', 0, '2021-10-31 11:30:21'),
+(20, 'Nguyễn Nhung', '25f9e794323b453885f5181f1b624d0b', 'tuyetnhung01062001@gmail.com', '2021-11-01 00:00:00', '0868168715', '', 1, 1, '1a7e3ce200835c418371720dd6f1a224', 0, '2021-11-01 07:17:52');
 
 -- --------------------------------------------------------
 
@@ -410,7 +411,7 @@ ALTER TABLE `cities`
 -- AUTO_INCREMENT cho bảng `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `customer_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT cho bảng `hotels`
@@ -446,7 +447,7 @@ ALTER TABLE `tourguides`
 -- AUTO_INCREMENT cho bảng `tours`
 --
 ALTER TABLE `tours`
-  MODIFY `tour_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `tour_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT cho bảng `tourtypes`
