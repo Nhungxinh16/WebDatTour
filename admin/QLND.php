@@ -15,7 +15,7 @@ nó dùng để quản lý người dùng -->
         ';
     }
 ?>
-            <div class="container-fluid px-4">
+            <div class="container-fluid px-4" style="margin-bottom: 20%;">
                 <div class="row my-5">
                     <h3 class="fs-4 mb-3">Quản lý người dùng</h3>
                     <div class="col">
@@ -62,7 +62,11 @@ nó dùng để quản lý người dùng -->
                         </table>
                     </div>
                 </div>
-
+          <div>
+            <form action="export_import.php" method="POST" enctype="multipart/form-data">
+                <button class="btn btn-dark" type="submit" name="export">Xuất file</button>
+            </form>
+        </div>
 <?php
     include('templates-admin/footer.php')
 ?>

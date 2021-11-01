@@ -1,25 +1,30 @@
 <?php
     require("config/constants.php");
     $tour_id = null;
-    if(isset($_GET["tour_id"]) && $_GET["tour_id"] != NULL){
-      $tour_id = $_GET["tour_id"];
-    }else{
-      header("location: index.php");
-    }
-    $sql = "select count(tours.tour_id) as count, tours.price_per_person, tours.tour_name, tours.max, tours.tour_id, cities.city_id, cities.city_name, tours.image_1, tours.day_count, tourtypes.type_name from tours, orders, cities,tourtypes where tours.tour_type_id = tourtypes.tour_type_id and tours.tour_id = orders.tour_id and tours.city_id = cities.city_id and tours.tour_id = ? group by cities.city_id";
-    $tour = simpleQuery($sql, 1, [$tour_id]);
-    if(count($tour) >= 1){
-      $tour = $tour[0];
-    }else{
-      $sql = "select tours.price_per_person, tours.tour_name, tours.max, tours.tour_id, cities.city_id, cities.city_name, tours.image_1, tours.day_count, tourtypes.type_name from tours, cities,tourtypes where tours.tour_type_id = tourtypes.tour_type_id and tours.city_id = cities.city_id and tours.tour_id = ?";
-      $tour = simpleQuery($sql, 1, [$tour_id]);
-      if(count($tour) >=1){
-        $tour = $tour[0];
-        $tour["count"] = 0;
+    if(isset($_GET)){
+      if(isset($_GET["tour_id"]) && $_GET["tour_id"] != NULL){
+        $tour_id = $_GET["tour_id"];
       }else{
         header("location: index.php");
       }
+      $sql = "select count(tours.tour_id) as count, tours.price_per_person, tours.tour_name, tours.max, tours.tour_id, cities.city_id, cities.city_name, tours.image_1, tours.day_count, tourtypes.type_name from tours, orders, cities,tourtypes where tours.tour_type_id = tourtypes.tour_type_id and tours.tour_id = orders.tour_id and tours.city_id = cities.city_id and tours.tour_id = ? group by cities.city_id";
+      $tour = simpleQuery($sql, 1, [$tour_id]);
+      if(count($tour) >= 1){
+        $tour = $tour[0];
+      }else{
+        $sql = "select tours.price_per_person, tours.tour_name, tours.max, tours.tour_id, cities.city_id, cities.city_name, tours.image_1, tours.day_count, tourtypes.type_name from tours, cities,tourtypes where tours.tour_type_id = tourtypes.tour_type_id and tours.city_id = cities.city_id and tours.tour_id = ?";
+        $tour = simpleQuery($sql, 1, [$tour_id]);
+        if(count($tour) >=1){
+          $tour = $tour[0];
+          $tour["count"] = 0;
+        }else{
+          header("location: error.php");
+        }
+      }
+    }else{
+      header("location: error.php");
     }
+
     require('templates/header.php');
 ?>
 

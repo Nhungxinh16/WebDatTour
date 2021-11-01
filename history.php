@@ -6,14 +6,19 @@ bấm vào link xác nhận ở mail thì ra trang này -->
     require_once("config/constants.php");
     $orders = null;
     $customer = null;
-    if(isset($_GET["customer_id"]) && $_GET["customer_id"] != null){
-        $sql = "select * from tours, orders where orders.tour_id = tours.tour_id and orders.customer_id = ?";
-        $orders = simpleQuery($sql, 1, [$_GET["customer_id"]]);
-        $sql = "select * from customers where customer_id = ?";
-        $customer = simpleQuery($sql, 1, [$_GET["customer_id"]])[0];
+    if(isset($_GET)){
+        if(isset($_GET["customer_id"]) && $_GET["customer_id"] != null){
+            $sql = "select * from tours, orders where orders.tour_id = tours.tour_id and orders.customer_id = ?";
+            $orders = simpleQuery($sql, 1, [$_GET["customer_id"]]);
+            $sql = "select * from customers where customer_id = ?";
+            $customer = simpleQuery($sql, 1, [$_GET["customer_id"]])[0];
+        }else{
+            header("location: error.php");
+        }
     }else{
-        header("location: index.php");
+        header("location: error.php");
     }
+    
     require('templates/header.php');
 ?>
 

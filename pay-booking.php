@@ -5,17 +5,22 @@ bấm vào link xác nhận ở mail thì ra trang này -->
 <?php
     require_once("config/constants.php");
     $order = null;
-    if(isset($_GET["order_id"]) && $_GET["order_id"] != null){
-      $sql = "select * from orders where order_id = ? and validation = 1 and payment = 0";
-      $order = simpleQuery($sql, 1, [$_GET["order_id"]]);
-      if(count($order) >= 1){
-        $order = $order[0];
+    if(isset($_GET)){
+      if(isset($_GET["order_id"]) && $_GET["order_id"] != null){
+        $sql = "select * from orders where order_id = ? and validation = 1 and payment = 0";
+        $order = simpleQuery($sql, 1, [$_GET["order_id"]]);
+        if(count($order) >= 1){
+          $order = $order[0];
+        }else{
+          header("location: error.php");
+        }
       }else{
-        header("location: index.php");
+        header("location: error.php");
       }
     }else{
-      header("location: index.php");
+      header("location: error.php");
     }
+    
     require('templates/header.php');
 ?>
 

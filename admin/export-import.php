@@ -7,16 +7,16 @@
         header('Content-Disposition: attachment; filename=export.csv');  
         $output = fopen("php://output", "w");  
         fprintf($output, chr(0xEF).chr(0xBB).chr(0xBF));
-        fputcsv($output, array("STT", "TenNV", "ChucVu", "MayBan", "Email", "SoDiDong", "DonVi")); 
+        fputcsv($output, array("STT", "TenND", "Email", "DienThoai", "GioiTinh"); 
 
-        $sql = "select manv, tennv, chucvu, mayban, db_nhanvien.email, sodidong, tendv from db_nhanvien, db_donvi where db_nhanvien.madv = db_donvi.madv";
+        $sql = "select customer_id, user_name, email, phone_number, gender from customers";
         $result = mysqli_query($conn,$sql);
         $i = 0;
         if (mysqli_num_rows($result) > 0)
         {
             while($row = mysqli_fetch_assoc($result)){ 
                 $i++;
-                $new_row = array($i, $row['tennv'], $row['chucvu'], $row['mayban'], $row['email'], $row['sodidong'], $row['tendv'], );
+                $new_row = array($i, $row['user_name'], $row['email'], $row['phone_number'], $row['gender']);
                 fputcsv($output, $new_row); 
             }
         }  
@@ -25,7 +25,7 @@
 ?>
 
 <?php
- if(isset($_POST["import"])){
+ /* if(isset($_POST["import"])){
     
     $filename=$_FILES["file_import"]["tmp_name"];    
      if($_FILES["file_import"]["size"] > 0)
@@ -65,5 +65,5 @@
       
            fclose($file);  
      }
-  }   
+  }    */
  ?>
