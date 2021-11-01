@@ -87,7 +87,7 @@ if (isset($_POST['login'])) {
   if (mysqli_num_rows($result_1) > 0) {
     $row = mysqli_fetch_assoc($result_1);
 
-    if (!password_verify($password, $row['password'])) {
+    if (password_verify($password, $row['password'])) {
       $_SESSION['login'] = "<div class='text-success'>Đăng nhập thành công.</div>";
       $_SESSION['user'] = $username;
       header('location: index.php');
