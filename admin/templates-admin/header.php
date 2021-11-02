@@ -55,11 +55,17 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-user me-2"></i>Tuyết nhung
+                                <?php
+                                  $sql = "select user_name from customers where customer_id = ?";
+                                  $row = simpleQuery($sql, 1, [$_SESSION["user_id"]])[0];
+                                  echo '<i class="fas fa-user me-2"></i>';
+                                  echo $row["user_name"]; 
+
+                                ?>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">Trang cá nhân</a></li>
-                                <li><a class="dropdown-item" href="#">Cài đặt</a></li>
+                                <li><a class="dropdown-item" href="../index.php"> Trang guess</a></li>
                                 <li><a class="dropdown-item" href="logout.php">Đăng xuất</a></li>
                             </ul>
                         </li>
