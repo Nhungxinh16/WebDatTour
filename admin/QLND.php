@@ -63,7 +63,7 @@ nó dùng để quản lý người dùng -->
                     </div>
                 </div>
           <div>
-            <form action="export_import.php" method="POST" enctype="multipart/form-data">
+            <form action="export-import.php" method="POST" enctype="multipart/form-data">
                 <button class="btn btn-dark" type="submit" name="export">Xuất file</button>
             </form>
         </div>

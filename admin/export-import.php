@@ -7,7 +7,7 @@
         header('Content-Disposition: attachment; filename=export.csv');  
         $output = fopen("php://output", "w");  
         fprintf($output, chr(0xEF).chr(0xBB).chr(0xBF));
-        fputcsv($output, array("STT", "TenND", "Email", "DienThoai", "GioiTinh"); 
+        fputcsv($output, array("STT", "TenND", "Email", "DienThoai", "GioiTinh")); 
 
         $sql = "select customer_id, user_name, email, phone_number, gender from customers";
         $result = mysqli_query($conn,$sql);

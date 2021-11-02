@@ -21,6 +21,8 @@ nó dùng để quản lý đặt tour -->
 
     if(isset($_GET["order_id"]) && $_GET["order_id"] != null){
         $id = $_GET["order_id"];
+        $sql = "select customers.email from customers, orders where orders.customer_id = customers.customer_id and orders.order_id = ?";
+        $email = simpleQuery($sql, 1, [$id])[0]["email"];
         $sql = "update orders set validation = ? where order_id = ?";
         $result = false;
         require_once("../config/mail.php");
@@ -36,7 +38,7 @@ nó dùng để quản lý đặt tour -->
                     yêu cầu đặt tour của quý khách sẽ bị hủy bỏ.</p>
                     <p>Kính mến!</p>
                 ';
-                send_mail("tuyetnhung01062001@gmail.com", $subject, $bodyContent);
+                send_mail($email, $subject, $bodyContent);
                 header("location: QLDDTour.php");
             }
         }else if(isset($_GET["cancel"])){
@@ -57,7 +59,7 @@ nó dùng để quản lý đặt tour -->
                     </p>
                     <p>Kính mến!</p>
                 ';
-                send_mail("tuyetnhung01062001@gmail.com", $subject, $bodyContent);
+                send_mail($email, $subject, $bodyContent);
                 header("location: QLDDTour.php");
             }
         }   

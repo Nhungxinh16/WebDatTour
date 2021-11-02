@@ -23,8 +23,9 @@
            
             if($result){
                 require_once("../config/mail.php");
-                $sql = "select * from tours, cities, orders where orders.tour_id = tours.tour_id and tours.city_id = cities.city_id and orders.order_id = ?";
+                $sql = "select * from tours, cities, orders, customers where orders.tour_id = tours.tour_id and orders.customer_id = customers.customer_id and tours.city_id = cities.city_id and orders.order_id = ?";
                 $row = simpleQuery($sql, 1, [$order_id])[0];
+                $email = $row["email"];
                 $date = date_create($row["start_time"]);
                 $day = date_format($date, "d");
                 $month = date_format($date, "m");
@@ -40,7 +41,7 @@
                     </p>
                     <p>Kính chúc quý khách đi chơi vui vẻ</p>
                 ';
-                send_mail("tuyetnhung01062001@gmail.com", "myTour: Thanh toán thành công", $paySuccess);
+                send_mail($email, "myTour: Thanh toán thành công", $paySuccess);
                 // echo $paySuccess;
                 echo "ok";
             }else{
