@@ -3,6 +3,7 @@ nó dùng để quản lý đặt tour -->
 
 <?php
     require("../config/constants.php");
+    require_once("check-admin.php");
     $_SESSION["nav"] = "orders";
     // Hủy các orders mà 2 ngày chưa thanh toán
     $now = date("Y-m-d");

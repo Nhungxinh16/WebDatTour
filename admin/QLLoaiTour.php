@@ -2,6 +2,7 @@
 
 <?php
     require("../config/constants.php");
+    require_once("check-admin.php");
     $_SESSION["nav"] = "tourtypes";
     require('templates-admin/header.php');
     if(isset($_SESSION["alert"])){

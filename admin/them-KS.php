@@ -2,6 +2,7 @@
 
 <?php
     require_once("../config/constants.php");
+    require_once("check-admin.php");
     if(isset($_POST["submit"])){
         $hotel_name = $_POST["hotel_name"];
         $address = $_POST["address"];

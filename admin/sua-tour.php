@@ -1,6 +1,7 @@
 <!-- trang này dùng để thêm các tour -->
 <?php
     require_once("../config/constants.php");
+    require_once("check-admin.php");
     if(isset($_POST["submit"])){
         $tour_name = $_POST["tour_name"];
         $description = $_POST["description"];

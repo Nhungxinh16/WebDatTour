@@ -1,5 +1,6 @@
 <?php
     require_once("../config/constants.php");
+    require_once("check-admin.php");
     if(isset($_GET["tours"]) && $_GET["tour_id"] != null){
         $id = $_GET["tour_id"];
         $sql = "select * from orders where tour_id = ?";

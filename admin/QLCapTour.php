@@ -2,6 +2,7 @@
 
 <?php
     require("../config/constants.php");
+    require_once("check-admin.php");
     $_SESSION["nav"] = "ranks";
     require('templates-admin/header.php');
     if(isset($_SESSION["alert"])){

@@ -4,6 +4,7 @@ nó dùng để quản lý người dùng -->
 
 <?php
     require("../config/constants.php");
+    require_once("check-admin.php");
     $_SESSION["nav"] = "customers";
     require('templates-admin/header.php');
     if(isset($_SESSION["alert"])){

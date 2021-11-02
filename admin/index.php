@@ -4,6 +4,8 @@ nó đang ở chỗ quản lý tour
 
 <?php
     require_once("../config/constants.php");
+    require_once("check-admin.php");
+
     $_SESSION["nav"] = "tours";
     require('templates-admin/header.php');
     if(isset($_SESSION["alert"])){
