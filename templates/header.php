@@ -140,8 +140,31 @@ include("./config/database-connection.php");
         <input class="form-control mr-1 sm-2 border-warning" type="text" name="search" placeholder="Bắt đầu tìm kiếm..." aria-label="Search">
         <button class="btn btn-outline my-2 my-sm-0 mr-1" type="submit"><i class="fas fa-search"></i></button>
       </form>
+      <?php
+        if(isset($_SESSION["user_id"]) && $_SESSION["user_id"] != null){
+          $sql = "select is_admin from customers where customer_id = ?";
+          $cus = simpleQuery($sql, 1, [$_SESSION["user_id"]])[0];
+          echo '
+            <div class="dropleft show">
+              <a class="btn btn-secondary dropdown-toggle"  style="background: #ffffff;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-user" style="color: black;"></i>
+              </a>
 
-      <button type="button" class="btn btn-light"><a href="login.php"><i class="fas fa-user" style="color: black;"></i></a></button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">';
+                if($cus["is_admin"] == 1){
+                  echo '<a class="dropdown-item" href="admin/index.php">Quản lý</a>';
+                }
+                echo '<a class="dropdown-item" href="admin/logout.php">Đăng xuất</a>
+              </div>
+            </div>';
+        }else{
+          echo '<button type="button" class="btn btn-light"><a href="login.php"><i class="fas fa-user" style="color: black;"></i></a></button>';
+        }
+        
+
+          
+      ?>
+      
     </div>
 
   </nav>
