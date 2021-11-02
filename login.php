@@ -1,6 +1,38 @@
 <?php
-ob_start();;
-include('templates/header-login.php');
+  require("config/constants.php");
+  if(isset($_SESSION["user_id"]) && $_SESSION["user_id"] != null){
+    header("location: index.php");
+  }
+  if (isset($_POST['login'])) {
+
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $sql = "select * from customers where user_name ='$username'";
+    $result_1 = mysqli_query($conn, $sql);
+
+    if (mysqli_num_rows($result_1) > 0) {
+      $row = mysqli_fetch_assoc($result_1);
+      $pass_saved = $row['password'];
+      if (password_verify($password, $pass_saved)) {
+        $_SESSION['login'] = "<div class='text-success'>Đăng nhập thành công.</div>";
+        $sql = "select customer_id from customers where user_name = ?";
+        $cus = simpleQuery($sql, 1, [$username])[0];
+        $_SESSION['user'] = $username;
+        $_SESSION["user_id"] = $cus["customer_id"];
+        header('location: http://localhost:88/WebDatTour/');
+      } else {
+        $_SESSION['login'] = "<div class='text-danger'>Sai mật khẩu</div>";
+        header("Location:login.php");
+      }
+    } else {
+      $_SESSION['login'] = "<div class='text-danger'>Sai tài khoản</div>";
+      header("Location:login.php");
+    }
+  }
+  ob_end_flush();
+
+
+  include('templates/header-login.php');
 ?>
 
 <body>
@@ -28,7 +60,7 @@ include('templates/header-login.php');
             }
 
             ?>
-            <form action="" method="POST">
+            <form action="login.php" method="POST">
               <div class="form-group first">
                 <input type="text" class="form-control" name="username" id="username" placeholder="Tài khoản">
 
@@ -76,30 +108,4 @@ include('templates/header-login.php');
 </body>
 <?php
 include('templates/footer.php')
-?>
-<?php
-if (isset($_POST['login'])) {
-  $username = $_POST['username'];
-  $password = $_POST['password'];
-  $sql = "select * from customers where user_name ='$username'";
-  $result_1 = mysqli_query($conn, $sql);
-
-  if (mysqli_num_rows($result_1) > 0) {
-    $row = mysqli_fetch_assoc($result_1);
-
-    if (password_verify($password, $row['password'])) {
-      $_SESSION['login'] = "<div class='text-success'>Đăng nhập thành công.</div>";
-      $_SESSION['user'] = $username;
-      header('location: index.php');
-    } else {
-
-      $_SESSION['login'] = "<div class='text-danger'>Sai mật khẩu</div>";
-      header("Location:login.php");
-    }
-  } else {
-    $_SESSION['login'] = "<div class='text-danger'>Sai tài khoản</div>";
-    header("Location:login.php");
-  }
-}
-ob_end_flush();
 ?>
