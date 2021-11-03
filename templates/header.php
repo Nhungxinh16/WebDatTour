@@ -145,12 +145,11 @@ include("./config/database-connection.php");
           $sql = "select is_admin from customers where customer_id = ?";
           $cus = simpleQuery($sql, 1, [$_SESSION["user_id"]])[0];
           echo '
-            <div class="dropleft show">
-              <a class="btn btn-secondary dropdown-toggle"  style="background: #ffffff;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <div class="dropdown show mr-5">
+              <a class="btn btn-secondary dropdown-toggle"  style="background: #ffffff;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
               <i class="fas fa-user" style="color: black;"></i>
               </a>
-
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">';
+              <div class="dropdown-menu dropdown-menu-end" role="menu" aria-labelledby="dropdownMenuLink" >';
                 if($cus["is_admin"] == 1){
                   echo '<a class="dropdown-item" href="admin/index.php">Quản lý</a>';
                 }
