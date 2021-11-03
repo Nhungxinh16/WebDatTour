@@ -153,6 +153,7 @@ include("./config/database-connection.php");
                 if($cus["is_admin"] == 1){
                   echo '<a class="dropdown-item" href="admin/index.php">Quản lý</a>';
                 }
+                echo '<a class="dropdown-item" href="history.php?customer_id='.$_SESSION["user_id"].'">Lịch sử</a>';
                 echo '<a class="dropdown-item" href="admin/logout.php">Đăng xuất</a>
               </div>
             </div>';

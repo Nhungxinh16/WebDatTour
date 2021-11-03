@@ -4,6 +4,9 @@ bấm vào link xác nhận ở mail thì ra trang này -->
 
 <?php
     require_once("config/constants.php");
+    if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"] == null){
+      header("error.php");
+    }
     $orders = null;
     $customer = null;
     if(isset($_GET)){
