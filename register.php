@@ -54,7 +54,10 @@ require("config/constants.php");
                                     </label>
                                 </div>
                                 <div class="col-md-4 col-sm-4 col-xs-12">
-                                    <input type="text" name="gender" class="form-control">
+                                    <select class="form-select form-select-sm" name="gender">
+                                        <option value="0">Nữ</option>
+                                        <option value="1">Nam</option>
+                                    </select>
                                 </div>
                                 <div class="col-md-2 col-sm-2 col-xs-12">
                                     <label>

@@ -218,7 +218,7 @@ require('templates/header.php');
   foreach ($tour[0] as $t) {
     echo '
             <div class="card" style="border: transparent;">
-              <a href="#"><img src="' . $t["image"] . '" class="card-img-top pb-0 h-fav-tour-image" alt="..." style="border-radius: 10px;"></a>
+              <a href="listtour.php?search=' . $t["city_name"] . '"><img src="' . $t["image"] . '" class="card-img-top pb-0 h-fav-tour-image" alt="..." style="border-radius: 10px;"></a>
               <div class="card-body p-0">
                 <a href="#"><h5 class="card-title p-2 pb-0 mb-0" style="color: #282365;">' . $t["city_name"] . '</h5></a>
                 <small class="p-2 pt-0" style="color:#282365;">Đã có ' . $t["count"] . ' lượt khách</small>
@@ -231,9 +231,9 @@ require('templates/header.php');
   foreach ($tour[1] as $t) {
     echo '
           <div class="card" style="border: transparent;">
-            <a href="danhsach.php?city=' . $t["city_id"] . '"><img src="' . $t["image"] . '" class="card-img-top pb-0 h-fav-tour-image" alt="..." style="border-radius: 10px;"></a>
+            <a href="listtour.php?search=' . $t["city_name"] . '"><img src="' . $t["image"] . '" class="card-img-top pb-0 h-fav-tour-image" alt="..." style="border-radius: 10px;"></a>
             <div class="card-body p-0">
-              <a href="danhsach.php?city=' . $t["city_id"] . '"><h5 class="card-title p-2 pb-0 mb-0" style="color: #282365;">' . $t["city_name"] . '</h5></a>
+              <a href="listtour.php?search=' . $t["city_name"] . '"><h5 class="card-title p-2 pb-0 mb-0" style="color: #282365;">' . $t["city_name"] . '</h5></a>
               <small class="p-2 pt-0" style="color:#282365;">Đã có ' . $t["count"] . ' lượt khách</small>
             </div>
           </div>
