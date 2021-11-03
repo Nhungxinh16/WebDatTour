@@ -4,7 +4,7 @@
     if(isset($_POST["mode"])){
         $mode = $_POST["mode"];
         if($mode == "order"){
-            $cus_id = 1;
+            $cus_id = $_SESSION["user_id"];
             $tour_id = $_POST["tour_id"];
             $people = $_POST["people"];
             $date = $_POST["date_start"];

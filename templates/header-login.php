@@ -28,7 +28,7 @@
   <title>WEB ĐẶT TOUR</title>
 </head>
 <nav class="navbar navbar-expand-lg navbar-light bg-light p-1 pb-0 pt-0 ">
-    <a class="navbar-brand m-0" href="#"><img src="content/image/logo.png" class="img-fluid ml-2" alt="Responsive image"
+    <a class="navbar-brand m-0" href="index.php"><img src="content/image/logo.png" class="img-fluid ml-2" alt="Responsive image"
         style="max-width: 70%"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

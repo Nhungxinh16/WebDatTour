@@ -43,7 +43,7 @@ $id= $_GET['tour_id'];
                                 </div>
                             </div>
                             <div class="group-add-cart">
-                                <a href="/Booking/TourBooking?tourId=965c5d09-b690-4307-9bd9-defc52da3968"
+                                <a href="booking.php?tour_id=<?php echo $_GET["tour_id"];?>"
                                     class="add-to-cart">
                                     <i class="fal fa-shopping-cart"></i>
                                     <label>

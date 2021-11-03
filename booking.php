@@ -4,6 +4,11 @@
     if(isset($_GET)){
       if(isset($_GET["tour_id"]) && $_GET["tour_id"] != NULL){
         $tour_id = $_GET["tour_id"];
+        if(!isset($_SESSION["user_id"]) || $_SESSION["user_id"] ==null){
+          $_SESSION["last_point"] = "booking.php";
+          $_SESSION["tour_id"] = $tour_id;
+          header("location: login.php");
+        }
       }else{
         header("location: index.php");
       }
