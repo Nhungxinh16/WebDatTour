@@ -71,6 +71,12 @@ $(document).ready(function () {
   
 });
 
+function check_login(){
+  return confirm("Bạn cần đăng nhập để có thể đặt tour.");
+}
+
+
+
 $(document).ready(function(){
 $("#people_select").on("change", function(){
   let value = this.value;
@@ -152,7 +158,7 @@ $("#order_now").click(function(){
     },
     function(data, status){
       if(data == "ok"){
-        alert("Đặt tour thành công, xin quý khách chờ email để thanh toán (chua the lam tiep vi chua co dang nhap)");
+        alert("Đặt tour thành công, xin quý khách chờ email để thanh toán");
         setTimeout(function(){ location.replace("index.php"); },1500);
       }else{
         alert(data);

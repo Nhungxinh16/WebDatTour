@@ -19,7 +19,16 @@
         $cus = simpleQuery($sql, 1, [$username])[0];
         $_SESSION['user'] = $username;
         $_SESSION["user_id"] = $cus["customer_id"];
-        header('location: http://localhost:88/WebDatTour/');
+        
+        if(isset($_SESSION["last_point"])){
+          $page = $_SESSION["last_point"];
+          $id = $_SESSION["tour_id"];
+          unset($_SESSION["last_point"]);
+          unset($_SESSION["tour_id"]);
+          header("location: $page?tour_id=$id");
+        }else{
+          header('location: index.php');
+        }
       } else {
         $_SESSION['login'] = "<div class='text-danger'>Sai mật khẩu</div>";
         header("Location:login.php");

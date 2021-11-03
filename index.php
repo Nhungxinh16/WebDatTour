@@ -138,7 +138,7 @@ require('templates/header.php');
                     NDSGN8286-001-281021XE-V</small></p> --!>
                 <!-- <p class="card-text"><small class="text-muted">Nơi khởi hành TP.Hồ Chí Minh</small></p> --!>
                 <p class="card-text"><b style="font-size: large; color:#FD5056;">' . $price . 'đ</b><small class="text-muted">/người</small></p>
-                <a href="booking.php?tour_id=' . $t["tour_id"] . '" class="btn btn-danger" style="font-size: small; background-color: #D74449;"><i
+                <a href="booking.php?tour_id=' . $t["tour_id"] . '" onclick="return check_login()" class="btn btn-danger" style="font-size: small; background-color: #D74449;"><i
                     class="fas fa-shopping-cart"></i>&#160;Đặt ngay</a>
                 <a href="more_info.php?tour_id=' . $t["tour_id"] . '" class="btn btn-light" style="font-size: small; background-color: #ffffff; float: right; border: 1px solid #2f24a7; color: #2f24a7;">Xem chi tiết</a>
               </div>
