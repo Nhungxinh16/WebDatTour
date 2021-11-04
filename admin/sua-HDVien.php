@@ -26,7 +26,7 @@
 <div class="main-content">
     <div class="wrapper">
         <div class="alert alert-success text-center" role="alert">
-            <h2>Thêm hướng dẫn viên</h2>
+            <h2>Sửa hướng dẫn viên</h2>
             <div class="text-center text-danger">
             </div>
         </div>
@@ -61,7 +61,7 @@
                         <span class="input-group-text col-3" >Avatar</span>
                         <input type="text" class="form-control" name= "avatar" placeholder="Nhập link avatar" value="<?php echo $row["avatar"]; ?>">
                     </div>
-                    <button type="submit" class="btn btn-info" name="submit">Thêm</button>
+                    <button type="submit" class="btn btn-info" name="submit">Sửa</button>
      
                 </div>
             </form>
