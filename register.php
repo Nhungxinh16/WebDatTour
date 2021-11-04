@@ -97,7 +97,7 @@ require("config/constants.php");
                                 </div>
                                 <div class="col-md-2 col-sm-2 col-xs-12">
                                     <label>
-                                        Nhập lại
+                                        Nhập lại mật khẩu
                                         :
                                     </label>
                                 </div>
