@@ -34,7 +34,7 @@
         </div>
   <!-- sửa -->
         <div class="container col-md-12 mx-auto">
-            <form action="sua-ND.php?id=<?php echo $row["customer_id"]; ?>" METHOD="POST">
+            <form action="sua-ND.php?id=<?php echo $row['customer_id']; ?>" method="POST">
                 <div class="col-md-6 mx-auto">
                     <div class="input-group mb-2">
                         <span class="input-group-text col-3">Username</span>
