@@ -56,7 +56,7 @@ nó đang ở chỗ quản lý tour
                                                 <td>'.$t["rank_name"].'</td>
                                                 <td><a href="../more_info.php?tour_id='.$t["tour_id"].'"><i class="fas fa-eye"></i></a></td>
                                                 <td><a href="sua-tour.php?tour_id='.$t["tour_id"].'"><i class="fas fa-edit"></i></a></td>
-                                                <td><a href="xoa.php?tours=&tour_id='.$t["tour_id"].'"><i class="fas fa-trash-alt"></i></a></td>
+                                                <td><a onclick="return confirmFuncc()" href="xoa.php?tours=&tour_id='.$t["tour_id"].'"><i class="fas fa-trash-alt"></i></a></td>
                                             </tr>
                                         ';
                                         $i++;
@@ -73,3 +73,10 @@ nó đang ở chỗ quản lý tour
 <?php
     include('templates-admin/footer.php')
 ?>
+<html>
+<script language="javascript" type="text/javascript">
+  function confirmFuncc(){
+    return confirm("Bạn có chắc chắn muốn xóa không?");
+  }
+</script>
+</html>

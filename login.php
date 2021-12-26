@@ -30,12 +30,12 @@
           header('location: index.php');
         }
       } else {
-        $_SESSION['login'] = "<div class='text-danger'>Sai mật khẩu</div>";
-        header("Location:login.php");
+        $_SESSION['login'] = "<div class='text-danger'>Sai tên đăng nhập hoặc mật khẩu</div>";
+        // header("Location:login.php");
       }
     } else {
-      $_SESSION['login'] = "<div class='text-danger'>Sai tài khoản</div>";
-      header("Location:login.php");
+      $_SESSION['login'] = "<div class='text-danger'>Sai tên đăng nhập hoặc mật khẩu</div>";
+      // header("Location:login.php");
     }
   }
   ob_end_flush();

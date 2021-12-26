@@ -16,6 +16,7 @@
     if(isset($_GET["id"]) && $_GET["id"] != null){
         $sql = "select * from ranks where rank_id = ?";
         $row = simpleQuery($sql, 1, [$_GET["id"]])[0];
+        echo $row;
     }
     include('templates-admin/header.php');
 ?>

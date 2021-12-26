@@ -1,7 +1,3 @@
-<!-- trang này là khi bấm vào quản lý người dùng trên nav bar sẽ ra 
-nó dùng để quản lý người dùng -->
-
-
 <?php
     require("../config/constants.php");
     require_once("check-admin.php");
@@ -18,7 +14,11 @@ nó dùng để quản lý người dùng -->
 ?>
             <div class="container-fluid px-4" style="margin-bottom: 20%;">
                 <div class="row my-5">
-                    <h3 class="fs-4 mb-3">Quản lý người dùng</h3>
+                    <h3 class="fs-4 mb-3">Quản lý khách hàng</h3>
+      <form class="form-inline my-2 my-lg-0" method="GET" action="listtour.php">
+        <input class="form-control mr-1 sm-2 border-warning" type="text" name="search" placeholder="Bắt đầu tìm kiếm..." aria-label="Search">
+        <button class="btn btn-outline my-2 my-sm-0 mr-1" type="submit"><i class="fas fa-search"></i></button>
+      </form>
                     <div class="col">
                         <table class="table bg-white rounded shadow-sm  table-hover">
                             <thead>
@@ -28,6 +28,7 @@ nó dùng để quản lý người dùng -->
                                     <th scope="col">Email</th>
                                     <th scope="col">Điện thoại</th>
                                     <th scope="col">Giới tính</th>
+                                    <th scope="col">Xem chi tiết</th>
                                     <th scope="col">Sửa</th>
                                     <th scope="col">Xóa</th>
                                 </tr>
@@ -51,8 +52,9 @@ nó dùng để quản lý người dùng -->
                                                         echo "Nam";
                                                     }
                                                 echo '</td>
+                                                <td><a href="XemND.php"><i class="fas fa-eye"></i></a></td>
                                                 <td><a href="sua-ND.php?id='.$row["customer_id"].'"><i class="fas fa-edit"></i></a></td>
-                                                <td><a href="xoa.php?customers=&id='.$row["customer_id"].'"><i class="fas fa-trash"></i></a></td>
+                                                <td><a onclick="return confirmFuncc()" href="xoa.php?customers=&id='.$row["customer_id"].'"><i class="fas fa-trash"></i></a></td>
                                             </tr>
                                         ';
                                         $i++;
@@ -71,3 +73,10 @@ nó dùng để quản lý người dùng -->
 <?php
     include('templates-admin/footer.php')
 ?>
+<html>
+<script language="javascript" type="text/javascript">
+  function confirmFuncc(){
+    return confirm("Bạn có chắc chắn muốn xóa không?");
+  }
+</script>
+</html>

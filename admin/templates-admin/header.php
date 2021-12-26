@@ -21,14 +21,17 @@
             <div class="list-group list-group-flush my-3">
                 <a href="index.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold <?php if($_SESSION["nav"] == "tours") echo "active"; ?>"><i
                         class="fas fa-tachometer-alt me-2"></i>Quản lý tour</a>
+                <a href="QLDDTour.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold <?php if($_SESSION["nav"] == "orders") echo "active"; ?>"><i
+                        class="fas fa-paperclip me-2"></i>Quản lý đơn đặt tour</a>  
+                <a href="QLND.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold <?php if($_SESSION["nav"] == "customers") echo "active"; ?>"><i
+                        class="fas fa-shopping-cart me-2"></i>Quản lý khách hàng</a>         
+                <a href="QLNhanVien.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold <?php if($_SESSION["nav"] == "hotels") echo "active"; ?>"><i
+                        class="fas fa-project-diagram me-2"></i>Quản lý nhân viên</a> 
+
                 <a href="QLKS.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold <?php if($_SESSION["nav"] == "hotels") echo "active"; ?>"><i
                         class="fas fa-project-diagram me-2"></i>Quản lý khách sạn</a>
                 <a href="QLNH.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold <?php if($_SESSION["nav"] == "restaurants") echo "active"; ?>"><i
                         class="fas fa-chart-line me-2"></i>Quản lý nhà hàng</a>
-                <a href="QLDDTour.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold <?php if($_SESSION["nav"] == "orders") echo "active"; ?>"><i
-                        class="fas fa-paperclip me-2"></i>Quản lý đơn đặt tour</a>
-                <a href="QLND.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold <?php if($_SESSION["nav"] == "customers") echo "active"; ?>"><i
-                        class="fas fa-shopping-cart me-2"></i>Quản lý người dùng</a>
                 <a href="QLTP.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold <?php if($_SESSION["nav"] == "cities") echo "active"; ?>"><i
                         class="fas fa-shopping-cart me-2"></i>Quản lý thành phố</a>
                 <a href="QLCapTour.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold <?php if($_SESSION["nav"] == "ranks") echo "active"; ?>"><i
@@ -56,14 +59,14 @@
                             <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <?php
-                                  $sql = "select user_name from customers where customer_id = ?";
-                                  $row = simpleQuery($sql, 1, [$_SESSION["user_id"]])[0];
+                                  // $sql = "select user_name from customers where customer_id = ?";
+                                  // $abcd = simpleQuery($sql, 1, [$_SESSION["user_id"]])[0];
                                   echo '<i class="fas fa-user me-2"></i>';
-                                  echo $row["user_name"]; 
+                                  // echo $abcd["user_name"]; 
 
                                 ?>
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <ul class="dropdown-menu" style="right: 0; left: auto;" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">Trang cá nhân</a></li>
                                 <li><a class="dropdown-item" href="../index.php"> Trang guess</a></li>
                                 <li><a class="dropdown-item" href="logout.php">Đăng xuất</a></li>

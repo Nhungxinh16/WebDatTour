@@ -12,7 +12,9 @@
         $sql = "update customers set email = ?, birthday = ?, phone_number = ?, name = ?, gender = ? where customer_id = ?";
         $result = simpleQuery($sql, 0, [$email, $birthday, $phone_number, $name, $gender, $_GET["id"]]);
         if($result){
-            header("location: QLND.php");
+          $successAlert="Sửa thành công!";
+          echo "<script type='text/javascript'>alert('$successAlert'); window.location.href='QLND.php';</script>";
+          // header("location: QLND.php");
         }
     }
     $row = null;
@@ -26,7 +28,7 @@
 <div class="main-content">
     <div class="wrapper">
         <div class="alert alert-success text-center" role="alert">
-            <h2>Sửa người dùng</h2>
+            <h2>Sửa khách hàng</h2>
             <div class="text-center text-danger">
             </div>
         </div>
@@ -68,9 +70,12 @@
                             <option value="1" <?php if($row["gender"] == 1 ) echo "selected" ?>>Nam</option>
                         </select>
                     </div>
+          <br>
+          <div class="d-flex justify-content-around">
+            <button type="submit" class="btn btn-info" name="submit">Sửa</button>
+            <button type="button" onclick="window.location = 'QLND.php'" class="btn btn-info" name="submit">Hủy</button>
 
-                    <button type="submit" class="btn btn-info" name="submit">Sửa</button>
-     
+          </div>
                 </div>
             </form>
                       

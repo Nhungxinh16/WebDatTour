@@ -23,7 +23,9 @@
         $sql = "insert into tours set tour_name = ?, description = ?, places = ?, day_count = ?, res_id = ?, hotel_id = ?, price_per_person = ?, image_1 =?, image_2 =?, image_3 =?, image_4 = ?, city_id =?, tour_guide_id = ?, tour_type_id = ?, tour_rank_id = ?, travel_schedule = ?, max = ?";
         $result = simpleQuery($sql, 0, [$tour_name, $description, $places, $day_count, $res_id, $hotel_id, $price_per_person, $image_1, $image_2, $image_3, $image_4, $city_id, $tour_guide_id, $tour_type_id, $tour_rank_id, $travel_schedule, $max]);
         if($result){
-          header("location: index.php");
+          $successAlert="Thêm thành công!";
+          echo "<script type='text/javascript'>alert('$successAlert'); window.location.href='index.php';</script>";
+          // header("location: index.php");
         }
     }
     include('templates-admin/header.php');
@@ -166,7 +168,12 @@
                             ?>
                         </select>
                     </div>
-                    <button type="submit" class="btn btn-info" name="submit">Thêm</button>
+                    <br>
+                    <div class="d-flex justify-content-around">
+                      <button type="submit" class="btn btn-info" name="submit">Thêm</button>
+                      <button type="submit" onclick="window.location='index.php'" class="btn btn-info" name="submit">Hủy</button>
+
+                    </div>
                 </div>
             </form>
         </div>        

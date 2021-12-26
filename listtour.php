@@ -16,11 +16,17 @@ if (isset($_GET['tour_type'])) {
     ranks.rank_name from tours, cities, ranks where 
     cities.city_id = tours.city_id and tours.tour_rank_id = ranks.rank_id and tours.tour_name like '%$tour%' GROUP by tours.tour_id order BY tours.tour_id DESC
     ";
+    
 } else {
     $sql = "select * from tours, cities, ranks 
     where tours.city_id = cities.city_id 
     and tours.tour_rank_id = ranks.rank_id";
 }
+//check co hay khong
+  $sreachResult = mysqli_query($conn, $sql);
+  if(mysqli_num_rows($sreachResult) == 0){
+    echo "<script type='text/javascript'>alert('Không tìm thấy kết quả');</script>"; 
+  }
 ?>
 <main>
     <div class="mr-auto ml-auto" style="max-width: 1300px">
