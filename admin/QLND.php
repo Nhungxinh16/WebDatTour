@@ -52,7 +52,7 @@
                                                         echo "Nam";
                                                     }
                                                 echo '</td>
-                                                <td><a href="XemND.php"><i class="fas fa-eye"></i></a></td>
+                                                <td><a href="XemND.php?id='.$row["customer_id"].'"><i class="fas fa-eye"></i></a></td>
                                                 <td><a href="sua-ND.php?id='.$row["customer_id"].'"><i class="fas fa-edit"></i></a></td>
                                                 <td><a onclick="return confirmFuncc()" href="xoa.php?customers=&id='.$row["customer_id"].'"><i class="fas fa-trash"></i></a></td>
                                             </tr>
