@@ -66,12 +66,8 @@
 
                                 ?>
                             </a>
-<<<<<<< HEAD
                             <ul class="dropdown-menu" style="right: 0; left: auto;" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="#">Trang cá nhân</a></li>
-=======
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
->>>>>>> 1f3593015f229b566d7feb6b8d7b20c790e34f31
                                 <li><a class="dropdown-item" href="../index.php"> Trang guess</a></li>
                                 <li><a class="dropdown-item" href="logout.php">Đăng xuất</a></li>
                             </ul>
