@@ -1,7 +1,7 @@
 <?php
     require("../config/constants.php");
     require_once("check-admin.php");
-    $_SESSION["nav"] = "customers";
+    $_SESSION["nav"] = "staff";
     require('templates-admin/header.php');
     if(isset($_SESSION["alert"])){
         $message = $_SESSION["alert"];
@@ -11,14 +11,18 @@
             </script>
         ';
     }
+    $key='';
+    if(isset($_GET['key'])){
+        $key=$_GET['key'];
+    }
 ?>
             <div class="container-fluid px-4" style="margin-bottom: 20%;">
                 <div class="row my-5">
-                    <h3 class="fs-4 mb-3">Quản lý khách hàng</h3>
-      <form class="form-inline my-2 my-lg-0 mb-2" method="GET" action="listtour.php"style="position:relative;">
-        <input class="form-control mr-1 sm-2 border-warning" type="text" name="search" placeholder="Bắt đầu tìm kiếm..." aria-label="Search">
-        <button class="btn btn-outline my-2 my-sm-0 mr-1" type="submit" style="position: absolute; top: 0; right: 12px" ><i class="fas fa-search"></i></button>
-      </form >
+                    <h3 class="fs-4 mb-3">Quản lý nhân viên</h3>
+                    <form class="form-inline my-2 my-lg-0" method="GET" action="">
+                        <input class="form-control mr-1 sm-2 border-warning" type="text" name="key" placeholder="Bắt đầu tìm kiếm..." aria-label="Search">
+                        <button class="btn btn-outline my-2 my-sm-0 mr-1" type="submit"><i class="fas fa-search"></i></button>
+                    </form>
                     <div class="col">
                         <table class="table bg-white rounded shadow-sm mt-3  table-hover">
                             <thead>
@@ -36,7 +40,7 @@
                             <tbody>
                                 <?php 
                                     $i = 1;
-                                    $sql = "select * from customers";
+                                    $sql = "select * from customers where is_admin = 1 and user_name like '%".$key."%'";
                                     $rows = simpleQuery($sql);
                                     foreach($rows as $row){
                                         echo '

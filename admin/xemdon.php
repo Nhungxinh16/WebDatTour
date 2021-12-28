@@ -3,7 +3,7 @@ ob_start(); // loi cua header()
 
 require("../config/constants.php");
 require_once("check-admin.php");
-$_SESSION["nav"] = "customers";
+$_SESSION["nav"] = "orders";
 require('templates-admin/header.php');
 if(isset($_SESSION["alert"])){
     $message = $_SESSION["alert"];
@@ -15,9 +15,9 @@ if(isset($_SESSION["alert"])){
 }
 if(isset( $_GET['id'])){
     $id = $_GET['id'];
-    $sql = "SELECT * from customers where customer_id = '$id'";
+    $sql = "select * from orders, tours, customers where order_id = $id and orders.customer_id = customers.customer_id and orders.tour_id = tours.tour_id";
     $res = mysqli_query($conn, $sql);
-    $customer = mysqli_fetch_assoc($res);
+    $order = mysqli_fetch_assoc($res);
 }
 
 ?>
@@ -34,7 +34,7 @@ if(isset( $_GET['id'])){
         <div class="container">
             <div class="row">
                 <div class="col-xs-12  text-center mg-bot30">
-                    <h2 style="color:#1583e0 !important;"> Thông tin nhân viên <?php echo $customer['user_name'] ?></h2>
+                    <h2 style="color:#1583e0 !important;"> Thông tin tour</h2>
                 </div>
                 <div class="col-xs-12">
                     <div class="row">
@@ -55,34 +55,18 @@ if(isset( $_GET['id'])){
                                         </div>
                                         <div class="col-md-4 col-sm-4 col-xs-12">
                                             <label>
-                                                Họ và tên
+                                                Họ và tên người đặt
                                                 :
                                             </label>
-                                            <input type="text" value = "<?php echo $customer['user_name'] ?>" disabled class="form-control">
-                                </div>
-                                <div class="col-md-4 col-sm-4 col-xs-12">
-                                    <label>
-                                        Giới tính
-                                        :
-                                    </label>
-                                <input type="text" value = "<?php echo $customer['gender']== 0 ? "Nữ" :"Nam"?>" disabled class="form-control">
-                                    
+                                            <input type="text" value = "<?php echo $order['user_name'] ?>" disabled class="form-control">
                                 </div>
                                 
                                     <div class="col-md-4 col-sm-4 col-xs-12">
                                     <label>
-                                        Ngày sinh
+                                        Liên hệ
                                         :
                                     </label>
-                                    <input type="text" value = "<?php echo $customer['birthday'] ?>" disabled class="form-control">
-                                </div>
-                                
-                                    <div class="col-md-4 col-sm-4 col-xs-12">
-                                    <label>
-                                        Di động
-                                        :
-                                    </label>
-                                    <input type="text" value = "<?php echo $customer['phone_number'] ?>" disabled class="form-control">
+                                    <input type="text" value = "<?php echo $order['phone_number'] ?>" disabled class="form-control">
                                 </div>
                                 
                                     <div class="col-md-4 col-sm-4 col-xs-12">
@@ -90,7 +74,39 @@ if(isset( $_GET['id'])){
                                         Email
                                         :
                                     </label>
-                                    <input type="text" value="<?php echo $customer['email'] ?>" disabled class="form-control">
+                                    <input type="text" value="<?php echo $order['email'] ?>" disabled class="form-control">
+                                </div>
+                                
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                    <label>
+                                        Tên tour đã đặt
+                                        :
+                                    </label>
+                                    <input type="text" value="<?php echo $order['tour_name'] ?>" disabled class="form-control">
+                                </div>
+                                
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                    <label>
+                                        Địa điểm
+                                        :
+                                    </label>
+                                    <input type="text" value="<?php echo $order['places'] ?>" disabled class="form-control">
+                                </div>
+                                
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                    <label>
+                                        Giá tiền
+                                        :
+                                    </label>
+                                    <input type="text" value="<?php echo $order['price_per_person'] * $order['people'] ?>" disabled class="form-control">
+                                </div>
+
+                                    <div class="col-md-4 col-sm-4 col-xs-12">
+                                    <label>
+                                        Ngày đặt
+                                        :
+                                    </label>
+                                    <input type="text" value="<?php echo $order['date_created'] ?>" disabled class="form-control">
                                 </div>
                             </form>
                         </div>

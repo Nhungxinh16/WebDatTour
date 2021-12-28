@@ -25,7 +25,7 @@
                         class="fas fa-paperclip me-2"></i>Quản lý đơn đặt tour</a>  
                 <a href="QLND.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold <?php if($_SESSION["nav"] == "customers") echo "active"; ?>"><i
                         class="fas fa-shopping-cart me-2"></i>Quản lý khách hàng</a>         
-                <a href="QLNhanVien.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold <?php if($_SESSION["nav"] == "hotels") echo "active"; ?>"><i
+                <a href="QLNhanVien.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold <?php if($_SESSION["nav"] == "staff") echo "active"; ?>"><i
                         class="fas fa-project-diagram me-2"></i>Quản lý nhân viên</a> 
 
                 <a href="QLKS.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold <?php if($_SESSION["nav"] == "hotels") echo "active"; ?>"><i
