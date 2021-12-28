@@ -28,7 +28,7 @@
 <div class="main-content">
     <div class="wrapper">
         <div class="alert alert-success text-center" role="alert">
-            <h2>Sửa khách hàng</h2>
+            <h2>Sửa thông tin</h2>
             <div class="text-center text-danger">
             </div>
         </div>

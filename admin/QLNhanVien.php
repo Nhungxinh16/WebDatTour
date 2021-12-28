@@ -20,8 +20,8 @@
                 <div class="row my-5">
                     <h3 class="fs-4 mb-3">Quản lý nhân viên</h3>
                     <form class="form-inline my-2 my-lg-0" method="GET" action="">
-                        <input class="form-control mr-1 sm-2 border-warning" type="text" name="key" placeholder="Bắt đầu tìm kiếm..." aria-label="Search">
-                        <button class="btn btn-outline my-2 my-sm-0 mr-1" type="submit"><i class="fas fa-search"></i></button>
+                      <input class="form-control mr-1 sm-2 border-warning" type="text" name="key" placeholder="Bắt đầu tìm kiếm..." aria-label="Search" style="width:30%; float: right; margin:15px; margin-right:0;">
+                      <button class="btn btn-outline my-2 my-sm-0 mr-1" type="submit"></button>
                     </form>
                     <div class="col">
                         <table class="table bg-white rounded shadow-sm mt-3  table-hover">
@@ -72,6 +72,7 @@
           <div>
             <form action="export-import.php" method="POST" enctype="multipart/form-data">
                 <button class="btn btn-dark" type="submit" name="export">Xuất file</button>
+                <button class="btn btn-primary" type="button"><a href="them_NV.php" style="color:white;">Thêm</a></button>
             </form>
         </div>
 <?php
